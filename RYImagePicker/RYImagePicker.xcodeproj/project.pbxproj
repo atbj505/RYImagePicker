@@ -17,6 +17,7 @@
 		57464A701CFFE4610073C189 /* RYImagePickerSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A6F1CFFE4610073C189 /* RYImagePickerSelect.m */; };
 		57464A731D0005F90073C189 /* RYImagePickerToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A721D0005F90073C189 /* RYImagePickerToolBar.m */; };
 		57464A761D0013FE0073C189 /* RYImagePickerColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A751D0013FE0073C189 /* RYImagePickerColletionViewCell.m */; };
+		57464A7A1D0057320073C189 /* RYImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A791D0057320073C189 /* RYImageModel.m */; };
 		D1F52A61C1554F7E20CBA14A /* libPods-RYImagePickerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 306C31E87063F21694B28C9E /* libPods-RYImagePickerTests.a */; };
 		E110A38E2D0025E7DEBE6241 /* libPods-RYImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 747FE98646D982CC7A7FDD21 /* libPods-RYImagePicker.a */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,8 @@
 		57464A721D0005F90073C189 /* RYImagePickerToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RYImagePickerToolBar.m; path = RYImagePicker/RYImagePickerToolBar.m; sourceTree = "<group>"; };
 		57464A741D0013FE0073C189 /* RYImagePickerColletionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RYImagePickerColletionViewCell.h; path = RYImagePicker/RYImagePickerColletionViewCell.h; sourceTree = "<group>"; };
 		57464A751D0013FE0073C189 /* RYImagePickerColletionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RYImagePickerColletionViewCell.m; path = RYImagePicker/RYImagePickerColletionViewCell.m; sourceTree = "<group>"; };
+		57464A781D0057320073C189 /* RYImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RYImageModel.h; path = RYImagePicker/RYImageModel.h; sourceTree = "<group>"; };
+		57464A791D0057320073C189 /* RYImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RYImageModel.m; path = RYImagePicker/RYImageModel.m; sourceTree = "<group>"; };
 		747FE98646D982CC7A7FDD21 /* libPods-RYImagePicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RYImagePicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96197164900CB5941B58BC5F /* Pods-RYImagePickerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RYImagePickerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A8DD4223A6AB42FF0509978 /* Pods-RYImagePicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RYImagePicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +161,7 @@
 		57464A691CFFCF890073C189 /* RYImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				57464A771D00571B0073C189 /* Model */,
 				57464A6D1CFFE4330073C189 /* View */,
 				57464A661CFFCF830073C189 /* RYImagePicker.h */,
 				57464A671CFFCF830073C189 /* RYImagePicker.m */,
@@ -178,6 +182,15 @@
 				57464A721D0005F90073C189 /* RYImagePickerToolBar.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		57464A771D00571B0073C189 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				57464A781D0057320073C189 /* RYImageModel.h */,
+				57464A791D0057320073C189 /* RYImageModel.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +395,7 @@
 				57464A451CFFC9AC0073C189 /* AppDelegate.m in Sources */,
 				57464A701CFFE4610073C189 /* RYImagePickerSelect.m in Sources */,
 				57464A681CFFCF830073C189 /* RYImagePicker.m in Sources */,
+				57464A7A1D0057320073C189 /* RYImageModel.m in Sources */,
 				57464A6C1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m in Sources */,
 				57464A761D0013FE0073C189 /* RYImagePickerColletionViewCell.m in Sources */,
 				57464A421CFFC9AC0073C189 /* main.m in Sources */,

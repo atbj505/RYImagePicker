@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class ALAsset;
+
+@protocol RYImagePickerColletionViewCellDelegate <NSObject>
+
+- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add;
+
+@end
+
 @interface RYImagePickerColletionViewCell : UICollectionViewCell
 
-@property (nonatomic, strong) UIImageView *imgView;
+@property (nonatomic, strong) ALAsset *asset;
+
+@property (nonatomic, weak) id<RYImagePickerColletionViewCellDelegate>delegate;
 
 @end

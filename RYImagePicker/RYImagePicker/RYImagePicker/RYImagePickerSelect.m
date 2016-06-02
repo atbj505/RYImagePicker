@@ -10,10 +10,11 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "RYImagePickerToolBar.h"
 #import "RYImagePickerColletionViewCell.h"
+#import "RYImageModel.h"
 
 static const NSUInteger collectionViewGap = 2;
 
-@interface RYImagePickerSelect () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface RYImagePickerSelect () <UICollectionViewDelegate, UICollectionViewDataSource, RYImagePickerColletionViewCellDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -61,6 +62,15 @@ static const NSUInteger collectionViewGap = 2;
     });
 }
 
+#pragma mark - RYImagePickerColletionViewCellDelegate
+- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add {
+    if (add) {
+        [[RYImageModel sharedInstance] addImage:asset];
+    }else {
+        [[RYImageModel sharedInstance] deleteImage:asset];
+    }
+}
+
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.assetsArray.count;
@@ -70,8 +80,9 @@ static NSString *identifier = @"RYImagePickerColletionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     RYImagePickerColletionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    ALAsset *asset = self.assetsArray[indexPath.row];
-    cell.imgView.image = [UIImage imageWithCGImage:asset.thumbnail];
+    cell.delegate = self;
+    cell.asset = self.assetsArray[indexPath.row];
+    
     return cell;
 }
 
