@@ -81,7 +81,7 @@ static NSString *identifier = @"RYImagePickerColletionViewCell";
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 20) collectionViewLayout:self.flowLayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 48) collectionViewLayout:self.flowLayout];
         [_collectionView registerClass:[RYImagePickerColletionViewCell class] forCellWithReuseIdentifier:identifier];
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.scrollEnabled = YES;
@@ -106,7 +106,8 @@ static NSString *identifier = @"RYImagePickerColletionViewCell";
 
 - (RYImagePickerToolBar *)toolBar {
     if (!_toolBar) {
-        _toolBar = [[RYImagePickerToolBar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 20, self.view.bounds.size.width, 20)];
+        _toolBar = [[RYImagePickerToolBar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 48, self.view.bounds.size.width, 48)];
+        _toolBar.backgroundColor = [UIColor redColor];
     }
     return _toolBar;
 }
