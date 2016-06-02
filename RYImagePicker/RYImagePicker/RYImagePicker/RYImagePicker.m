@@ -7,8 +7,17 @@
 //
 
 #import "RYImagePicker.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import "RYImagePickerTableViewCell.h"
+#import "RYImagePickerSelect.h"
 
-@interface RYImagePicker ()
+@interface RYImagePicker () <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) NSMutableArray *photoGroups;
+
+@property (nonatomic, strong) ALAssetsLibrary *library;
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -16,22 +25,67 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.photoGroups = [NSMutableArray array];
+    
+    [self.view addSubview:({
+        self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        [self.tableView registerClass:[RYImagePickerTableViewCell class] forCellReuseIdentifier:identifier];
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
+        self.tableView.tableFooterView = [[UIView alloc] init];
+        
+        self.tableView;
+    })];
+    
+    [self loadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)loadData {
+    self.library = [[ALAssetsLibrary alloc] init];
+    
+    WS(weakSelf);
+    [self.library enumerateGroupsWithTypes:ALAssetsGroupAll
+                                usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+                                    if (group) {
+                                        [weakSelf.photoGroups addObject:group];
+                                    }else {
+                                        [self.tableView reloadData];
+                                    }
+                                } failureBlock:^(NSError *error) {
+                                    NSLog(@"%@", error);
+                                }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.photoGroups.count;
 }
-*/
+
+static NSString *identifier = @"RYImagePickerTableViewCell";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    RYImagePickerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[RYImagePickerTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    cell.group = self.photoGroups[indexPath.row];
+    
+    return cell;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 70;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ALAssetsGroup *group = self.photoGroups[indexPath.row];
+    
+    RYImagePickerSelect *imageSelect = [[RYImagePickerSelect alloc] init];
+    imageSelect.group = group;
+    [self.navigationController pushViewController:imageSelect animated:YES];
+}
 
 @end

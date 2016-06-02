@@ -1,5 +1,5 @@
 //
-//  RYImagePicker.h
+//  RYImagePickerToolBar.h
 //  RYImagePicker
 //
 //  Created by Robert on 16/6/2.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RYImagePicker : UIViewController
-
-
+@interface RYImagePickerToolBar : UIView
 
 @end

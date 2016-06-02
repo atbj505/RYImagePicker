@@ -13,6 +13,10 @@
 		57464A4D1CFFC9AC0073C189 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57464A4C1CFFC9AC0073C189 /* Assets.xcassets */; };
 		57464A5B1CFFC9AC0073C189 /* RYImagePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A5A1CFFC9AC0073C189 /* RYImagePickerTests.m */; };
 		57464A681CFFCF830073C189 /* RYImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A671CFFCF830073C189 /* RYImagePicker.m */; };
+		57464A6C1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A6B1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m */; };
+		57464A701CFFE4610073C189 /* RYImagePickerSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A6F1CFFE4610073C189 /* RYImagePickerSelect.m */; };
+		57464A731D0005F90073C189 /* RYImagePickerToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A721D0005F90073C189 /* RYImagePickerToolBar.m */; };
+		57464A761D0013FE0073C189 /* RYImagePickerColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A751D0013FE0073C189 /* RYImagePickerColletionViewCell.m */; };
 		D1F52A61C1554F7E20CBA14A /* libPods-RYImagePickerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 306C31E87063F21694B28C9E /* libPods-RYImagePickerTests.a */; };
 		E110A38E2D0025E7DEBE6241 /* libPods-RYImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 747FE98646D982CC7A7FDD21 /* libPods-RYImagePicker.a */; };
 /* End PBXBuildFile section */
@@ -43,6 +47,14 @@
 		57464A651CFFCBC90073C189 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		57464A661CFFCF830073C189 /* RYImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RYImagePicker.h; path = RYImagePicker/RYImagePicker.h; sourceTree = "<group>"; };
 		57464A671CFFCF830073C189 /* RYImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RYImagePicker.m; path = RYImagePicker/RYImagePicker.m; sourceTree = "<group>"; };
+		57464A6A1CFFDB1E0073C189 /* RYImagePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RYImagePickerTableViewCell.h; path = RYImagePicker/RYImagePickerTableViewCell.h; sourceTree = "<group>"; };
+		57464A6B1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RYImagePickerTableViewCell.m; path = RYImagePicker/RYImagePickerTableViewCell.m; sourceTree = "<group>"; };
+		57464A6E1CFFE4610073C189 /* RYImagePickerSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RYImagePickerSelect.h; path = RYImagePicker/RYImagePickerSelect.h; sourceTree = "<group>"; };
+		57464A6F1CFFE4610073C189 /* RYImagePickerSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RYImagePickerSelect.m; path = RYImagePicker/RYImagePickerSelect.m; sourceTree = "<group>"; };
+		57464A711D0005F90073C189 /* RYImagePickerToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RYImagePickerToolBar.h; path = RYImagePicker/RYImagePickerToolBar.h; sourceTree = "<group>"; };
+		57464A721D0005F90073C189 /* RYImagePickerToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RYImagePickerToolBar.m; path = RYImagePicker/RYImagePickerToolBar.m; sourceTree = "<group>"; };
+		57464A741D0013FE0073C189 /* RYImagePickerColletionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RYImagePickerColletionViewCell.h; path = RYImagePicker/RYImagePickerColletionViewCell.h; sourceTree = "<group>"; };
+		57464A751D0013FE0073C189 /* RYImagePickerColletionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RYImagePickerColletionViewCell.m; path = RYImagePicker/RYImagePickerColletionViewCell.m; sourceTree = "<group>"; };
 		747FE98646D982CC7A7FDD21 /* libPods-RYImagePicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RYImagePicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96197164900CB5941B58BC5F /* Pods-RYImagePickerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RYImagePickerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A8DD4223A6AB42FF0509978 /* Pods-RYImagePicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RYImagePicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,10 +158,26 @@
 		57464A691CFFCF890073C189 /* RYImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				57464A6D1CFFE4330073C189 /* View */,
 				57464A661CFFCF830073C189 /* RYImagePicker.h */,
 				57464A671CFFCF830073C189 /* RYImagePicker.m */,
+				57464A6E1CFFE4610073C189 /* RYImagePickerSelect.h */,
+				57464A6F1CFFE4610073C189 /* RYImagePickerSelect.m */,
 			);
 			name = RYImagePicker;
+			sourceTree = "<group>";
+		};
+		57464A6D1CFFE4330073C189 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				57464A6A1CFFDB1E0073C189 /* RYImagePickerTableViewCell.h */,
+				57464A6B1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m */,
+				57464A741D0013FE0073C189 /* RYImagePickerColletionViewCell.h */,
+				57464A751D0013FE0073C189 /* RYImagePickerColletionViewCell.m */,
+				57464A711D0005F90073C189 /* RYImagePickerToolBar.h */,
+				57464A721D0005F90073C189 /* RYImagePickerToolBar.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,9 +377,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57464A731D0005F90073C189 /* RYImagePickerToolBar.m in Sources */,
 				57464A481CFFC9AC0073C189 /* ViewController.m in Sources */,
 				57464A451CFFC9AC0073C189 /* AppDelegate.m in Sources */,
+				57464A701CFFE4610073C189 /* RYImagePickerSelect.m in Sources */,
 				57464A681CFFCF830073C189 /* RYImagePicker.m in Sources */,
+				57464A6C1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m in Sources */,
+				57464A761D0013FE0073C189 /* RYImagePickerColletionViewCell.m in Sources */,
 				57464A421CFFC9AC0073C189 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +497,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				GCC_PREFIX_HEADER = RYImagePicker/PrefixHeader.pch;
 				INFOPLIST_FILE = RYImagePicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Robert.RYImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -479,6 +512,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				GCC_PREFIX_HEADER = RYImagePicker/PrefixHeader.pch;
 				INFOPLIST_FILE = RYImagePicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Robert.RYImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";

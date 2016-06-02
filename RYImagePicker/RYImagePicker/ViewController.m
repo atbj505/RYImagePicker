@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "RYImagePicker.h"
 
 @interface ViewController ()
 
@@ -35,7 +36,8 @@
 }
 
 - (void)tapButton {
-    
+    RYImagePicker *imagePicker = [[RYImagePicker alloc] init];
+    [self.navigationController pushViewController:imagePicker animated:YES];
 }
 
 @end
