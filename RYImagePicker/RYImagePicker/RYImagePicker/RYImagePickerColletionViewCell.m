@@ -13,8 +13,6 @@
 
 @property (nonatomic, strong) UIButton *selectButton;
 
-@property (nonatomic, strong) UIImageView *imgView;
-
 @end
 
 @implementation RYImagePickerColletionViewCell

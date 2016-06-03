@@ -12,6 +12,8 @@
 
 @interface RYImagePickerSelect : UIViewController
 
+@property (nonatomic, strong) UICollectionView *collectionView;
+
 @property (nonatomic, strong) ALAssetsGroup *group;
 
 @end

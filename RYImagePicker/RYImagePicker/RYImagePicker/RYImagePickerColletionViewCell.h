@@ -22,4 +22,6 @@
 
 @property (nonatomic, weak) id<RYImagePickerColletionViewCellDelegate>delegate;
 
+@property (nonatomic, strong) UIImageView *imgView;
+
 @end

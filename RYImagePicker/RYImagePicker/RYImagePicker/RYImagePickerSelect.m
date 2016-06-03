@@ -11,12 +11,11 @@
 #import "RYImagePickerToolBar.h"
 #import "RYImagePickerColletionViewCell.h"
 #import "RYImageModel.h"
+#import "RYScaleImageViewController.h"
 
 static const NSUInteger collectionViewGap = 2;
 
-@interface RYImagePickerSelect () <UICollectionViewDelegate, UICollectionViewDataSource, RYImagePickerColletionViewCellDelegate>
-
-@property (nonatomic, strong) UICollectionView *collectionView;
+@interface RYImagePickerSelect () <UICollectionViewDelegate, UICollectionViewDataSource, RYImagePickerColletionViewCellDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 
@@ -87,8 +86,12 @@ static NSString *identifier = @"RYImagePickerColletionViewCell";
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)index {
-    
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    RYScaleImageViewController *scaleImage = [[RYScaleImageViewController alloc] init];
+    scaleImage.imagesData = self.assetsArray;
+    scaleImage.currentIndexPath = indexPath;
+    self.navigationController.delegate = scaleImage;
+    [self.navigationController pushViewController:scaleImage animated:YES];
 }
 
 - (UICollectionView *)collectionView {
