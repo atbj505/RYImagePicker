@@ -10,4 +10,6 @@
 
 @interface RYImagePickerToolBar : UIView
 
+- (void)updateSelectCount;
+
 @end

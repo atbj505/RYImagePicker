@@ -7,12 +7,15 @@
 //
 
 #import "RYImagePickerToolBar.h"
+#import "RYImageModel.h"
 
 @interface RYImagePickerToolBar ()
 
 @property (nonatomic, strong) UIButton *cancelButton;
 
 @property (nonatomic, strong) UIButton *doneButton;
+
+@property (nonatomic, strong) UILabel *countLabel;
 
 @end
 
@@ -24,8 +27,22 @@
         [self addSubview:self.cancelButton];
         
         [self addSubview:self.doneButton];
+        
+        [self addSubview:self.countLabel];
     }
     return self;
+}
+
+- (void)updateSelectCount {
+    NSUInteger selectCount = [RYImageModel sharedInstance].imageCounts;
+    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)selectCount];
+    
+    POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewSize];
+    
+    animation.fromValue = [NSValue valueWithCGSize:self.countLabel.bounds.size];
+    animation.toValue = [NSValue valueWithCGSize:CGSizeMake(self.countLabel.bounds.size.width * 1.1, self.countLabel.bounds.size.height * 1.1)];
+    
+    [self.countLabel pop_addAnimation:animation forKey:@"kPOPViewBounds"];
 }
 
 + (BOOL)requiresConstraintBasedLayout {
@@ -45,6 +62,12 @@
         make.right.equalTo(weakSelf.mas_right).offset(-5);
         make.height.equalTo(weakSelf.mas_height);
         make.centerY.equalTo(weakSelf.mas_centerY);
+    }];
+    
+    [self.countLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.doneButton.mas_left);
+        make.width.equalTo(@(20));
+        make.height.equalTo(@(15));
     }];
     
     [super updateConstraints];
@@ -67,4 +90,12 @@
     }
     return _doneButton;
 }
+
+- (UILabel *)countLabel {
+    if (!_countLabel) {
+        _countLabel = [[UILabel alloc] init];
+    }
+    return _countLabel;
+}
+
 @end

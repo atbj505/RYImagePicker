@@ -30,7 +30,7 @@
 }
 
 - (void)tapSelectButton {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapSelectButton:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapSelectButton:add:)]) {
         if (self.selectButton.selected) {
             [self.delegate didTapSelectButton:self.asset add:false];
         }else {

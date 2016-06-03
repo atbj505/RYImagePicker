@@ -69,6 +69,7 @@ static const NSUInteger collectionViewGap = 2;
     }else {
         [[RYImageModel sharedInstance] deleteImage:asset];
     }
+    [self.toolBar updateSelectCount];
 }
 
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
