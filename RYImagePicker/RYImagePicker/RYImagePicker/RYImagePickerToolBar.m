@@ -35,13 +35,21 @@
 
 - (void)updateSelectCount {
     NSUInteger selectCount = [RYImageModel sharedInstance].imageCounts;
-    self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)selectCount];
     
+    if (!selectCount) {
+        self.countLabel.text = @"";
+        return;
+    }
+    
+    self.countLabel.hidden = false;
     POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewSize];
     
-    animation.fromValue = [NSValue valueWithCGSize:self.countLabel.bounds.size];
-    animation.toValue = [NSValue valueWithCGSize:CGSizeMake(self.countLabel.bounds.size.width * 1.1, self.countLabel.bounds.size.height * 1.1)];
-    
+    animation.fromValue = [NSValue valueWithCGSize:CGSizeZero];
+    animation.toValue = [NSValue valueWithCGSize:self.countLabel.bounds.size];
+//    animation.autoreverses = YES;
+    [animation setAnimationDidStartBlock:^(POPAnimation *animation) {
+        self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)selectCount];
+    }];
     [self.countLabel pop_addAnimation:animation forKey:@"kPOPViewBounds"];
 }
 
@@ -65,9 +73,9 @@
     }];
     
     [self.countLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.doneButton.mas_left);
-        make.width.equalTo(@(20));
-        make.height.equalTo(@(15));
+        make.right.equalTo(weakSelf.doneButton.mas_left).offset(-2);
+        make.centerY.equalTo(weakSelf.mas_centerY);
+        make.width.and.height.equalTo(@(24));
     }];
     
     [super updateConstraints];
@@ -94,6 +102,11 @@
 - (UILabel *)countLabel {
     if (!_countLabel) {
         _countLabel = [[UILabel alloc] init];
+        _countLabel.textAlignment = NSTextAlignmentCenter;
+        _countLabel.backgroundColor = [UIColor yellowColor];
+        _countLabel.layer.cornerRadius = 12;
+        _countLabel.layer.masksToBounds = YES;
+        _countLabel.hidden = YES;
     }
     return _countLabel;
 }

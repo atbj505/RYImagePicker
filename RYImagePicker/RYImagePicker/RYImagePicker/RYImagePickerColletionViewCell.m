@@ -29,12 +29,30 @@
     return self;
 }
 
++ (BOOL)requiresConstraintBasedLayout {
+    return YES;
+}
+
+- (void)updateConstraints {
+    WS(weakSelf);
+    
+    [self.selectButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(weakSelf.mas_right);
+        make.top.equalTo(weakSelf.mas_top);
+        make.width.and.height.equalTo(@(20));
+    }];
+    
+    [super updateConstraints];
+}
+
 - (void)tapSelectButton {
+    self.selectButton.selected = !self.selectButton.selected;
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(didTapSelectButton:add:)]) {
         if (self.selectButton.selected) {
-            [self.delegate didTapSelectButton:self.asset add:false];
-        }else {
             [self.delegate didTapSelectButton:self.asset add:true];
+        }else {
+            [self.delegate didTapSelectButton:self.asset add:false];
         }
     }
 }
@@ -49,6 +67,7 @@
 - (UIButton *)selectButton {
     if (!_selectButton) {
         _selectButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_selectButton setBackgroundColor:[UIColor redColor]];
         [_selectButton addTarget:self action:@selector(tapSelectButton) forControlEvents:UIControlEventTouchUpInside];
     }
     return _selectButton;
