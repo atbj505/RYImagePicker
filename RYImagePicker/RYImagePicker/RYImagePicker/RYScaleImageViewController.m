@@ -11,12 +11,15 @@
 #import "RYScaleImageCell.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "RYTransitionAnimation.h"
+#import "RYTransitionInteractive.h"
 
-@interface RYScaleImageViewController () <UICollectionViewDelegate, UICollectionViewDataSource, RYScaleImageViewDelegate>
+@interface RYScaleImageViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 
 @property (nonatomic, strong) NSIndexPath *preIndexPath;
+
+@property (nonatomic, strong) RYTransitionInteractive *transitionInteractive;
 
 @end
 
@@ -35,6 +38,10 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = false;
     self.view.backgroundColor = [UIColor blackColor];
+    
+    self.transitionInteractive = [RYTransitionInteractive interactiveTransitionWithTransitionType:RYTransitionInteractiveTypePop GestureDirection:RYTransitionInteractiveGestureDirectionUp|RYTransitionInteractiveGestureDirectionDown];
+    
+    [self.transitionInteractive addPanGestureForViewController:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -53,31 +60,15 @@
     self.navigationController.interactivePopGestureRecognizer.enabled = true;
 }
 
-- (void)dismiss {
-    if (self.navigationController) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }else {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-}
-
-#pragma mark - KNBScaleImageViewDelegate
-- (void)singleTapImage:(RYScaleImageView *)imageView {
-    [self dismiss];
-}
-
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.imagesData.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     RYScaleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
     self.preIndexPath = indexPath;
-    
-    cell.scaleImage.delegate = self;
     
     ALAsset *asset = self.imagesData[indexPath.row];
     
@@ -136,4 +127,10 @@
         return [RYTransitionAnimation animationWithTransitionType:RYTransitionAnimationPop indexpath:self.currentIndexPath];
     }
 }
+
+- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController{
+    //手势开始的时候才需要传入手势过渡代理，如果直接点击pop，应该传入空，否者无法通过点击正常pop
+    return self.transitionInteractive.interation ? self.transitionInteractive : nil;
+}
+
 @end

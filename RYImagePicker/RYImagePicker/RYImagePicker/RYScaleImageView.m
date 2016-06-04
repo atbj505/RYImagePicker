@@ -82,12 +82,6 @@ static const CGFloat RYMaximumZoomScale = 3.0;
     
 }
 
-- (void)dismiss {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(singleTapImage:)]) {
-        [self.delegate singleTapImage:self];
-    }
-}
-
 #pragma mark - UIScrollViewDelegate
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
@@ -125,12 +119,7 @@ static const CGFloat RYMaximumZoomScale = 3.0;
         UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
         doubleTap.numberOfTapsRequired = 2;
         [_scrollView addGestureRecognizer:doubleTap];
-        
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
-        tap.numberOfTapsRequired = 1;
-        [_scrollView addGestureRecognizer:tap];
-        
-        [tap requireGestureRecognizerToFail:doubleTap];
+    
     }
     return _scrollView;
 }

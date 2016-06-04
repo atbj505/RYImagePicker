@@ -22,6 +22,7 @@
 		57C699771D01774B0003B1FD /* RYScaleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C699761D01774B0003B1FD /* RYScaleImageView.m */; };
 		57C6997A1D01776E0003B1FD /* RYScaleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C699791D01776E0003B1FD /* RYScaleImageCell.m */; };
 		57C6997D1D0177880003B1FD /* RYTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C6997C1D0177880003B1FD /* RYTransitionAnimation.m */; };
+		57C699801D0270DE0003B1FD /* RYTransitionInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C6997F1D0270DE0003B1FD /* RYTransitionInteractive.m */; };
 		D1F52A61C1554F7E20CBA14A /* libPods-RYImagePickerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 306C31E87063F21694B28C9E /* libPods-RYImagePickerTests.a */; };
 		E110A38E2D0025E7DEBE6241 /* libPods-RYImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 747FE98646D982CC7A7FDD21 /* libPods-RYImagePicker.a */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,8 @@
 		57C699791D01776E0003B1FD /* RYScaleImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RYScaleImageCell.m; path = RYImagePicker/RYScaleImageCell.m; sourceTree = "<group>"; };
 		57C6997B1D0177880003B1FD /* RYTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RYTransitionAnimation.h; path = RYImagePicker/RYTransitionAnimation.h; sourceTree = "<group>"; };
 		57C6997C1D0177880003B1FD /* RYTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RYTransitionAnimation.m; path = RYImagePicker/RYTransitionAnimation.m; sourceTree = "<group>"; };
+		57C6997E1D0270DE0003B1FD /* RYTransitionInteractive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RYTransitionInteractive.h; path = RYImagePicker/RYTransitionInteractive.h; sourceTree = "<group>"; };
+		57C6997F1D0270DE0003B1FD /* RYTransitionInteractive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RYTransitionInteractive.m; path = RYImagePicker/RYTransitionInteractive.m; sourceTree = "<group>"; };
 		747FE98646D982CC7A7FDD21 /* libPods-RYImagePicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RYImagePicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96197164900CB5941B58BC5F /* Pods-RYImagePickerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RYImagePickerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A8DD4223A6AB42FF0509978 /* Pods-RYImagePicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RYImagePicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 				57464A791D0057320073C189 /* RYImageModel.m */,
 				57C6997B1D0177880003B1FD /* RYTransitionAnimation.h */,
 				57C6997C1D0177880003B1FD /* RYTransitionAnimation.m */,
+				57C6997E1D0270DE0003B1FD /* RYTransitionInteractive.h */,
+				57C6997F1D0270DE0003B1FD /* RYTransitionInteractive.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 				57464A6C1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m in Sources */,
 				57464A761D0013FE0073C189 /* RYImagePickerColletionViewCell.m in Sources */,
 				57464A421CFFC9AC0073C189 /* main.m in Sources */,
+				57C699801D0270DE0003B1FD /* RYTransitionInteractive.m in Sources */,
 				57C6997A1D01776E0003B1FD /* RYScaleImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

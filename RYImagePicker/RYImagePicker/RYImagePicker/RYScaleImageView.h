@@ -10,12 +10,6 @@
 
 @class RYScaleImageView;
 
-@protocol RYScaleImageViewDelegate <NSObject>
-
-- (void)singleTapImage:(RYScaleImageView *)imageView;
-
-@end
-
 @interface RYScaleImageView : UIView
 
 /**
@@ -28,8 +22,6 @@
  *  是否需要遮挡视图
  */
 @property (nonatomic, assign) bool needBlurView;
-
-@property (nonatomic, weak) id <RYScaleImageViewDelegate> delegate;
 
 /**
  *  重置放大倍数

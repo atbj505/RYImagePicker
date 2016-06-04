@@ -35,7 +35,7 @@
 }
 
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext {
-    return 0.5f;
+    return 0.75f;
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
@@ -67,9 +67,7 @@
     [containerView addSubview:ScaleImageVC.view];
     [containerView addSubview:tempView];
     
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
-    
-    [UIView animateWithDuration:duration animations:^{
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 usingSpringWithDamping:0.55 initialSpringVelocity:1 / 0.55 options:0 animations:^{
         tempView.frame = [ScaleImageVC.imageBrowser convertRect:ScaleImageVC.imageBrowser.bounds toView:containerView];
         ScaleImageVC.view.alpha = 1;
     } completion:^(BOOL finished) {
@@ -93,13 +91,21 @@
     
     [containerView insertSubview:imagePickerSelect.view atIndex:0];
     
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 usingSpringWithDamping:1 initialSpringVelocity:1 / 0.55 options:0 animations:^{
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 usingSpringWithDamping:0.55 initialSpringVelocity:1 / 0.55 options:0 animations:^{
         tempView.frame = [cell.imgView convertRect:cell.imgView.bounds toView:containerView];
         ScaleImageVC.view.alpha = 0;
     } completion:^(BOOL finished) {
-        [transitionContext completeTransition:YES];
-        cell.imgView.hidden = NO;
-        [tempView removeFromSuperview];
+//        [transitionContext completeTransition:YES];
+//        cell.imgView.hidden = NO;
+//        [tempView removeFromSuperview];
+        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+        if ([transitionContext transitionWasCancelled]) {
+            tempView.hidden = YES;
+            ScaleImageVC.imageBrowser.hidden = NO;
+        }else{
+            cell.imgView.hidden = NO;
+            [tempView removeFromSuperview];
+        }
     }];
 }
 
