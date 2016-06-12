@@ -79,7 +79,7 @@
         }
         case UIGestureRecognizerStateEnded:{
             self.interation = NO;
-            if (persent > 0.5) {
+            if (persent > 0.1 | persent < -0.1) {
                 [self finishInteractiveTransition];
             }else{
                 [self cancelInteractiveTransition];

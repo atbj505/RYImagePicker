@@ -16,6 +16,6 @@ typedef NS_ENUM(NSUInteger, RYTransitionAnimationType) {
 
 @interface RYTransitionAnimation : NSObject <UIViewControllerAnimatedTransitioning>
 
-+ (RYTransitionAnimation *)animationWithTransitionType:(RYTransitionAnimationType)type indexpath:(NSIndexPath *)indexpath;
++ (RYTransitionAnimation *)animationWithTransitionType:(RYTransitionAnimationType)type FromView:(UIImageView *)fromView FromViewSuperView:(UIView *)superView ToView:(UIView *)toView;
 
 @end

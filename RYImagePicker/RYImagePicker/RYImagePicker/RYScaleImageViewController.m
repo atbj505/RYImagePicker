@@ -121,10 +121,24 @@
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
     
-    if (operation == UINavigationControllerOperationPush) {
-        return [RYTransitionAnimation animationWithTransitionType:RYTransitionAnimationPush indexpath:self.currentIndexPath];
+    UIImageView *fromView;
+    UIView *toView;
+    UIView *fromViewSuperView;
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(scaleImageViewControllerFromView)] && [self.delegate respondsToSelector:@selector(scaleImageViewControllerToView)] && [self.delegate respondsToSelector:@selector(scaleImageViewControllerFromViewSuperView)]) {
+        
+        fromView = [self.delegate scaleImageViewControllerFromView];
+        toView = [self.delegate scaleImageViewControllerToView];
+        fromViewSuperView = [self.delegate scaleImageViewControllerFromViewSuperView];
+        
     }else {
-        return [RYTransitionAnimation animationWithTransitionType:RYTransitionAnimationPop indexpath:self.currentIndexPath];
+        return nil;
+    }
+    
+    if (operation == UINavigationControllerOperationPush) {
+        return [RYTransitionAnimation animationWithTransitionType:RYTransitionAnimationPush FromView:fromView FromViewSuperView:fromViewSuperView ToView:toView];
+    }else {
+        return [RYTransitionAnimation animationWithTransitionType:RYTransitionAnimationPop FromView:fromView FromViewSuperView:fromViewSuperView ToView:toView];
     }
 }
 

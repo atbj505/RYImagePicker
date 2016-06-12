@@ -15,21 +15,27 @@
 
 @property (nonatomic, assign) RYTransitionAnimationType type;
 
-@property (nonatomic, strong) NSIndexPath *indexpath;
+@property (nonatomic, strong) UIImageView *fromView;
+
+@property (nonatomic, strong) UIView *fromViewSuperView;
+
+@property (nonatomic, strong) UIView *toView;
 
 @end
 
 @implementation RYTransitionAnimation
 
-+ (RYTransitionAnimation *)animationWithTransitionType:(RYTransitionAnimationType)type indexpath:(NSIndexPath *)indexpath {
-    RYTransitionAnimation *animation = [[RYTransitionAnimation alloc] initWithTransitionType:type indexpath:indexpath];
++ (RYTransitionAnimation *)animationWithTransitionType:(RYTransitionAnimationType)type FromView:(UIImageView *)fromView FromViewSuperView:(UIView *)superView ToView:(UIView *)toView {
+    RYTransitionAnimation *animation = [[RYTransitionAnimation alloc] initWithTransitionType:type FromView:fromView FromViewSuperView:superView ToView:toView];
     return animation;
 }
 
-- (instancetype)initWithTransitionType:(RYTransitionAnimationType)type indexpath:(NSIndexPath *)indexpath{
+- (instancetype)initWithTransitionType:(RYTransitionAnimationType)type FromView:(UIImageView *)fromView FromViewSuperView:(UIView *)superView ToView:(UIView *)toView{
     if (self = [super init]) {
         self.type = type;
-        self.indexpath = indexpath;
+        self.fromView = fromView;
+        self.fromViewSuperView = superView;
+        self.toView = toView;
     }
     return self;
 }
@@ -47,65 +53,48 @@
 }
 
 - (void)pushAnimationWithContext:(id <UIViewControllerContextTransitioning>)transitionContext {
-    RYScaleImageViewController *ScaleImageVC = (RYScaleImageViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    RYImagePickerSelect *imagePickerSelect = (RYImagePickerSelect *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    RYImagePickerColletionViewCell *cell = (RYImagePickerColletionViewCell *)[imagePickerSelect.collectionView cellForItemAtIndexPath:self.indexpath];
-    
     UIView *containerView = [transitionContext containerView];
     
-    UIImageView *tempView = [[UIImageView alloc] initWithFrame:cell.imgView.frame];
-    
+    UIImageView *tempView = [[UIImageView alloc] initWithFrame:self.fromView.frame];
+    tempView.image = self.fromView.image;
     tempView.contentMode = UIViewContentModeScaleAspectFit;
     
+    tempView.frame = [self.fromView convertRect:self.fromView.bounds toView: containerView];
     
-    tempView.frame = [cell.imgView convertRect:cell.imgView.bounds toView: containerView];
+//    self.fromView.hidden = YES;
+    self.toView.superview.alpha = 0;
+    self.toView.hidden = YES;
     
-    cell.imgView.hidden = YES;
-    ScaleImageVC.view.alpha = 0;
-    ScaleImageVC.imageBrowser.hidden = YES;
-    
-    [containerView addSubview:ScaleImageVC.view];
+    [containerView addSubview:self.toView.superview];
     [containerView addSubview:tempView];
     
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 usingSpringWithDamping:0.55 initialSpringVelocity:1 / 0.55 options:0 animations:^{
-        tempView.frame = [ScaleImageVC.imageBrowser convertRect:ScaleImageVC.imageBrowser.bounds toView:containerView];
-        ScaleImageVC.view.alpha = 1;
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 usingSpringWithDamping:1 initialSpringVelocity:1 / 0.55 options:0 animations:^{
+        tempView.frame = [self.toView convertRect:self.toView.bounds toView:containerView];
+        self.toView.superview.alpha = 1;
     } completion:^(BOOL finished) {
         tempView.hidden = YES;
-        ScaleImageVC.imageBrowser.hidden = NO;
+        self.toView.hidden = NO;
         [transitionContext completeTransition:YES];
     }];
 }
 
 - (void)popAnimationWithContext:(id <UIViewControllerContextTransitioning>)transitionContext {
-    RYScaleImageViewController *ScaleImageVC = (RYScaleImageViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    RYImagePickerSelect *imagePickerSelect = (RYImagePickerSelect *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    RYImagePickerColletionViewCell *cell = (RYImagePickerColletionViewCell *)[imagePickerSelect.collectionView cellForItemAtIndexPath:self.indexpath];
-    
     UIView *containerView = [transitionContext containerView];
     UIView *tempView = containerView.subviews.lastObject;
     
-    cell.imgView.hidden = YES;
-    ScaleImageVC.imageBrowser.hidden = YES;
+//    self.fromView.hidden = YES;
+    self.toView.hidden = YES;
     tempView.hidden = NO;
     
-    [containerView insertSubview:imagePickerSelect.view atIndex:0];
+    [containerView insertSubview:self.fromViewSuperView atIndex:0];
     
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 usingSpringWithDamping:0.55 initialSpringVelocity:1 / 0.55 options:0 animations:^{
-        tempView.frame = [cell.imgView convertRect:cell.imgView.bounds toView:containerView];
-        ScaleImageVC.view.alpha = 0;
+    [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 usingSpringWithDamping:1 initialSpringVelocity:1 / 0.55 options:0 animations:^{
+        tempView.frame = [self.fromView convertRect:self.fromView.bounds toView:containerView];
+        self.toView.superview.alpha = 0;
     } completion:^(BOOL finished) {
-//        [transitionContext completeTransition:YES];
-//        cell.imgView.hidden = NO;
-//        [tempView removeFromSuperview];
-        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-        if ([transitionContext transitionWasCancelled]) {
-            tempView.hidden = YES;
-            ScaleImageVC.imageBrowser.hidden = NO;
-        }else{
-            cell.imgView.hidden = NO;
-            [tempView removeFromSuperview];
-        }
+        [transitionContext completeTransition:YES];
+//        self.fromView.hidden = NO;
+        [tempView removeFromSuperview];
     }];
 }
 

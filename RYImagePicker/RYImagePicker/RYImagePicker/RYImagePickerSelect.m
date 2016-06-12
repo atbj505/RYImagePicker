@@ -15,13 +15,17 @@
 
 static const NSUInteger collectionViewGap = 2;
 
-@interface RYImagePickerSelect () <UICollectionViewDelegate, UICollectionViewDataSource, RYImagePickerColletionViewCellDelegate, UINavigationControllerDelegate>
+@interface RYImagePickerSelect () <UICollectionViewDelegate, UICollectionViewDataSource, RYImagePickerColletionViewCellDelegate, UINavigationControllerDelegate, RYScaleImageViewControllerDelegate>
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 
 @property (nonatomic, strong) RYImagePickerToolBar *toolBar;
 
 @property (nonatomic, strong) NSMutableArray *assetsArray;
+
+@property (nonatomic, strong) RYScaleImageViewController *scaleImage;
+
+@property (nonatomic, strong) NSIndexPath *selectedIndexpath;
 
 @end
 
@@ -87,11 +91,27 @@ static NSString *identifier = @"RYImagePickerColletionViewCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    RYScaleImageViewController *scaleImage = [[RYScaleImageViewController alloc] init];
-    scaleImage.imagesData = self.assetsArray;
-    scaleImage.currentIndexPath = indexPath;
-    self.navigationController.delegate = scaleImage;
-    [self.navigationController pushViewController:scaleImage animated:YES];
+    self.selectedIndexpath = indexPath;
+    self.scaleImage = [[RYScaleImageViewController alloc] init];
+    self.scaleImage.imagesData = self.assetsArray;
+    self.scaleImage.currentIndexPath = indexPath;
+    self.scaleImage.delegate = self;
+    self.navigationController.delegate = self.scaleImage;
+    [self.navigationController pushViewController:self.scaleImage animated:YES];
+}
+
+#pragma mark - RYScaleImageViewControllerDelegate
+- (UIImageView*)scaleImageViewControllerFromView {
+    RYImagePickerColletionViewCell *cell = (RYImagePickerColletionViewCell *)[self.collectionView cellForItemAtIndexPath:self.selectedIndexpath];
+    return cell.imgView;
+}
+
+- (UIView *)scaleImageViewControllerFromViewSuperView {
+    return self.view;
+}
+
+- (UIView*)scaleImageViewControllerToView {
+    return self.scaleImage.imageBrowser;
 }
 
 - (UICollectionView *)collectionView {
