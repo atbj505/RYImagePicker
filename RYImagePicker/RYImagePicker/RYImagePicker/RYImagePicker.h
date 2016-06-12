@@ -10,6 +10,4 @@
 
 @interface RYImagePicker : UIViewController
 
-
-
 @end

@@ -8,17 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class ALAsset;
-
 @interface RYImageModel : NSObject
 
 @property (nonatomic, assign, readonly) NSUInteger imageCounts;
 
 + (RYImageModel *)sharedInstance;
 
-- (void)addImage:(ALAsset *)asset;
+- (void)addImage:(id)asset Indexpath:(NSIndexPath *)indexPath;
 
-- (void)deleteImage:(ALAsset *)asset;
+- (void)deleteImage:(NSIndexPath *)indexPath;
 
 - (void)deleteAllImages;
 

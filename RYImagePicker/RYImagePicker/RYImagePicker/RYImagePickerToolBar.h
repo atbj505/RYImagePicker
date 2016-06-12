@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol RYImagePickerToolBarDelegate <NSObject>
+
+- (void)didTapCancelButton;
+
+- (void)didTapDoneButton;
+
+@end
+
 @interface RYImagePickerToolBar : UIView
+
+@property (nonatomic, weak) id<RYImagePickerToolBarDelegate> delegate;
 
 - (void)updateSelectCount;
 

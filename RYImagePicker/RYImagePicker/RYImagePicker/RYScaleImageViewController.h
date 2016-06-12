@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class ALAsset;
+
 @protocol RYScaleImageViewControllerDelegate <NSObject>
 
 - (UIImageView*)scaleImageViewControllerFromView;
@@ -15,6 +17,8 @@
 - (UIView *)scaleImageViewControllerFromViewSuperView;
 
 - (UIView*)scaleImageViewControllerToView;
+
+//- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add;
 
 @end
 

@@ -12,10 +12,11 @@
 #import "RYImagePickerColletionViewCell.h"
 #import "RYImageModel.h"
 #import "RYScaleImageViewController.h"
+#import "RYImagePicker.h"
 
 static const NSUInteger collectionViewGap = 2;
 
-@interface RYImagePickerSelect () <UICollectionViewDelegate, UICollectionViewDataSource, RYImagePickerColletionViewCellDelegate, UINavigationControllerDelegate, RYScaleImageViewControllerDelegate>
+@interface RYImagePickerSelect () <UICollectionViewDelegate, UICollectionViewDataSource, RYImagePickerColletionViewCellDelegate, UINavigationControllerDelegate, RYScaleImageViewControllerDelegate, RYImagePickerToolBarDelegate>
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 
@@ -34,7 +35,8 @@ static const NSUInteger collectionViewGap = 2;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = [self.group valueForProperty:ALAssetsGroupPropertyName];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    self.navigationItem.leftBarButtonItem = backItem;
     
     self.assetsArray = [NSMutableArray array];
     
@@ -42,7 +44,49 @@ static const NSUInteger collectionViewGap = 2;
     
     [self.view addSubview:self.toolBar];
     
-    [self loadAsset];
+    [self loadAssetGroup:^{
+        self.title = [self.group valueForProperty:ALAssetsGroupPropertyName];
+        [self loadAsset];
+    }];
+}
+
+- (void)back {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
++ (ALAssetsLibrary *)defaultAssetsLibrary {
+    static dispatch_once_t pred = 0;
+    static ALAssetsLibrary *library = nil;
+    dispatch_once(&pred, ^{
+        library = [[ALAssetsLibrary alloc] init];
+    });
+    return library;
+}
+
+- (void)loadAssetGroup:(void(^)(void))finishBlock {
+    if (self.group) {
+        finishBlock();
+        return;
+    }
+    
+    ALAssetsLibrary *library = [RYImagePickerSelect defaultAssetsLibrary];
+    
+    WS(weakSelf);
+    [library enumerateGroupsWithTypes:ALAssetsGroupAll
+                                usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+                                    if (group) {
+                                        weakSelf.group = group;
+                                        finishBlock();
+                                        *stop = true;
+                                    }
+                                } failureBlock:^(NSError *error) {
+                                    NSLog(@"%@", error);
+                                }];
+    
+    RYImagePicker *imagePicker = [[RYImagePicker alloc] init];
+    NSMutableArray *naviControllers = [self.navigationController.viewControllers mutableCopy];
+    [naviControllers insertObject:imagePicker atIndex:1];
+    self.navigationController.viewControllers = naviControllers;
 }
 
 - (void)loadAsset {
@@ -66,11 +110,11 @@ static const NSUInteger collectionViewGap = 2;
 }
 
 #pragma mark - RYImagePickerColletionViewCellDelegate
-- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add {
+- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add indexPath:(NSIndexPath *)indexPath{
     if (add) {
-        [[RYImageModel sharedInstance] addImage:asset];
+        [[RYImageModel sharedInstance] addImage:asset Indexpath:indexPath];
     }else {
-        [[RYImageModel sharedInstance] deleteImage:asset];
+        [[RYImageModel sharedInstance] deleteImage:indexPath];
     }
     [self.toolBar updateSelectCount];
 }
@@ -86,6 +130,7 @@ static NSString *identifier = @"RYImagePickerColletionViewCell";
     
     cell.delegate = self;
     cell.asset = self.assetsArray[indexPath.row];
+    cell.indexPath = indexPath;
     
     return cell;
 }
@@ -112,6 +157,15 @@ static NSString *identifier = @"RYImagePickerColletionViewCell";
 
 - (UIView*)scaleImageViewControllerToView {
     return self.scaleImage.imageBrowser;
+}
+
+#pragma mark - RYImagePickerToolBarDelegate
+- (void)didTapDoneButton {
+    [self.navigationController popToRootViewControllerAnimated:true];
+}
+
+- (void)didTapCancelButton {
+    [self.navigationController popToRootViewControllerAnimated:true];
 }
 
 - (UICollectionView *)collectionView {
@@ -143,6 +197,7 @@ static NSString *identifier = @"RYImagePickerColletionViewCell";
     if (!_toolBar) {
         _toolBar = [[RYImagePickerToolBar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 48, self.view.bounds.size.width, 48)];
         _toolBar.backgroundColor = [UIColor redColor];
+        _toolBar.delegate = self;
     }
     return _toolBar;
 }

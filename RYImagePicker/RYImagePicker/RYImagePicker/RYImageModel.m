@@ -11,7 +11,7 @@
 
 @interface RYImageModel ()
 
-@property (nonatomic, strong) NSMutableArray *assetsArray;
+@property (nonatomic, strong) NSMutableDictionary *assetsArray;
 
 @end
 
@@ -28,20 +28,28 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.assetsArray = [NSMutableArray array];
+        self.assetsArray = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
-- (void)addImage:(ALAsset *)asset {
+- (void)addImage:(id)asset Indexpath:(NSIndexPath *)indexPath; {
     if (self.assetsArray) {
-        [self.assetsArray addObject:asset];
+        if ([asset isKindOfClass:[ALAsset class]]) {
+            ALAssetRepresentation *assetRep = [asset defaultRepresentation];
+            
+            UIImage *image = [UIImage imageWithCGImage:assetRep.fullScreenImage scale:0.5 orientation:UIImageOrientationUp];
+            
+            [self.assetsArray setObject:image forKey:indexPath];
+        }else if ([asset isKindOfClass:[UIImage class]]) {
+            [self.assetsArray setObject:asset forKey:indexPath];
+        }
     }
 }
 
-- (void)deleteImage:(ALAsset *)asset {
+- (void)deleteImage:(NSIndexPath *)indexPath {
     if (self.assetsArray) {
-        [self.assetsArray removeObject:asset];
+        [self.assetsArray removeObjectForKey:indexPath];
     }
 }
 

@@ -46,11 +46,11 @@
 - (void)tapSelectButton {
     self.selectButton.selected = !self.selectButton.selected;
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapSelectButton:add:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapSelectButton:add:indexPath:)]) {
         if (self.selectButton.selected) {
-            [self.delegate didTapSelectButton:self.asset add:true];
+            [self.delegate didTapSelectButton:self.asset add:true indexPath:self.indexPath];
         }else {
-            [self.delegate didTapSelectButton:self.asset add:false];
+            [self.delegate didTapSelectButton:self.asset add:false indexPath:self.indexPath];
         }
     }
 }
@@ -74,6 +74,11 @@
 - (void)setAsset:(ALAsset *)asset {
     _asset = asset;
     self.imgView.image = [UIImage imageWithCGImage:asset.thumbnail];
+}
+
+- (void)setIsSelected:(BOOL)isSelected {
+    _isSelected = isSelected;
+    self.selectButton.selected = isSelected;
 }
 
 @end

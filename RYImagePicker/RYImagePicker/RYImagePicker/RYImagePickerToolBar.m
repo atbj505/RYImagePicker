@@ -68,11 +68,24 @@
     [super updateConstraints];
 }
 
+- (void)tapCancelButton {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapCancelButton)]) {
+        [self.delegate didTapCancelButton];
+    }
+}
+
+- (void)tapDoneButton {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapDoneButton)]) {
+        [self.delegate didTapDoneButton];
+    }
+}
+
 - (UIButton *)cancelButton {
     if (!_cancelButton) {
         _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
         [_cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_cancelButton addTarget:self action:@selector(tapCancelButton) forControlEvents:UIControlEventTouchUpInside];
     }
     return _cancelButton;
 }
@@ -82,6 +95,7 @@
         _doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_doneButton setTitle:@"完成" forState:UIControlStateNormal];
         [_doneButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_doneButton addTarget:self action:@selector(tapDoneButton) forControlEvents:UIControlEventTouchUpInside];
     }
     return _doneButton;
 }

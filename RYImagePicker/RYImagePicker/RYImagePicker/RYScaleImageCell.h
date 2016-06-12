@@ -9,8 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "RYScaleImageView.h"
 
+@class ALAsset;
+
+@protocol RYScaleImageCellDelegate <NSObject>
+
+- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add;
+
+@end
+
 @interface RYScaleImageCell : UICollectionViewCell
 
 @property (nonatomic, strong) RYScaleImageView *scaleImage;
+
+@property (nonatomic, weak) id<RYScaleImageCellDelegate> delegate;
 
 @end
