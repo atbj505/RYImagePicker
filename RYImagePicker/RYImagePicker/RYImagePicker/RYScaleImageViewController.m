@@ -12,6 +12,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "RYTransitionAnimation.h"
 #import "RYTransitionInteractive.h"
+#import "RYScaleImageToolBar.h"
 
 @interface RYScaleImageViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -21,6 +22,10 @@
 
 @property (nonatomic, strong) RYTransitionInteractive *transitionInteractive;
 
+@property (nonatomic, strong) UIButton *selecetButton;
+
+@property (nonatomic, strong) RYScaleImageToolBar *toolbar;
+
 @end
 
 @implementation RYScaleImageViewController
@@ -29,6 +34,10 @@
     if (self = [super init]) {
         
         [self.view addSubview:self.imageBrowser];
+        
+        [self.view addSubview:self.selecetButton];
+        
+        [self.view addSubview:self.toolbar];
     }
     return self;
 }

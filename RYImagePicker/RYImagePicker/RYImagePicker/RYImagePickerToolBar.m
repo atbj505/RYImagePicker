@@ -8,6 +8,7 @@
 
 #import "RYImagePickerToolBar.h"
 #import "RYImageModel.h"
+#import "UILabel+Count.h"
 
 @interface RYImagePickerToolBar ()
 
@@ -36,21 +37,7 @@
 - (void)updateSelectCount {
     NSUInteger selectCount = [RYImageModel sharedInstance].imageCounts;
     
-    if (!selectCount) {
-        self.countLabel.text = @"";
-        return;
-    }
-    
-    self.countLabel.hidden = false;
-    POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewSize];
-    
-    animation.fromValue = [NSValue valueWithCGSize:CGSizeZero];
-    animation.toValue = [NSValue valueWithCGSize:self.countLabel.bounds.size];
-//    animation.autoreverses = YES;
-    [animation setAnimationDidStartBlock:^(POPAnimation *animation) {
-        self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)selectCount];
-    }];
-    [self.countLabel pop_addAnimation:animation forKey:@"kPOPViewBounds"];
+    [self.countLabel updateCount:selectCount];
 }
 
 + (BOOL)requiresConstraintBasedLayout {

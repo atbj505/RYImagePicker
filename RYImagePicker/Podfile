@@ -4,8 +4,9 @@
 # use_frameworks!
 
 target 'RYImagePicker' do
-pod 'Masonry'
-pod 'pop'
+    pod 'Masonry'
+    pod 'pop'
+    pod 'GPUImage'
 end
 
 target 'RYImagePickerTests' do
