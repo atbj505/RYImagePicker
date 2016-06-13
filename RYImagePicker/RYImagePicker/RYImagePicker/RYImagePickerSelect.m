@@ -13,6 +13,7 @@
 #import "RYImageModel.h"
 #import "RYScaleImageViewController.h"
 #import "RYImagePicker.h"
+#import "ALAssetsLibrary+Singleton.h"
 
 static const NSUInteger collectionViewGap = 2;
 
@@ -54,22 +55,13 @@ static const NSUInteger collectionViewGap = 2;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-+ (ALAssetsLibrary *)defaultAssetsLibrary {
-    static dispatch_once_t pred = 0;
-    static ALAssetsLibrary *library = nil;
-    dispatch_once(&pred, ^{
-        library = [[ALAssetsLibrary alloc] init];
-    });
-    return library;
-}
-
 - (void)loadAssetGroup:(void(^)(void))finishBlock {
     if (self.group) {
         finishBlock();
         return;
     }
     
-    ALAssetsLibrary *library = [RYImagePickerSelect defaultAssetsLibrary];
+    ALAssetsLibrary *library = [ALAssetsLibrary defaultAssetsLibrary];
     
     WS(weakSelf);
     [library enumerateGroupsWithTypes:ALAssetsGroupAll
@@ -110,11 +102,11 @@ static const NSUInteger collectionViewGap = 2;
 }
 
 #pragma mark - RYImagePickerColletionViewCellDelegate
-- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add indexPath:(NSIndexPath *)indexPath{
+- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add {
     if (add) {
-        [[RYImageModel sharedInstance] addImage:asset Indexpath:indexPath];
+        [[RYImageModel sharedInstance] addImage:asset];
     }else {
-        [[RYImageModel sharedInstance] deleteImage:indexPath];
+        [[RYImageModel sharedInstance] deleteImage:asset];
     }
     [self.toolBar updateSelectCount];
 }
@@ -130,7 +122,15 @@ static NSString *identifier = @"RYImagePickerColletionViewCell";
     
     cell.delegate = self;
     cell.asset = self.assetsArray[indexPath.row];
-    cell.indexPath = indexPath;
+    
+//    NSArray *array = [[RYImageModel sharedInstance] getKeys];
+//    
+//    [array enumerateObjectsUsingBlock:^(NSURL *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        if ([obj isEqual:[cell.asset valueForProperty:ALAssetPropertyURLs][@"public.jpeg"]]) {
+//            cell.isSelected = true;
+//            *stop = true;
+//        }
+//    }];
     
     return cell;
 }

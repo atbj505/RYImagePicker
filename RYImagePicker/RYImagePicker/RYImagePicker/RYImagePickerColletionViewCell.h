@@ -12,7 +12,7 @@
 
 @protocol RYImagePickerColletionViewCellDelegate <NSObject>
 
-- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add indexPath:(NSIndexPath *)indexPath;
+- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add;
 
 @end
 
@@ -25,7 +25,5 @@
 @property (nonatomic, strong) UIImageView *imgView;
 
 @property (nonatomic, assign) BOOL isSelected;
-
-@property (nonatomic, strong) NSIndexPath *indexPath;
 
 @end

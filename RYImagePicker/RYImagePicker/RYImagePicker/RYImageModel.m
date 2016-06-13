@@ -11,7 +11,7 @@
 
 @interface RYImageModel ()
 
-@property (nonatomic, strong) NSMutableDictionary *assetsArray;
+@property (nonatomic, strong) NSMutableDictionary *assetsDic;
 
 @end
 
@@ -28,39 +28,40 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.assetsArray = [NSMutableDictionary dictionary];
+        self.assetsDic = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
-- (void)addImage:(id)asset Indexpath:(NSIndexPath *)indexPath; {
-    if (self.assetsArray) {
-        if ([asset isKindOfClass:[ALAsset class]]) {
-            ALAssetRepresentation *assetRep = [asset defaultRepresentation];
-            
-            UIImage *image = [UIImage imageWithCGImage:assetRep.fullScreenImage scale:0.5 orientation:UIImageOrientationUp];
-            
-            [self.assetsArray setObject:image forKey:indexPath];
-        }else if ([asset isKindOfClass:[UIImage class]]) {
-            [self.assetsArray setObject:asset forKey:indexPath];
-        }
+- (void)addImage:(ALAsset *)asset {
+    if (self.assetsDic) {
+        ALAssetRepresentation *assetRep = [asset defaultRepresentation];
+        NSDictionary *dic = [asset valueForProperty:ALAssetPropertyURLs];
+        UIImage *image = [UIImage imageWithCGImage:assetRep.fullScreenImage scale:0.5 orientation:UIImageOrientationUp];
+        
+        [self.assetsDic setObject:image forKey:dic[@"public.jpeg"]];
     }
 }
 
-- (void)deleteImage:(NSIndexPath *)indexPath {
-    if (self.assetsArray) {
-        [self.assetsArray removeObjectForKey:indexPath];
+- (void)deleteImage:(ALAsset *)asset {
+    if (self.assetsDic) {
+        NSURL *assetUrl = [asset valueForProperty:ALAssetPropertyURLs];
+        [self.assetsDic removeObjectForKey:assetUrl];
     }
 }
 
 - (void)deleteAllImages {
-    if (self.assetsArray) {
-        [self.assetsArray removeAllObjects];
+    if (self.assetsDic) {
+        [self.assetsDic removeAllObjects];
     }
 }
 
+- (NSArray *)getKeys; {
+    return self.assetsDic.allKeys;
+}
+
 - (NSUInteger)imageCounts {
-    return self.assetsArray.count;
+    return self.assetsDic.count;
 }
 
 @end

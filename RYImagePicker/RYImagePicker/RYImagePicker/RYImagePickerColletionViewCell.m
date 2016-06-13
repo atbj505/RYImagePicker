@@ -46,11 +46,11 @@
 - (void)tapSelectButton {
     self.selectButton.selected = !self.selectButton.selected;
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapSelectButton:add:indexPath:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapSelectButton:add:)]) {
         if (self.selectButton.selected) {
-            [self.delegate didTapSelectButton:self.asset add:true indexPath:self.indexPath];
+            [self.delegate didTapSelectButton:self.asset add:true];
         }else {
-            [self.delegate didTapSelectButton:self.asset add:false indexPath:self.indexPath];
+            [self.delegate didTapSelectButton:self.asset add:false];
         }
     }
 }
@@ -65,7 +65,8 @@
 - (UIButton *)selectButton {
     if (!_selectButton) {
         _selectButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_selectButton setBackgroundColor:[UIColor redColor]];
+        [_selectButton setImage:[UIImage imageNamed:@"btn_unselect"] forState:UIControlStateNormal];
+        [_selectButton setImage:[UIImage imageNamed:@"btn_selected"] forState:UIControlStateSelected];
         [_selectButton addTarget:self action:@selector(tapSelectButton) forControlEvents:UIControlEventTouchUpInside];
     }
     return _selectButton;
