@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "RYImagePicker.h"
 #import "RYImagePickerSelect.h"
+#import "RYActionSheet.h"
 
 @interface ViewController ()
 
@@ -37,10 +37,19 @@
 }
 
 - (void)tapButton {
-//    RYImagePicker *imagePicker = [[RYImagePicker alloc] init];
-//    [self.navigationController pushViewController:imagePicker animated:YES];
     RYImagePickerSelect *imagePickerSelect = [[RYImagePickerSelect alloc] init];
     [self.navigationController pushViewController:imagePickerSelect animated:YES];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    RYActionSheet *actionSheet = [RYActionSheet actionSheetWithSelectPhotoBlock:^(NSInteger index, UIImage *image) {
+        
+    } actionBlock:^(NSInteger index, RYActionSheetType type) {
+        
+    }];
+    
+    [actionSheet show];
+    
 }
 
 @end
