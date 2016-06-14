@@ -11,6 +11,7 @@
 #import <Photos/Photos.h>
 #import "ALAssetsLibrary+Singleton.h"
 #import "RYImagePickerColletionViewCell.h"
+#import "RYImagePickerCameraCell.h"
 
 static const NSUInteger PhotoHeight = 100;
 
@@ -149,23 +150,27 @@ static const NSUInteger PhotoHeight = 100;
     return self.assetsArray.count + 1;
 }
 
-static NSString *identifier = @"RYImagePickerColletionViewCell";
+static NSString *photoIdentifier = @"RYImagePickerPhotoCell";
+static NSString *cameraIdentifier = @"RYImagePickerCameraCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    RYImagePickerColletionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    if (indexPath.row == 0) {
+        RYImagePickerCameraCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cameraIdentifier forIndexPath:indexPath];
+        return cell;
+    }
+    
+    RYImagePickerColletionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:photoIdentifier forIndexPath:indexPath];
     
     cell.delegate = self;
     cell.asset = self.assetsArray[indexPath.row];
     
-    //    NSArray *array = [[RYImageModel sharedInstance] getKeys];
-    //
-    //    [array enumerateObjectsUsingBlock:^(NSURL *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-    //        if ([obj isEqual:[cell.asset valueForProperty:ALAssetPropertyURLs][@"public.jpeg"]]) {
-    //            cell.isSelected = true;
-    //            *stop = true;
-    //        }
-    //    }];
-    
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        
+    }
 }
 
 #pragma mark - RYImagePickerColletionViewCellDelegate
@@ -207,7 +212,9 @@ static NSString *identifier = @"RYImagePickerColletionViewCell";
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         
         _photoContentView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - 200, self.bounds.size.width, PhotoHeight) collectionViewLayout:flowLayout];
-        [_photoContentView registerClass:[RYImagePickerColletionViewCell class] forCellWithReuseIdentifier:identifier];
+        [_photoContentView registerClass:[RYImagePickerColletionViewCell class] forCellWithReuseIdentifier:photoIdentifier];
+        [_photoContentView registerClass:[RYImagePickerColletionViewCell class] forCellWithReuseIdentifier:cameraIdentifier];
+        
         _photoContentView.backgroundColor = [UIColor clearColor];
         _photoContentView.scrollEnabled = YES;
         _photoContentView.showsHorizontalScrollIndicator = NO;

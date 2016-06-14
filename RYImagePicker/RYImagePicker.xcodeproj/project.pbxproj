@@ -22,6 +22,7 @@
 		577373EE1D0D3F4200B2F368 /* RYScaleImageToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 577373ED1D0D3F4200B2F368 /* RYScaleImageToolBar.m */; };
 		577373F51D0D669C00B2F368 /* ALAssetsLibrary+Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 577373F41D0D669C00B2F368 /* ALAssetsLibrary+Singleton.m */; };
 		577373F81D0E87DC00B2F368 /* RYActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 577373F71D0E87DC00B2F368 /* RYActionSheet.m */; };
+		577373FC1D0FB78500B2F368 /* RYImagePickerCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 577373FB1D0FB78500B2F368 /* RYImagePickerCameraCell.m */; };
 		57C699741D01766A0003B1FD /* RYScaleImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C699731D01766A0003B1FD /* RYScaleImageViewController.m */; };
 		57C699771D01774B0003B1FD /* RYScaleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C699761D01774B0003B1FD /* RYScaleImageView.m */; };
 		57C6997A1D01776E0003B1FD /* RYScaleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C699791D01776E0003B1FD /* RYScaleImageCell.m */; };
@@ -75,6 +76,8 @@
 		577373F41D0D669C00B2F368 /* ALAssetsLibrary+Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+Singleton.m"; sourceTree = "<group>"; };
 		577373F61D0E87DC00B2F368 /* RYActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYActionSheet.h; sourceTree = "<group>"; };
 		577373F71D0E87DC00B2F368 /* RYActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYActionSheet.m; sourceTree = "<group>"; };
+		577373FA1D0FB78500B2F368 /* RYImagePickerCameraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImagePickerCameraCell.h; sourceTree = "<group>"; };
+		577373FB1D0FB78500B2F368 /* RYImagePickerCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImagePickerCameraCell.m; sourceTree = "<group>"; };
 		57C699721D01766A0003B1FD /* RYScaleImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYScaleImageViewController.h; sourceTree = "<group>"; };
 		57C699731D01766A0003B1FD /* RYScaleImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYScaleImageViewController.m; sourceTree = "<group>"; };
 		57C699751D01774B0003B1FD /* RYScaleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYScaleImageView.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 			children = (
 				577373F61D0E87DC00B2F368 /* RYActionSheet.h */,
 				577373F71D0E87DC00B2F368 /* RYActionSheet.m */,
+				577373FA1D0FB78500B2F368 /* RYImagePickerCameraCell.h */,
+				577373FB1D0FB78500B2F368 /* RYImagePickerCameraCell.m */,
 				57464A741D0013FE0073C189 /* RYImagePickerColletionViewCell.h */,
 				57464A751D0013FE0073C189 /* RYImagePickerColletionViewCell.m */,
 				57464A6A1CFFDB1E0073C189 /* RYImagePickerTableViewCell.h */,
@@ -444,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577373FC1D0FB78500B2F368 /* RYImagePickerCameraCell.m in Sources */,
 				57464A731D0005F90073C189 /* RYImagePickerToolBar.m in Sources */,
 				57C699771D01774B0003B1FD /* RYScaleImageView.m in Sources */,
 				57464A481CFFC9AC0073C189 /* ViewController.m in Sources */,
