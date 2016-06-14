@@ -10,6 +10,7 @@
 #import "RYImagePickerSelect.h"
 #import "RYActionSheet.h"
 #import <LLSimpleCamera.h>
+#import "KNBRecorderController.h"
 
 @interface ViewController ()
 
@@ -45,22 +46,16 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     RYActionSheet *actionSheet = [RYActionSheet actionSheetWithSelectPhotoBlock:^(UIImage *image, BOOL isCamera) {
         if (isCamera) {
-            LLSimpleCamera *camera = [[LLSimpleCamera alloc] initWithQuality:AVCaptureSessionPresetHigh position:LLCameraPositionRear videoEnabled:YES];
             
-            camera.fixOrientationAfterCapture = YES;
+            KNBRecorderController *recordController = [KNBRecorderController recorderWithType:KNBRecorderPhoto Name:nil];
             
-            [camera updateFlashMode:LLCameraFlashOff];
-            
-            [camera attachToViewController:self withFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-            
-            [camera capture:^(LLSimpleCamera *camera, UIImage *image, NSDictionary *metadata, NSError *error) {
-                if(!error) {
-                    [camera stop];
-                    
-                }
+            WS(weakSelf);
+            [recordController setDidSelectedConfirmBlock:^(KNBRecorderType type, NSString *name, UIImage * previewImage, UIImage *originImage) {
+                
+                
             }];
+            [self presentViewController:recordController animated:YES completion:nil];
             
-            [camera start];
         }
     } actionBlock:^(RYActionSheetType type) {
         
