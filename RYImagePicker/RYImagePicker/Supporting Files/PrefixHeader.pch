@@ -16,7 +16,7 @@
 #import <UIKit/UIKit.h>
 #import <Masonry.h>
 #import <pop/POP.h>
-
+#import "UIView+Frame.h"
 
 #define RYColor(r, g, b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1.0f]
 #define WS(weakSelf)  __weak __typeof(self)weakSelf = self;

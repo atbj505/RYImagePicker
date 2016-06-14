@@ -14,8 +14,8 @@ typedef NS_ENUM(NSUInteger, RYActionSheetType) {
     RYActionSheetCards,
 };
 
-typedef void(^RYActionSheetSelectPhotoBlock) (NSInteger index, UIImage *image);
-typedef void(^RYActionSheetActionBlock) (NSInteger index, RYActionSheetType type);
+typedef void(^RYActionSheetSelectPhotoBlock) (UIImage *image, BOOL isCamera);
+typedef void(^RYActionSheetActionBlock) (RYActionSheetType type);
 
 @interface RYActionSheet : UIView
 

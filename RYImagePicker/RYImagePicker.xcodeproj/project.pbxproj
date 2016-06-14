@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		572F761A1D0FF77C00DDBF0B /* KNBRecorderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76131D0FF77C00DDBF0B /* KNBRecorderController.m */; };
+		572F761C1D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76171D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.m */; };
+		572F761D1D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76191D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.m */; };
+		572F76201D0FF84F00DDBF0B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F761F1D0FF84F00DDBF0B /* UIColor+Hex.m */; };
+		572F76231D0FF9F200DDBF0B /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76221D0FF9F200DDBF0B /* UIImage+Resize.m */; };
+		572F762A1D0FFAE600DDBF0B /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76251D0FFAE600DDBF0B /* UIImage+Alpha.m */; };
+		572F762B1D0FFAE600DDBF0B /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76271D0FFAE600DDBF0B /* UIImage+RoundedCorner.m */; };
+		572F762C1D0FFAE600DDBF0B /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76291D0FFAE600DDBF0B /* UIView+Frame.m */; };
 		57464A421CFFC9AC0073C189 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A411CFFC9AC0073C189 /* main.m */; };
 		57464A451CFFC9AC0073C189 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A441CFFC9AC0073C189 /* AppDelegate.m */; };
 		57464A481CFFC9AC0073C189 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A471CFFC9AC0073C189 /* ViewController.m */; };
@@ -44,6 +52,22 @@
 
 /* Begin PBXFileReference section */
 		306C31E87063F21694B28C9E /* libPods-RYImagePickerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RYImagePickerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		572F76121D0FF77C00DDBF0B /* KNBRecorderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KNBRecorderController.h; path = RYImagePicker/Recorder/KNBRecorderController.h; sourceTree = "<group>"; };
+		572F76131D0FF77C00DDBF0B /* KNBRecorderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KNBRecorderController.m; path = RYImagePicker/Recorder/KNBRecorderController.m; sourceTree = "<group>"; };
+		572F76161D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LLSimpleCamera+FocusBox.h"; path = "RYImagePicker/Recorder/LLSimpleCamera+FocusBox.h"; sourceTree = "<group>"; };
+		572F76171D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LLSimpleCamera+FocusBox.m"; path = "RYImagePicker/Recorder/LLSimpleCamera+FocusBox.m"; sourceTree = "<group>"; };
+		572F76181D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LLSimpleCameraIntercepter.h; path = RYImagePicker/Recorder/LLSimpleCameraIntercepter.h; sourceTree = "<group>"; };
+		572F76191D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LLSimpleCameraIntercepter.m; path = RYImagePicker/Recorder/LLSimpleCameraIntercepter.m; sourceTree = "<group>"; };
+		572F761E1D0FF84F00DDBF0B /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		572F761F1D0FF84F00DDBF0B /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		572F76211D0FF9F200DDBF0B /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		572F76221D0FF9F200DDBF0B /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		572F76241D0FFAE600DDBF0B /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		572F76251D0FFAE600DDBF0B /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		572F76261D0FFAE600DDBF0B /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		572F76271D0FFAE600DDBF0B /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		572F76281D0FFAE600DDBF0B /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		572F76291D0FFAE600DDBF0B /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		57464A3D1CFFC9AC0073C189 /* RYImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RYImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57464A411CFFC9AC0073C189 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		57464A431CFFC9AC0073C189 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -135,6 +159,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		572F760F1D0FF74600DDBF0B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				57464A661CFFCF830073C189 /* RYImagePicker.h */,
+				57464A671CFFCF830073C189 /* RYImagePicker.m */,
+				57464A6E1CFFE4610073C189 /* RYImagePickerSelect.h */,
+				57464A6F1CFFE4610073C189 /* RYImagePickerSelect.m */,
+				57C699721D01766A0003B1FD /* RYScaleImageViewController.h */,
+				57C699731D01766A0003B1FD /* RYScaleImageViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		572F76111D0FF76300DDBF0B /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				572F76121D0FF77C00DDBF0B /* KNBRecorderController.h */,
+				572F76131D0FF77C00DDBF0B /* KNBRecorderController.m */,
+				572F76161D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.h */,
+				572F76171D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.m */,
+				572F76181D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.h */,
+				572F76191D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.m */,
+			);
+			name = Recorder;
+			sourceTree = "<group>";
+		};
 		57464A341CFFC9AC0073C189 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +208,7 @@
 		57464A3F1CFFC9AC0073C189 /* RYImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				572F76111D0FF76300DDBF0B /* Recorder */,
 				577373F91D0E87E500B2F368 /* Category */,
 				57464A691CFFCF890073C189 /* RYImagePicker */,
 				57464A401CFFC9AC0073C189 /* Supporting Files */,
@@ -192,14 +243,9 @@
 		57464A691CFFCF890073C189 /* RYImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				572F760F1D0FF74600DDBF0B /* Controller */,
 				57464A771D00571B0073C189 /* Model */,
 				57464A6D1CFFE4330073C189 /* View */,
-				57464A661CFFCF830073C189 /* RYImagePicker.h */,
-				57464A671CFFCF830073C189 /* RYImagePicker.m */,
-				57464A6E1CFFE4610073C189 /* RYImagePickerSelect.h */,
-				57464A6F1CFFE4610073C189 /* RYImagePickerSelect.m */,
-				57C699721D01766A0003B1FD /* RYScaleImageViewController.h */,
-				57C699731D01766A0003B1FD /* RYScaleImageViewController.m */,
 			);
 			path = RYImagePicker;
 			sourceTree = "<group>";
@@ -243,6 +289,16 @@
 		577373F91D0E87E500B2F368 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				572F76241D0FFAE600DDBF0B /* UIImage+Alpha.h */,
+				572F76251D0FFAE600DDBF0B /* UIImage+Alpha.m */,
+				572F76261D0FFAE600DDBF0B /* UIImage+RoundedCorner.h */,
+				572F76271D0FFAE600DDBF0B /* UIImage+RoundedCorner.m */,
+				572F76281D0FFAE600DDBF0B /* UIView+Frame.h */,
+				572F76291D0FFAE600DDBF0B /* UIView+Frame.m */,
+				572F76211D0FF9F200DDBF0B /* UIImage+Resize.h */,
+				572F76221D0FF9F200DDBF0B /* UIImage+Resize.m */,
+				572F761E1D0FF84F00DDBF0B /* UIColor+Hex.h */,
+				572F761F1D0FF84F00DDBF0B /* UIColor+Hex.m */,
 				577373F31D0D669C00B2F368 /* ALAssetsLibrary+Singleton.h */,
 				577373F41D0D669C00B2F368 /* ALAssetsLibrary+Singleton.m */,
 				577373E91D0D3DF500B2F368 /* UILabel+Count.h */,
@@ -457,17 +513,25 @@
 				57464A451CFFC9AC0073C189 /* AppDelegate.m in Sources */,
 				57464A701CFFE4610073C189 /* RYImagePickerSelect.m in Sources */,
 				577373F81D0E87DC00B2F368 /* RYActionSheet.m in Sources */,
+				572F762B1D0FFAE600DDBF0B /* UIImage+RoundedCorner.m in Sources */,
 				577373F51D0D669C00B2F368 /* ALAssetsLibrary+Singleton.m in Sources */,
+				572F76201D0FF84F00DDBF0B /* UIColor+Hex.m in Sources */,
 				577373EB1D0D3DF500B2F368 /* UILabel+Count.m in Sources */,
 				57C699741D01766A0003B1FD /* RYScaleImageViewController.m in Sources */,
+				572F761D1D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.m in Sources */,
+				572F762A1D0FFAE600DDBF0B /* UIImage+Alpha.m in Sources */,
 				57464A681CFFCF830073C189 /* RYImagePicker.m in Sources */,
 				577373EE1D0D3F4200B2F368 /* RYScaleImageToolBar.m in Sources */,
 				57464A7A1D0057320073C189 /* RYImageModel.m in Sources */,
 				57464A6C1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m in Sources */,
+				572F76231D0FF9F200DDBF0B /* UIImage+Resize.m in Sources */,
+				572F761A1D0FF77C00DDBF0B /* KNBRecorderController.m in Sources */,
+				572F762C1D0FFAE600DDBF0B /* UIView+Frame.m in Sources */,
 				57464A761D0013FE0073C189 /* RYImagePickerColletionViewCell.m in Sources */,
 				57464A421CFFC9AC0073C189 /* main.m in Sources */,
 				57C699801D0270DE0003B1FD /* RYTransitionInteractive.m in Sources */,
 				57C6997A1D01776E0003B1FD /* RYScaleImageCell.m in Sources */,
+				572F761C1D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

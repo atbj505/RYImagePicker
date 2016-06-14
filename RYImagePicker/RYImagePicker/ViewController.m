@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "RYImagePickerSelect.h"
 #import "RYActionSheet.h"
+#import <LLSimpleCamera.h>
 
 @interface ViewController ()
 
@@ -42,14 +43,30 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    RYActionSheet *actionSheet = [RYActionSheet actionSheetWithSelectPhotoBlock:^(NSInteger index, UIImage *image) {
-        
-    } actionBlock:^(NSInteger index, RYActionSheetType type) {
+    RYActionSheet *actionSheet = [RYActionSheet actionSheetWithSelectPhotoBlock:^(UIImage *image, BOOL isCamera) {
+        if (isCamera) {
+            LLSimpleCamera *camera = [[LLSimpleCamera alloc] initWithQuality:AVCaptureSessionPresetHigh position:LLCameraPositionRear videoEnabled:YES];
+            
+            camera.fixOrientationAfterCapture = YES;
+            
+            [camera updateFlashMode:LLCameraFlashOff];
+            
+            [camera attachToViewController:self withFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+            
+            [camera capture:^(LLSimpleCamera *camera, UIImage *image, NSDictionary *metadata, NSError *error) {
+                if(!error) {
+                    [camera stop];
+                    
+                }
+            }];
+            
+            [camera start];
+        }
+    } actionBlock:^(RYActionSheetType type) {
         
     }];
     
     [actionSheet show];
-    
 }
 
 @end
