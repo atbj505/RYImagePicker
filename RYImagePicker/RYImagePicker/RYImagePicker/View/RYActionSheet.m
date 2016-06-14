@@ -7,8 +7,14 @@
 //
 
 #import "RYActionSheet.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
+#import "ALAssetsLibrary+Singleton.h"
+#import "RYImagePickerColletionViewCell.h"
 
-@interface RYActionSheet ()
+static const NSUInteger PhotoHeight = 100;
+
+@interface RYActionSheet () <UICollectionViewDelegate, UICollectionViewDataSource, RYImagePickerColletionViewCellDelegate>
 
 @property (nonatomic, copy) RYActionSheetSelectPhotoBlock photoBlock;
 
@@ -18,7 +24,11 @@
 
 @property (nonatomic, strong) UIView *darkView;
 
-@property (nonatomic, strong) UIView *contentView;
+@property (nonatomic, strong) UICollectionView *photoContentView;
+
+@property (nonatomic, strong) ALAssetsGroup *group;
+
+@property (nonatomic, strong) NSMutableArray *assetsArray;
 
 @end
 
@@ -32,14 +42,72 @@
 - (instancetype)initWithSelectPhotoBlock:(RYActionSheetSelectPhotoBlock)photoBlock
                              actionBlock:(RYActionSheetActionBlock)actionBlock {
     if (self = [super init]) {
+        self.assetsArray = [NSMutableArray array];
+        self.frame = [UIScreen mainScreen].bounds;
+        
         [self addSubview:self.darkView];
-        [self addSubview:self.contentView];
+        [self addSubview:self.photoContentView];
         self.userInteractionEnabled = YES;
         
         self.photoBlock = photoBlock;
         self.actionBlock = actionBlock;
+        
+        [self requestAssetGroup:^{
+            [self loadAsset];
+        }];
     }
     return self;
+}
+
+- (void)requestAssetGroup:(void(^)(void))finishBlock {
+    
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusNotDetermined) {
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            if (status == PHAuthorizationStatusAuthorized) {
+                [self loadGroup:finishBlock];
+            }
+        }];
+    } else if (status == PHAuthorizationStatusAuthorized) {
+        [self loadGroup:finishBlock];
+    }
+}
+
+- (void)loadGroup:(void(^)(void))finishBlock {
+    ALAssetsLibrary *library = [ALAssetsLibrary defaultAssetsLibrary];
+    
+    WS(weakSelf);
+    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos
+                           usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+                               if (group) {
+                                   weakSelf.group = group;
+                                   *stop = true;
+                                   finishBlock();
+                               }
+                           } failureBlock:^(NSError *error) {
+                               NSLog(@"%@", error);
+                           }];
+}
+
+- (void)loadAsset {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (self.group) {
+            WS(weakSelf);
+            [self.group enumerateAssetsWithOptions:NSEnumerationReverse usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+                if (result) {
+                    if ([[result valueForProperty:ALAssetPropertyType]isEqualToString:ALAssetTypePhoto]) {
+                        [weakSelf.assetsArray addObject:result];
+                    }
+                }
+                if (weakSelf.assetsArray.count == 5) {
+                    *stop = true;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.photoContentView reloadData];
+                    });
+                }
+            }];
+        }
+    });
 }
 
 - (void)show {
@@ -49,9 +117,9 @@
         
         [self.darkView setAlpha:0.35];
         
-        CGRect frame = self.contentView.frame;
+        CGRect frame = self.photoContentView.frame;
         frame.origin.y -= frame.size.height;
-        [self.contentView setFrame:frame];
+        [self.photoContentView setFrame:frame];
         
     } completion:^(BOOL finished) {
         [self.darkView setUserInteractionEnabled:YES];
@@ -64,9 +132,9 @@
         [self.darkView setAlpha:0];
         [self.darkView setUserInteractionEnabled:NO];
         
-        CGRect frame = self.contentView.frame;
+        CGRect frame = self.photoContentView.frame;
         frame.origin.y += frame.size.height;
-        [self.contentView setFrame:frame];
+        [self.photoContentView setFrame:frame];
         
     } completion:^(BOOL finished) {
         
@@ -74,6 +142,36 @@
         
         self.backWindow.hidden = YES;
     }];
+}
+
+#pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.assetsArray.count + 1;
+}
+
+static NSString *identifier = @"RYImagePickerColletionViewCell";
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    RYImagePickerColletionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    cell.delegate = self;
+    cell.asset = self.assetsArray[indexPath.row];
+    
+    //    NSArray *array = [[RYImageModel sharedInstance] getKeys];
+    //
+    //    [array enumerateObjectsUsingBlock:^(NSURL *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    //        if ([obj isEqual:[cell.asset valueForProperty:ALAssetPropertyURLs][@"public.jpeg"]]) {
+    //            cell.isSelected = true;
+    //            *stop = true;
+    //        }
+    //    }];
+    
+    return cell;
+}
+
+#pragma mark - RYImagePickerColletionViewCellDelegate
+
+- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add {
+    
 }
 
 - (UIView *)darkView {
@@ -99,12 +197,25 @@
     return _backWindow;
 }
 
-- (UIView *)contentView {
-    if (!_contentView) {
-        _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 100)];
-        _contentView.backgroundColor = RYColor(233, 233, 238);
+- (UICollectionView *)photoContentView {
+    if (!_photoContentView) {
+        
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.itemSize = CGSizeMake(PhotoHeight, PhotoHeight);
+        flowLayout.minimumLineSpacing = 0;
+        flowLayout.minimumInteritemSpacing = 5;
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        
+        _photoContentView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - 200, self.bounds.size.width, PhotoHeight) collectionViewLayout:flowLayout];
+        [_photoContentView registerClass:[RYImagePickerColletionViewCell class] forCellWithReuseIdentifier:identifier];
+        _photoContentView.backgroundColor = [UIColor clearColor];
+        _photoContentView.scrollEnabled = YES;
+        _photoContentView.showsHorizontalScrollIndicator = NO;
+        _photoContentView.showsVerticalScrollIndicator = NO;
+        _photoContentView.delegate = self;
+        _photoContentView.dataSource = self;
     }
-    return _contentView;
+    return _photoContentView;
 }
 
 @end
