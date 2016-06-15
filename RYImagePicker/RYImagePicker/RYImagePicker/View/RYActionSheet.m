@@ -12,8 +12,11 @@
 #import "ALAssetsLibrary+Singleton.h"
 #import "RYImagePickerColletionViewCell.h"
 #import "RYImagePickerCameraCell.h"
+#import "RYImagePickerActionCell.h"
 
+static const NSUInteger contentHeight = 300;
 static const NSUInteger PhotoHeight = 100;
+static const NSUInteger actionHeght = contentHeight - PhotoHeight;
 
 @interface RYActionSheet () <UICollectionViewDelegate, UICollectionViewDataSource, RYImagePickerColletionViewCellDelegate>
 
@@ -25,11 +28,17 @@ static const NSUInteger PhotoHeight = 100;
 
 @property (nonatomic, strong) UIView *darkView;
 
+@property (nonatomic, strong) UIView *contentView;
+
 @property (nonatomic, strong) UICollectionView *photoContentView;
+
+@property (nonatomic, strong) UICollectionView *actionContentView;
 
 @property (nonatomic, strong) ALAssetsGroup *group;
 
 @property (nonatomic, strong) NSMutableArray *assetsArray;
+
+@property (nonatomic, strong) NSArray *actionArray;
 
 @end
 
@@ -45,11 +54,13 @@ static const NSUInteger PhotoHeight = 100;
     if (self = [super init]) {
         self.assetsArray = [NSMutableArray arrayWithCapacity:6];
         self.assetsArray[0] = @"camera";
+        self.actionArray = @[@"1", @"2", @"3", @"4", @"5", @"6"];
         
         self.frame = [UIScreen mainScreen].bounds;
         
         [self addSubview:self.darkView];
-        [self addSubview:self.photoContentView];
+        [self addSubview:self.contentView];
+        
         self.userInteractionEnabled = YES;
         
         self.photoBlock = photoBlock;
@@ -120,9 +131,9 @@ static const NSUInteger PhotoHeight = 100;
         
         [self.darkView setAlpha:0.35];
         
-        CGRect frame = self.photoContentView.frame;
+        CGRect frame = self.contentView.frame;
         frame.origin.y -= frame.size.height;
-        [self.photoContentView setFrame:frame];
+        [self.contentView setFrame:frame];
         
     } completion:^(BOOL finished) {
         [self.darkView setUserInteractionEnabled:YES];
@@ -135,9 +146,9 @@ static const NSUInteger PhotoHeight = 100;
         [self.darkView setAlpha:0];
         [self.darkView setUserInteractionEnabled:NO];
         
-        CGRect frame = self.photoContentView.frame;
+        CGRect frame = self.contentView.frame;
         frame.origin.y += frame.size.height;
-        [self.photoContentView setFrame:frame];
+        [self.contentView setFrame:frame];
         
     } completion:^(BOOL finished) {
         
@@ -148,31 +159,56 @@ static const NSUInteger PhotoHeight = 100;
 }
 
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    if (collectionView == self.photoContentView) {
+        return 1;
+    }else {
+        return 2;
+    }
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.assetsArray.count == 1 ? 0 : self.assetsArray.count;
+    if (collectionView == self.photoContentView) {
+        return self.assetsArray.count == 1 ? 0 : self.assetsArray.count;
+    }else {
+        return self.actionArray.count;
+    }
 }
 
 static NSString *photoIdentifier = @"RYImagePickerPhotoCell";
 static NSString *cameraIdentifier = @"RYImagePickerCameraCell";
+static NSString *actionIdentifier = @"RYImagePickerActionCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == 0) {
-        RYImagePickerCameraCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cameraIdentifier forIndexPath:indexPath];
-        return cell;
+    if (collectionView == self.photoContentView) {
+        if (indexPath.row == 0) {
+            RYImagePickerCameraCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cameraIdentifier forIndexPath:indexPath];
+            return cell;
+        }else {
+            RYImagePickerColletionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:photoIdentifier forIndexPath:indexPath];
+            
+            cell.delegate = self;
+            cell.asset = self.assetsArray[indexPath.row];
+            
+            return cell;
+        }
     }else {
-        RYImagePickerColletionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:photoIdentifier forIndexPath:indexPath];
-        
-        cell.delegate = self;
-        cell.asset = self.assetsArray[indexPath.row];
-        
+    
+        RYImagePickerActionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:actionIdentifier forIndexPath:indexPath];
+        cell.nameLabel.text = self.actionArray[indexPath.row];
         return cell;
     }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
+    if (collectionView == self.photoContentView) {
+        if (indexPath.row == 0) {
+            [self dismiss:nil];
+            self.photoBlock(nil, true);
+        }
+    }else {
         [self dismiss:nil];
-        self.photoBlock(nil, true);
+        self.actionBlock(indexPath.row);
     }
 }
 
@@ -210,6 +246,16 @@ static NSString *cameraIdentifier = @"RYImagePickerCameraCell";
     return _backWindow;
 }
 
+- (UIView *)contentView {
+    if (!_contentView) {
+        _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height, self.bounds.size.width, contentHeight)];
+        _contentView.backgroundColor = [UIColor blueColor];
+        [_contentView addSubview:self.photoContentView];
+        [_contentView addSubview:self.actionContentView];
+    }
+    return _contentView;
+}
+
 - (UICollectionView *)photoContentView {
     if (!_photoContentView) {
         
@@ -217,7 +263,7 @@ static NSString *cameraIdentifier = @"RYImagePickerCameraCell";
         flowLayout.itemSize = CGSizeMake(PhotoHeight - 5, PhotoHeight - 5);
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         
-        _photoContentView = [[UICollectionView alloc] initWithFrame:CGRectMake(5, self.bounds.size.height - 200, self.bounds.size.width - 10, PhotoHeight) collectionViewLayout:flowLayout];
+        _photoContentView = [[UICollectionView alloc] initWithFrame:CGRectMake(5, 0, self.bounds.size.width - 10, PhotoHeight) collectionViewLayout:flowLayout];
         [_photoContentView registerClass:[RYImagePickerColletionViewCell class] forCellWithReuseIdentifier:photoIdentifier];
         [_photoContentView registerClass:[RYImagePickerCameraCell class] forCellWithReuseIdentifier:cameraIdentifier];
         
@@ -229,6 +275,26 @@ static NSString *cameraIdentifier = @"RYImagePickerCameraCell";
         _photoContentView.dataSource = self;
     }
     return _photoContentView;
+}
+
+- (UICollectionView *)actionContentView {
+    if (!_actionContentView) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.itemSize = CGSizeMake(self.bounds.size.width / 3, actionHeght / 2);
+        flowLayout.minimumLineSpacing = 0;
+        flowLayout.minimumInteritemSpacing = 0;
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        
+        _actionContentView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, PhotoHeight, self.bounds.size.width, contentHeight - PhotoHeight)collectionViewLayout:flowLayout];
+        [_actionContentView registerClass:[RYImagePickerActionCell class] forCellWithReuseIdentifier:actionIdentifier];
+        _actionContentView.backgroundColor = [UIColor clearColor];
+        _actionContentView.scrollEnabled = YES;
+        _actionContentView.showsVerticalScrollIndicator = NO;
+        _actionContentView.showsHorizontalScrollIndicator = NO;
+        _actionContentView.delegate = self;
+        _actionContentView.dataSource = self;
+    }
+    return _actionContentView;
 }
 
 @end

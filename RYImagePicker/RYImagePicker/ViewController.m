@@ -53,7 +53,9 @@
                 
                 
             }];
-            [self presentViewController:recordController animated:YES completion:nil];
+            [weakSelf presentViewController:recordController animated:YES completion:nil];
+            
+        }else {
             
         }
     } actionBlock:^(RYActionSheetType type) {
