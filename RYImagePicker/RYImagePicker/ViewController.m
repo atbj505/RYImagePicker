@@ -46,7 +46,6 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     RYActionSheet *actionSheet = [RYActionSheet actionSheetWithSelectPhotoBlock:^(UIImage *image, BOOL isCamera) {
         if (isCamera) {
-            
             KNBRecorderController *recordController = [KNBRecorderController recorderWithType:KNBRecorderPhoto Name:nil];
             
             WS(weakSelf);

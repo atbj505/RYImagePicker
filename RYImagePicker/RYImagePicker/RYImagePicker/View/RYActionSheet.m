@@ -171,6 +171,7 @@ static NSString *cameraIdentifier = @"RYImagePickerCameraCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
+        [self dismiss:nil];
         self.photoBlock(nil, true);
     }
 }
