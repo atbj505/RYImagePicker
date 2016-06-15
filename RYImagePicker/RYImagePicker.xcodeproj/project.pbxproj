@@ -1,2066 +1,742 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>0E4C48EEA430D34374CF8A75</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>9A8DD4223A6AB42FF0509978</string>
-				<string>C5FDA474BD7FDBF9DDE493DD</string>
-				<string>96197164900CB5941B58BC5F</string>
-				<string>9ABBAA10A9B8220904867863</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1B948C86DAB101FD96A4B7F2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>747FE98646D982CC7A7FDD21</string>
-				<string>306C31E87063F21694B28C9E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1D9059F25CF0A1D01B2BA758</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>&#128230; Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>306C31E87063F21694B28C9E</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-RYImagePickerTests.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>4FDEFE04C480C7C63B697EF3</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>&#128230; Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>572F760F1D0FF74600DDBF0B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>57464A661CFFCF830073C189</string>
-				<string>57464A671CFFCF830073C189</string>
-				<string>57464A6E1CFFE4610073C189</string>
-				<string>57464A6F1CFFE4610073C189</string>
-				<string>57C699721D01766A0003B1FD</string>
-				<string>57C699731D01766A0003B1FD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Controller</string>
-			<key>path</key>
-			<string>Controller</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76111D0FF76300DDBF0B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>572F76121D0FF77C00DDBF0B</string>
-				<string>572F76131D0FF77C00DDBF0B</string>
-				<string>572F76161D0FF77C00DDBF0B</string>
-				<string>572F76171D0FF77C00DDBF0B</string>
-				<string>572F76181D0FF77C00DDBF0B</string>
-				<string>572F76191D0FF77C00DDBF0B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Recorder</string>
-			<key>path</key>
-			<string>Recorder</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76121D0FF77C00DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>KNBRecorderController.h</string>
-			<key>path</key>
-			<string>KNBRecorderController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76131D0FF77C00DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>KNBRecorderController.m</string>
-			<key>path</key>
-			<string>KNBRecorderController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76161D0FF77C00DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>LLSimpleCamera+FocusBox.h</string>
-			<key>path</key>
-			<string>LLSimpleCamera+FocusBox.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76171D0FF77C00DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>LLSimpleCamera+FocusBox.m</string>
-			<key>path</key>
-			<string>LLSimpleCamera+FocusBox.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76181D0FF77C00DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>LLSimpleCameraIntercepter.h</string>
-			<key>path</key>
-			<string>LLSimpleCameraIntercepter.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76191D0FF77C00DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>LLSimpleCameraIntercepter.m</string>
-			<key>path</key>
-			<string>LLSimpleCameraIntercepter.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F761A1D0FF77C00DDBF0B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>572F76131D0FF77C00DDBF0B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>572F761C1D0FF77C00DDBF0B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>572F76171D0FF77C00DDBF0B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>572F761D1D0FF77C00DDBF0B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>572F76191D0FF77C00DDBF0B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>572F761E1D0FF84F00DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIColor+Hex.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F761F1D0FF84F00DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIColor+Hex.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76201D0FF84F00DDBF0B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>572F761F1D0FF84F00DDBF0B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>572F76211D0FF9F200DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIImage+Resize.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76221D0FF9F200DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIImage+Resize.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76231D0FF9F200DDBF0B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>572F76221D0FF9F200DDBF0B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>572F76241D0FFAE600DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIImage+Alpha.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76251D0FFAE600DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIImage+Alpha.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76261D0FFAE600DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIImage+RoundedCorner.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76271D0FFAE600DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIImage+RoundedCorner.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76281D0FFAE600DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIView+Frame.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F76291D0FFAE600DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIView+Frame.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F762A1D0FFAE600DDBF0B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>572F76251D0FFAE600DDBF0B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>572F762B1D0FFAE600DDBF0B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>572F76271D0FFAE600DDBF0B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>572F762C1D0FFAE600DDBF0B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>572F76291D0FFAE600DDBF0B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>572F762D1D10F13D00DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYImagePickerActionCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F762E1D10F13D00DDBF0B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYImagePickerActionCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>572F762F1D10F13D00DDBF0B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>572F762E1D10F13D00DDBF0B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57464A341CFFC9AC0073C189</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>1B948C86DAB101FD96A4B7F2</string>
-				<string>0E4C48EEA430D34374CF8A75</string>
-				<string>57464A3E1CFFC9AC0073C189</string>
-				<string>57464A3F1CFFC9AC0073C189</string>
-				<string>57464A591CFFC9AC0073C189</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A351CFFC9AC0073C189</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0730</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Robert</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>57464A3C1CFFC9AC0073C189</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3.1</string>
-						<key>DevelopmentTeam</key>
-						<string>FJXM979Q77</string>
-					</dict>
-					<key>57464A551CFFC9AC0073C189</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3.1</string>
-						<key>TestTargetID</key>
-						<string>57464A3C1CFFC9AC0073C189</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>57464A381CFFC9AC0073C189</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>57464A341CFFC9AC0073C189</string>
-			<key>productRefGroup</key>
-			<string>57464A3E1CFFC9AC0073C189</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>57464A3C1CFFC9AC0073C189</string>
-				<string>57464A551CFFC9AC0073C189</string>
-			</array>
-		</dict>
-		<key>57464A381CFFC9AC0073C189</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>57464A5D1CFFC9AC0073C189</string>
-				<string>57464A5E1CFFC9AC0073C189</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>57464A391CFFC9AC0073C189</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>577373FC1D0FB78500B2F368</string>
-				<string>57464A731D0005F90073C189</string>
-				<string>57C699771D01774B0003B1FD</string>
-				<string>57464A481CFFC9AC0073C189</string>
-				<string>57C6997D1D0177880003B1FD</string>
-				<string>57464A451CFFC9AC0073C189</string>
-				<string>57464A701CFFE4610073C189</string>
-				<string>577373F81D0E87DC00B2F368</string>
-				<string>572F762B1D0FFAE600DDBF0B</string>
-				<string>577373F51D0D669C00B2F368</string>
-				<string>572F762F1D10F13D00DDBF0B</string>
-				<string>572F76201D0FF84F00DDBF0B</string>
-				<string>577373EB1D0D3DF500B2F368</string>
-				<string>57C699741D01766A0003B1FD</string>
-				<string>572F761D1D0FF77C00DDBF0B</string>
-				<string>572F762A1D0FFAE600DDBF0B</string>
-				<string>57464A681CFFCF830073C189</string>
-				<string>577373EE1D0D3F4200B2F368</string>
-				<string>57464A7A1D0057320073C189</string>
-				<string>57464A6C1CFFDB1E0073C189</string>
-				<string>572F76231D0FF9F200DDBF0B</string>
-				<string>572F761A1D0FF77C00DDBF0B</string>
-				<string>572F762C1D0FFAE600DDBF0B</string>
-				<string>57464A761D0013FE0073C189</string>
-				<string>57464A421CFFC9AC0073C189</string>
-				<string>57C699801D0270DE0003B1FD</string>
-				<string>57C6997A1D01776E0003B1FD</string>
-				<string>572F761C1D0FF77C00DDBF0B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>57464A3A1CFFC9AC0073C189</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E110A38E2D0025E7DEBE6241</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>57464A3B1CFFC9AC0073C189</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>57464A4D1CFFC9AC0073C189</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>57464A3C1CFFC9AC0073C189</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>57464A5F1CFFC9AC0073C189</string>
-			<key>buildPhases</key>
-			<array>
-				<string>1D9059F25CF0A1D01B2BA758</string>
-				<string>57464A391CFFC9AC0073C189</string>
-				<string>57464A3A1CFFC9AC0073C189</string>
-				<string>57464A3B1CFFC9AC0073C189</string>
-				<string>4FDEFE04C480C7C63B697EF3</string>
-				<string>E28D9C9ECB0DEA26911736DA</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>RYImagePicker</string>
-			<key>productName</key>
-			<string>RYImagePicker</string>
-			<key>productReference</key>
-			<string>57464A3D1CFFC9AC0073C189</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>57464A3D1CFFC9AC0073C189</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>RYImagePicker.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>57464A3E1CFFC9AC0073C189</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>57464A3D1CFFC9AC0073C189</string>
-				<string>57464A561CFFC9AC0073C189</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A3F1CFFC9AC0073C189</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>577373F91D0E87E500B2F368</string>
-				<string>57464A691CFFCF890073C189</string>
-				<string>572F76111D0FF76300DDBF0B</string>
-				<string>57464A401CFFC9AC0073C189</string>
-				<string>57464A431CFFC9AC0073C189</string>
-				<string>57464A441CFFC9AC0073C189</string>
-				<string>57464A4C1CFFC9AC0073C189</string>
-				<string>57464A511CFFC9AC0073C189</string>
-				<string>57464A461CFFC9AC0073C189</string>
-				<string>57464A471CFFC9AC0073C189</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>RYImagePicker</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A401CFFC9AC0073C189</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>57464A651CFFCBC90073C189</string>
-				<string>57464A411CFFC9AC0073C189</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A411CFFC9AC0073C189</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A421CFFC9AC0073C189</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57464A411CFFC9AC0073C189</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57464A431CFFC9AC0073C189</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>AppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A441CFFC9AC0073C189</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>AppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A451CFFC9AC0073C189</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57464A441CFFC9AC0073C189</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57464A461CFFC9AC0073C189</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A471CFFC9AC0073C189</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A481CFFC9AC0073C189</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57464A471CFFC9AC0073C189</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57464A4C1CFFC9AC0073C189</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Assets.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A4D1CFFC9AC0073C189</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57464A4C1CFFC9AC0073C189</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57464A511CFFC9AC0073C189</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A521CFFC9AC0073C189</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>57464A5B1CFFC9AC0073C189</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>57464A531CFFC9AC0073C189</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D1F52A61C1554F7E20CBA14A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>57464A541CFFC9AC0073C189</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>57464A551CFFC9AC0073C189</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>57464A621CFFC9AC0073C189</string>
-			<key>buildPhases</key>
-			<array>
-				<string>FE09BC6EB992281F99BA80CE</string>
-				<string>57464A521CFFC9AC0073C189</string>
-				<string>57464A531CFFC9AC0073C189</string>
-				<string>57464A541CFFC9AC0073C189</string>
-				<string>9DB2F78B3F058ADE0CB10A50</string>
-				<string>73179D433B3D0091453CD2E7</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>57464A581CFFC9AC0073C189</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>RYImagePickerTests</string>
-			<key>productName</key>
-			<string>RYImagePickerTests</string>
-			<key>productReference</key>
-			<string>57464A561CFFC9AC0073C189</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>57464A561CFFC9AC0073C189</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>RYImagePickerTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>57464A571CFFC9AC0073C189</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>57464A351CFFC9AC0073C189</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>57464A3C1CFFC9AC0073C189</string>
-			<key>remoteInfo</key>
-			<string>RYImagePicker</string>
-		</dict>
-		<key>57464A581CFFC9AC0073C189</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>57464A3C1CFFC9AC0073C189</string>
-			<key>targetProxy</key>
-			<string>57464A571CFFC9AC0073C189</string>
-		</dict>
-		<key>57464A591CFFC9AC0073C189</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>57464A5C1CFFC9AC0073C189</string>
-				<string>57464A5A1CFFC9AC0073C189</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>RYImagePickerTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A5A1CFFC9AC0073C189</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYImagePickerTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A5B1CFFC9AC0073C189</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57464A5A1CFFC9AC0073C189</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57464A5C1CFFC9AC0073C189</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A5D1CFFC9AC0073C189</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.3</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>57464A5E1CFFC9AC0073C189</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.3</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>57464A5F1CFFC9AC0073C189</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>57464A601CFFC9AC0073C189</string>
-				<string>57464A611CFFC9AC0073C189</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>57464A601CFFC9AC0073C189</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>9A8DD4223A6AB42FF0509978</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>Brand Assets</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>RYImagePicker/Supporting Files/PrefixHeader.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>RYImagePicker/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.robert.RYImagePicker</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>57464A611CFFC9AC0073C189</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>C5FDA474BD7FDBF9DDE493DD</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>Brand Assets</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>RYImagePicker/Supporting Files/PrefixHeader.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>RYImagePicker/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.robert.RYImagePicker</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>57464A621CFFC9AC0073C189</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>57464A631CFFC9AC0073C189</string>
-				<string>57464A641CFFC9AC0073C189</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>57464A631CFFC9AC0073C189</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>96197164900CB5941B58BC5F</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>RYImagePickerTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>Robert.RYImagePickerTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/RYImagePicker.app/RYImagePicker</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>57464A641CFFC9AC0073C189</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>9ABBAA10A9B8220904867863</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>RYImagePickerTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>Robert.RYImagePickerTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/RYImagePicker.app/RYImagePicker</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>57464A651CFFCBC90073C189</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>PrefixHeader.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A661CFFCF830073C189</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYImagePicker.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A671CFFCF830073C189</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYImagePicker.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A681CFFCF830073C189</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57464A671CFFCF830073C189</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57464A691CFFCF890073C189</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>572F760F1D0FF74600DDBF0B</string>
-				<string>57464A771D00571B0073C189</string>
-				<string>57464A6D1CFFE4330073C189</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>RYImagePicker</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A6A1CFFDB1E0073C189</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYImagePickerTableViewCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A6B1CFFDB1E0073C189</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYImagePickerTableViewCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A6C1CFFDB1E0073C189</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57464A6B1CFFDB1E0073C189</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57464A6D1CFFE4330073C189</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>577373F61D0E87DC00B2F368</string>
-				<string>577373F71D0E87DC00B2F368</string>
-				<string>572F762D1D10F13D00DDBF0B</string>
-				<string>572F762E1D10F13D00DDBF0B</string>
-				<string>577373FA1D0FB78500B2F368</string>
-				<string>577373FB1D0FB78500B2F368</string>
-				<string>57464A741D0013FE0073C189</string>
-				<string>57464A751D0013FE0073C189</string>
-				<string>57464A6A1CFFDB1E0073C189</string>
-				<string>57464A6B1CFFDB1E0073C189</string>
-				<string>57464A711D0005F90073C189</string>
-				<string>57464A721D0005F90073C189</string>
-				<string>57C699781D01776E0003B1FD</string>
-				<string>57C699791D01776E0003B1FD</string>
-				<string>577373EC1D0D3F4200B2F368</string>
-				<string>577373ED1D0D3F4200B2F368</string>
-				<string>57C699751D01774B0003B1FD</string>
-				<string>57C699761D01774B0003B1FD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>View</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A6E1CFFE4610073C189</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYImagePickerSelect.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A6F1CFFE4610073C189</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYImagePickerSelect.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A701CFFE4610073C189</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57464A6F1CFFE4610073C189</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57464A711D0005F90073C189</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYImagePickerToolBar.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A721D0005F90073C189</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYImagePickerToolBar.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A731D0005F90073C189</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57464A721D0005F90073C189</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57464A741D0013FE0073C189</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYImagePickerColletionViewCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A751D0013FE0073C189</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYImagePickerColletionViewCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A761D0013FE0073C189</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57464A751D0013FE0073C189</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57464A771D00571B0073C189</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>57464A781D0057320073C189</string>
-				<string>57464A791D0057320073C189</string>
-				<string>57C6997B1D0177880003B1FD</string>
-				<string>57C6997C1D0177880003B1FD</string>
-				<string>57C6997E1D0270DE0003B1FD</string>
-				<string>57C6997F1D0270DE0003B1FD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Model</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A781D0057320073C189</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYImageModel.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A791D0057320073C189</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYImageModel.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57464A7A1D0057320073C189</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57464A791D0057320073C189</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>577373E91D0D3DF500B2F368</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UILabel+Count.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>577373EA1D0D3DF500B2F368</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UILabel+Count.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>577373EB1D0D3DF500B2F368</key>
-		<dict>
-			<key>fileRef</key>
-			<string>577373EA1D0D3DF500B2F368</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>577373EC1D0D3F4200B2F368</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYScaleImageToolBar.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>577373ED1D0D3F4200B2F368</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYScaleImageToolBar.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>577373EE1D0D3F4200B2F368</key>
-		<dict>
-			<key>fileRef</key>
-			<string>577373ED1D0D3F4200B2F368</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>577373F31D0D669C00B2F368</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ALAssetsLibrary+Singleton.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>577373F41D0D669C00B2F368</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ALAssetsLibrary+Singleton.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>577373F51D0D669C00B2F368</key>
-		<dict>
-			<key>fileRef</key>
-			<string>577373F41D0D669C00B2F368</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>577373F61D0E87DC00B2F368</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYActionSheet.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>577373F71D0E87DC00B2F368</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYActionSheet.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>577373F81D0E87DC00B2F368</key>
-		<dict>
-			<key>fileRef</key>
-			<string>577373F71D0E87DC00B2F368</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>577373F91D0E87E500B2F368</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>577373F31D0D669C00B2F368</string>
-				<string>577373F41D0D669C00B2F368</string>
-				<string>572F761E1D0FF84F00DDBF0B</string>
-				<string>572F761F1D0FF84F00DDBF0B</string>
-				<string>572F76241D0FFAE600DDBF0B</string>
-				<string>572F76251D0FFAE600DDBF0B</string>
-				<string>572F76211D0FF9F200DDBF0B</string>
-				<string>572F76221D0FF9F200DDBF0B</string>
-				<string>572F76261D0FFAE600DDBF0B</string>
-				<string>572F76271D0FFAE600DDBF0B</string>
-				<string>577373E91D0D3DF500B2F368</string>
-				<string>577373EA1D0D3DF500B2F368</string>
-				<string>572F76281D0FFAE600DDBF0B</string>
-				<string>572F76291D0FFAE600DDBF0B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Category</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>577373FA1D0FB78500B2F368</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYImagePickerCameraCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>577373FB1D0FB78500B2F368</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYImagePickerCameraCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>577373FC1D0FB78500B2F368</key>
-		<dict>
-			<key>fileRef</key>
-			<string>577373FB1D0FB78500B2F368</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57C699721D01766A0003B1FD</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYScaleImageViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57C699731D01766A0003B1FD</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYScaleImageViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57C699741D01766A0003B1FD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57C699731D01766A0003B1FD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57C699751D01774B0003B1FD</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYScaleImageView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57C699761D01774B0003B1FD</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYScaleImageView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57C699771D01774B0003B1FD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57C699761D01774B0003B1FD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57C699781D01776E0003B1FD</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYScaleImageCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57C699791D01776E0003B1FD</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYScaleImageCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57C6997A1D01776E0003B1FD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57C699791D01776E0003B1FD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57C6997B1D0177880003B1FD</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYTransitionAnimation.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57C6997C1D0177880003B1FD</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYTransitionAnimation.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57C6997D1D0177880003B1FD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57C6997C1D0177880003B1FD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>57C6997E1D0270DE0003B1FD</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RYTransitionInteractive.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57C6997F1D0270DE0003B1FD</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RYTransitionInteractive.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57C699801D0270DE0003B1FD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>57C6997F1D0270DE0003B1FD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>73179D433B3D0091453CD2E7</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>&#128230; Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>747FE98646D982CC7A7FDD21</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-RYImagePicker.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>96197164900CB5941B58BC5F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-RYImagePickerTests.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9A8DD4223A6AB42FF0509978</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-RYImagePicker.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9ABBAA10A9B8220904867863</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-RYImagePickerTests.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9DB2F78B3F058ADE0CB10A50</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>&#128230; Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>C5FDA474BD7FDBF9DDE493DD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-RYImagePicker.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D1F52A61C1554F7E20CBA14A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>306C31E87063F21694B28C9E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E110A38E2D0025E7DEBE6241</key>
-		<dict>
-			<key>fileRef</key>
-			<string>747FE98646D982CC7A7FDD21</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E28D9C9ECB0DEA26911736DA</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>&#128230; Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>FE09BC6EB992281F99BA80CE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>&#128230; Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>57464A351CFFC9AC0073C189</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		571AB8961D11778D007911E3 /* RYImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 571AB8951D11778D007911E3 /* RYImageManager.m */; };
+		572F761A1D0FF77C00DDBF0B /* KNBRecorderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76131D0FF77C00DDBF0B /* KNBRecorderController.m */; };
+		572F761C1D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76171D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.m */; };
+		572F761D1D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76191D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.m */; };
+		572F76201D0FF84F00DDBF0B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F761F1D0FF84F00DDBF0B /* UIColor+Hex.m */; };
+		572F76231D0FF9F200DDBF0B /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76221D0FF9F200DDBF0B /* UIImage+Resize.m */; };
+		572F762A1D0FFAE600DDBF0B /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76251D0FFAE600DDBF0B /* UIImage+Alpha.m */; };
+		572F762B1D0FFAE600DDBF0B /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76271D0FFAE600DDBF0B /* UIImage+RoundedCorner.m */; };
+		572F762C1D0FFAE600DDBF0B /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F76291D0FFAE600DDBF0B /* UIView+Frame.m */; };
+		572F762F1D10F13D00DDBF0B /* RYImagePickerActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 572F762E1D10F13D00DDBF0B /* RYImagePickerActionCell.m */; };
+		57464A421CFFC9AC0073C189 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A411CFFC9AC0073C189 /* main.m */; };
+		57464A451CFFC9AC0073C189 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A441CFFC9AC0073C189 /* AppDelegate.m */; };
+		57464A481CFFC9AC0073C189 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A471CFFC9AC0073C189 /* ViewController.m */; };
+		57464A4D1CFFC9AC0073C189 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57464A4C1CFFC9AC0073C189 /* Assets.xcassets */; };
+		57464A5B1CFFC9AC0073C189 /* RYImagePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A5A1CFFC9AC0073C189 /* RYImagePickerTests.m */; };
+		57464A681CFFCF830073C189 /* RYImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A671CFFCF830073C189 /* RYImagePicker.m */; };
+		57464A6C1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A6B1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m */; };
+		57464A701CFFE4610073C189 /* RYImagePickerSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A6F1CFFE4610073C189 /* RYImagePickerSelect.m */; };
+		57464A731D0005F90073C189 /* RYImagePickerToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A721D0005F90073C189 /* RYImagePickerToolBar.m */; };
+		57464A761D0013FE0073C189 /* RYImagePickerColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A751D0013FE0073C189 /* RYImagePickerColletionViewCell.m */; };
+		57464A7A1D0057320073C189 /* RYImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57464A791D0057320073C189 /* RYImageModel.m */; };
+		577373EB1D0D3DF500B2F368 /* UILabel+Count.m in Sources */ = {isa = PBXBuildFile; fileRef = 577373EA1D0D3DF500B2F368 /* UILabel+Count.m */; };
+		577373EE1D0D3F4200B2F368 /* RYScaleImageToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 577373ED1D0D3F4200B2F368 /* RYScaleImageToolBar.m */; };
+		577373F51D0D669C00B2F368 /* ALAssetsLibrary+Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 577373F41D0D669C00B2F368 /* ALAssetsLibrary+Singleton.m */; };
+		577373F81D0E87DC00B2F368 /* RYActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 577373F71D0E87DC00B2F368 /* RYActionSheet.m */; };
+		577373FC1D0FB78500B2F368 /* RYImagePickerCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 577373FB1D0FB78500B2F368 /* RYImagePickerCameraCell.m */; };
+		57C699741D01766A0003B1FD /* RYScaleImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C699731D01766A0003B1FD /* RYScaleImageViewController.m */; };
+		57C699771D01774B0003B1FD /* RYScaleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C699761D01774B0003B1FD /* RYScaleImageView.m */; };
+		57C6997A1D01776E0003B1FD /* RYScaleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C699791D01776E0003B1FD /* RYScaleImageCell.m */; };
+		57C6997D1D0177880003B1FD /* RYTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C6997C1D0177880003B1FD /* RYTransitionAnimation.m */; };
+		57C699801D0270DE0003B1FD /* RYTransitionInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C6997F1D0270DE0003B1FD /* RYTransitionInteractive.m */; };
+		D1F52A61C1554F7E20CBA14A /* libPods-RYImagePickerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 306C31E87063F21694B28C9E /* libPods-RYImagePickerTests.a */; };
+		E110A38E2D0025E7DEBE6241 /* libPods-RYImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 747FE98646D982CC7A7FDD21 /* libPods-RYImagePicker.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		57464A571CFFC9AC0073C189 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57464A351CFFC9AC0073C189 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57464A3C1CFFC9AC0073C189;
+			remoteInfo = RYImagePicker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		306C31E87063F21694B28C9E /* libPods-RYImagePickerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RYImagePickerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		571AB8941D11778D007911E3 /* RYImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImageManager.h; sourceTree = "<group>"; };
+		571AB8951D11778D007911E3 /* RYImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImageManager.m; sourceTree = "<group>"; };
+		572F76121D0FF77C00DDBF0B /* KNBRecorderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNBRecorderController.h; sourceTree = "<group>"; };
+		572F76131D0FF77C00DDBF0B /* KNBRecorderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNBRecorderController.m; sourceTree = "<group>"; };
+		572F76161D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LLSimpleCamera+FocusBox.h"; sourceTree = "<group>"; };
+		572F76171D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LLSimpleCamera+FocusBox.m"; sourceTree = "<group>"; };
+		572F76181D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSimpleCameraIntercepter.h; sourceTree = "<group>"; };
+		572F76191D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSimpleCameraIntercepter.m; sourceTree = "<group>"; };
+		572F761E1D0FF84F00DDBF0B /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		572F761F1D0FF84F00DDBF0B /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		572F76211D0FF9F200DDBF0B /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		572F76221D0FF9F200DDBF0B /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		572F76241D0FFAE600DDBF0B /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		572F76251D0FFAE600DDBF0B /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		572F76261D0FFAE600DDBF0B /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		572F76271D0FFAE600DDBF0B /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		572F76281D0FFAE600DDBF0B /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		572F76291D0FFAE600DDBF0B /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		572F762D1D10F13D00DDBF0B /* RYImagePickerActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImagePickerActionCell.h; sourceTree = "<group>"; };
+		572F762E1D10F13D00DDBF0B /* RYImagePickerActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImagePickerActionCell.m; sourceTree = "<group>"; };
+		57464A3D1CFFC9AC0073C189 /* RYImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RYImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57464A411CFFC9AC0073C189 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		57464A431CFFC9AC0073C189 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		57464A441CFFC9AC0073C189 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		57464A461CFFC9AC0073C189 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		57464A471CFFC9AC0073C189 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		57464A4C1CFFC9AC0073C189 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		57464A511CFFC9AC0073C189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57464A561CFFC9AC0073C189 /* RYImagePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RYImagePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57464A5A1CFFC9AC0073C189 /* RYImagePickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RYImagePickerTests.m; sourceTree = "<group>"; };
+		57464A5C1CFFC9AC0073C189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57464A651CFFCBC90073C189 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		57464A661CFFCF830073C189 /* RYImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImagePicker.h; sourceTree = "<group>"; };
+		57464A671CFFCF830073C189 /* RYImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImagePicker.m; sourceTree = "<group>"; };
+		57464A6A1CFFDB1E0073C189 /* RYImagePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImagePickerTableViewCell.h; sourceTree = "<group>"; };
+		57464A6B1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImagePickerTableViewCell.m; sourceTree = "<group>"; };
+		57464A6E1CFFE4610073C189 /* RYImagePickerSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImagePickerSelect.h; sourceTree = "<group>"; };
+		57464A6F1CFFE4610073C189 /* RYImagePickerSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImagePickerSelect.m; sourceTree = "<group>"; };
+		57464A711D0005F90073C189 /* RYImagePickerToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImagePickerToolBar.h; sourceTree = "<group>"; };
+		57464A721D0005F90073C189 /* RYImagePickerToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImagePickerToolBar.m; sourceTree = "<group>"; };
+		57464A741D0013FE0073C189 /* RYImagePickerColletionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImagePickerColletionViewCell.h; sourceTree = "<group>"; };
+		57464A751D0013FE0073C189 /* RYImagePickerColletionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImagePickerColletionViewCell.m; sourceTree = "<group>"; };
+		57464A781D0057320073C189 /* RYImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImageModel.h; sourceTree = "<group>"; };
+		57464A791D0057320073C189 /* RYImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImageModel.m; sourceTree = "<group>"; };
+		577373E91D0D3DF500B2F368 /* UILabel+Count.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Count.h"; sourceTree = "<group>"; };
+		577373EA1D0D3DF500B2F368 /* UILabel+Count.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Count.m"; sourceTree = "<group>"; };
+		577373EC1D0D3F4200B2F368 /* RYScaleImageToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYScaleImageToolBar.h; sourceTree = "<group>"; };
+		577373ED1D0D3F4200B2F368 /* RYScaleImageToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYScaleImageToolBar.m; sourceTree = "<group>"; };
+		577373F31D0D669C00B2F368 /* ALAssetsLibrary+Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+Singleton.h"; sourceTree = "<group>"; };
+		577373F41D0D669C00B2F368 /* ALAssetsLibrary+Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+Singleton.m"; sourceTree = "<group>"; };
+		577373F61D0E87DC00B2F368 /* RYActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYActionSheet.h; sourceTree = "<group>"; };
+		577373F71D0E87DC00B2F368 /* RYActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYActionSheet.m; sourceTree = "<group>"; };
+		577373FA1D0FB78500B2F368 /* RYImagePickerCameraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImagePickerCameraCell.h; sourceTree = "<group>"; };
+		577373FB1D0FB78500B2F368 /* RYImagePickerCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImagePickerCameraCell.m; sourceTree = "<group>"; };
+		57C699721D01766A0003B1FD /* RYScaleImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYScaleImageViewController.h; sourceTree = "<group>"; };
+		57C699731D01766A0003B1FD /* RYScaleImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYScaleImageViewController.m; sourceTree = "<group>"; };
+		57C699751D01774B0003B1FD /* RYScaleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYScaleImageView.h; sourceTree = "<group>"; };
+		57C699761D01774B0003B1FD /* RYScaleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYScaleImageView.m; sourceTree = "<group>"; };
+		57C699781D01776E0003B1FD /* RYScaleImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYScaleImageCell.h; sourceTree = "<group>"; };
+		57C699791D01776E0003B1FD /* RYScaleImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYScaleImageCell.m; sourceTree = "<group>"; };
+		57C6997B1D0177880003B1FD /* RYTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYTransitionAnimation.h; sourceTree = "<group>"; };
+		57C6997C1D0177880003B1FD /* RYTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYTransitionAnimation.m; sourceTree = "<group>"; };
+		57C6997E1D0270DE0003B1FD /* RYTransitionInteractive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYTransitionInteractive.h; sourceTree = "<group>"; };
+		57C6997F1D0270DE0003B1FD /* RYTransitionInteractive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYTransitionInteractive.m; sourceTree = "<group>"; };
+		747FE98646D982CC7A7FDD21 /* libPods-RYImagePicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RYImagePicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96197164900CB5941B58BC5F /* Pods-RYImagePickerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RYImagePickerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9A8DD4223A6AB42FF0509978 /* Pods-RYImagePicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RYImagePicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker.debug.xcconfig"; sourceTree = "<group>"; };
+		9ABBAA10A9B8220904867863 /* Pods-RYImagePickerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RYImagePickerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests.release.xcconfig"; sourceTree = "<group>"; };
+		C5FDA474BD7FDBF9DDE493DD /* Pods-RYImagePicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RYImagePicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		57464A3A1CFFC9AC0073C189 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E110A38E2D0025E7DEBE6241 /* libPods-RYImagePicker.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57464A531CFFC9AC0073C189 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1F52A61C1554F7E20CBA14A /* libPods-RYImagePickerTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E4C48EEA430D34374CF8A75 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9A8DD4223A6AB42FF0509978 /* Pods-RYImagePicker.debug.xcconfig */,
+				C5FDA474BD7FDBF9DDE493DD /* Pods-RYImagePicker.release.xcconfig */,
+				96197164900CB5941B58BC5F /* Pods-RYImagePickerTests.debug.xcconfig */,
+				9ABBAA10A9B8220904867863 /* Pods-RYImagePickerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1B948C86DAB101FD96A4B7F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				747FE98646D982CC7A7FDD21 /* libPods-RYImagePicker.a */,
+				306C31E87063F21694B28C9E /* libPods-RYImagePickerTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		572F760F1D0FF74600DDBF0B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				57464A661CFFCF830073C189 /* RYImagePicker.h */,
+				57464A671CFFCF830073C189 /* RYImagePicker.m */,
+				57464A6E1CFFE4610073C189 /* RYImagePickerSelect.h */,
+				57464A6F1CFFE4610073C189 /* RYImagePickerSelect.m */,
+				57C699721D01766A0003B1FD /* RYScaleImageViewController.h */,
+				57C699731D01766A0003B1FD /* RYScaleImageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		572F76111D0FF76300DDBF0B /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				572F76121D0FF77C00DDBF0B /* KNBRecorderController.h */,
+				572F76131D0FF77C00DDBF0B /* KNBRecorderController.m */,
+				572F76161D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.h */,
+				572F76171D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.m */,
+				572F76181D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.h */,
+				572F76191D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.m */,
+			);
+			path = Recorder;
+			sourceTree = "<group>";
+		};
+		57464A341CFFC9AC0073C189 = {
+			isa = PBXGroup;
+			children = (
+				1B948C86DAB101FD96A4B7F2 /* Frameworks */,
+				0E4C48EEA430D34374CF8A75 /* Pods */,
+				57464A3E1CFFC9AC0073C189 /* Products */,
+				57464A3F1CFFC9AC0073C189 /* RYImagePicker */,
+				57464A591CFFC9AC0073C189 /* RYImagePickerTests */,
+			);
+			sourceTree = "<group>";
+		};
+		57464A3E1CFFC9AC0073C189 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57464A3D1CFFC9AC0073C189 /* RYImagePicker.app */,
+				57464A561CFFC9AC0073C189 /* RYImagePickerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		57464A3F1CFFC9AC0073C189 /* RYImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				577373F91D0E87E500B2F368 /* Category */,
+				57464A691CFFCF890073C189 /* RYImagePicker */,
+				572F76111D0FF76300DDBF0B /* Recorder */,
+				57464A401CFFC9AC0073C189 /* Supporting Files */,
+				57464A431CFFC9AC0073C189 /* AppDelegate.h */,
+				57464A441CFFC9AC0073C189 /* AppDelegate.m */,
+				57464A4C1CFFC9AC0073C189 /* Assets.xcassets */,
+				57464A511CFFC9AC0073C189 /* Info.plist */,
+				57464A461CFFC9AC0073C189 /* ViewController.h */,
+				57464A471CFFC9AC0073C189 /* ViewController.m */,
+			);
+			path = RYImagePicker;
+			sourceTree = "<group>";
+		};
+		57464A401CFFC9AC0073C189 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				57464A651CFFCBC90073C189 /* PrefixHeader.pch */,
+				57464A411CFFC9AC0073C189 /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		57464A591CFFC9AC0073C189 /* RYImagePickerTests */ = {
+			isa = PBXGroup;
+			children = (
+				57464A5C1CFFC9AC0073C189 /* Info.plist */,
+				57464A5A1CFFC9AC0073C189 /* RYImagePickerTests.m */,
+			);
+			path = RYImagePickerTests;
+			sourceTree = "<group>";
+		};
+		57464A691CFFCF890073C189 /* RYImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				572F760F1D0FF74600DDBF0B /* Controller */,
+				57464A771D00571B0073C189 /* Model */,
+				57464A6D1CFFE4330073C189 /* View */,
+			);
+			path = RYImagePicker;
+			sourceTree = "<group>";
+		};
+		57464A6D1CFFE4330073C189 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				577373F61D0E87DC00B2F368 /* RYActionSheet.h */,
+				577373F71D0E87DC00B2F368 /* RYActionSheet.m */,
+				572F762D1D10F13D00DDBF0B /* RYImagePickerActionCell.h */,
+				572F762E1D10F13D00DDBF0B /* RYImagePickerActionCell.m */,
+				577373FA1D0FB78500B2F368 /* RYImagePickerCameraCell.h */,
+				577373FB1D0FB78500B2F368 /* RYImagePickerCameraCell.m */,
+				57464A741D0013FE0073C189 /* RYImagePickerColletionViewCell.h */,
+				57464A751D0013FE0073C189 /* RYImagePickerColletionViewCell.m */,
+				57464A6A1CFFDB1E0073C189 /* RYImagePickerTableViewCell.h */,
+				57464A6B1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m */,
+				57464A711D0005F90073C189 /* RYImagePickerToolBar.h */,
+				57464A721D0005F90073C189 /* RYImagePickerToolBar.m */,
+				57C699781D01776E0003B1FD /* RYScaleImageCell.h */,
+				57C699791D01776E0003B1FD /* RYScaleImageCell.m */,
+				577373EC1D0D3F4200B2F368 /* RYScaleImageToolBar.h */,
+				577373ED1D0D3F4200B2F368 /* RYScaleImageToolBar.m */,
+				57C699751D01774B0003B1FD /* RYScaleImageView.h */,
+				57C699761D01774B0003B1FD /* RYScaleImageView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		57464A771D00571B0073C189 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				57464A781D0057320073C189 /* RYImageModel.h */,
+				57464A791D0057320073C189 /* RYImageModel.m */,
+				571AB8941D11778D007911E3 /* RYImageManager.h */,
+				571AB8951D11778D007911E3 /* RYImageManager.m */,
+				57C6997B1D0177880003B1FD /* RYTransitionAnimation.h */,
+				57C6997C1D0177880003B1FD /* RYTransitionAnimation.m */,
+				57C6997E1D0270DE0003B1FD /* RYTransitionInteractive.h */,
+				57C6997F1D0270DE0003B1FD /* RYTransitionInteractive.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		577373F91D0E87E500B2F368 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				577373F31D0D669C00B2F368 /* ALAssetsLibrary+Singleton.h */,
+				577373F41D0D669C00B2F368 /* ALAssetsLibrary+Singleton.m */,
+				572F761E1D0FF84F00DDBF0B /* UIColor+Hex.h */,
+				572F761F1D0FF84F00DDBF0B /* UIColor+Hex.m */,
+				572F76241D0FFAE600DDBF0B /* UIImage+Alpha.h */,
+				572F76251D0FFAE600DDBF0B /* UIImage+Alpha.m */,
+				572F76211D0FF9F200DDBF0B /* UIImage+Resize.h */,
+				572F76221D0FF9F200DDBF0B /* UIImage+Resize.m */,
+				572F76261D0FFAE600DDBF0B /* UIImage+RoundedCorner.h */,
+				572F76271D0FFAE600DDBF0B /* UIImage+RoundedCorner.m */,
+				577373E91D0D3DF500B2F368 /* UILabel+Count.h */,
+				577373EA1D0D3DF500B2F368 /* UILabel+Count.m */,
+				572F76281D0FFAE600DDBF0B /* UIView+Frame.h */,
+				572F76291D0FFAE600DDBF0B /* UIView+Frame.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		57464A3C1CFFC9AC0073C189 /* RYImagePicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57464A5F1CFFC9AC0073C189 /* Build configuration list for PBXNativeTarget "RYImagePicker" */;
+			buildPhases = (
+				1D9059F25CF0A1D01B2BA758 /* 📦 Check Pods Manifest.lock */,
+				57464A391CFFC9AC0073C189 /* Sources */,
+				57464A3A1CFFC9AC0073C189 /* Frameworks */,
+				57464A3B1CFFC9AC0073C189 /* Resources */,
+				4FDEFE04C480C7C63B697EF3 /* 📦 Embed Pods Frameworks */,
+				E28D9C9ECB0DEA26911736DA /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RYImagePicker;
+			productName = RYImagePicker;
+			productReference = 57464A3D1CFFC9AC0073C189 /* RYImagePicker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		57464A551CFFC9AC0073C189 /* RYImagePickerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57464A621CFFC9AC0073C189 /* Build configuration list for PBXNativeTarget "RYImagePickerTests" */;
+			buildPhases = (
+				FE09BC6EB992281F99BA80CE /* 📦 Check Pods Manifest.lock */,
+				57464A521CFFC9AC0073C189 /* Sources */,
+				57464A531CFFC9AC0073C189 /* Frameworks */,
+				57464A541CFFC9AC0073C189 /* Resources */,
+				9DB2F78B3F058ADE0CB10A50 /* 📦 Embed Pods Frameworks */,
+				73179D433B3D0091453CD2E7 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57464A581CFFC9AC0073C189 /* PBXTargetDependency */,
+			);
+			name = RYImagePickerTests;
+			productName = RYImagePickerTests;
+			productReference = 57464A561CFFC9AC0073C189 /* RYImagePickerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		57464A351CFFC9AC0073C189 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Robert;
+				TargetAttributes = {
+					57464A3C1CFFC9AC0073C189 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = FJXM979Q77;
+					};
+					57464A551CFFC9AC0073C189 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 57464A3C1CFFC9AC0073C189;
+					};
+				};
+			};
+			buildConfigurationList = 57464A381CFFC9AC0073C189 /* Build configuration list for PBXProject "RYImagePicker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 57464A341CFFC9AC0073C189;
+			productRefGroup = 57464A3E1CFFC9AC0073C189 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				57464A3C1CFFC9AC0073C189 /* RYImagePicker */,
+				57464A551CFFC9AC0073C189 /* RYImagePickerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		57464A3B1CFFC9AC0073C189 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57464A4D1CFFC9AC0073C189 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57464A541CFFC9AC0073C189 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D9059F25CF0A1D01B2BA758 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4FDEFE04C480C7C63B697EF3 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73179D433B3D0091453CD2E7 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DB2F78B3F058ADE0CB10A50 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E28D9C9ECB0DEA26911736DA /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE09BC6EB992281F99BA80CE /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57464A391CFFC9AC0073C189 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				577373FC1D0FB78500B2F368 /* RYImagePickerCameraCell.m in Sources */,
+				57464A731D0005F90073C189 /* RYImagePickerToolBar.m in Sources */,
+				57C699771D01774B0003B1FD /* RYScaleImageView.m in Sources */,
+				57464A481CFFC9AC0073C189 /* ViewController.m in Sources */,
+				57C6997D1D0177880003B1FD /* RYTransitionAnimation.m in Sources */,
+				57464A451CFFC9AC0073C189 /* AppDelegate.m in Sources */,
+				57464A701CFFE4610073C189 /* RYImagePickerSelect.m in Sources */,
+				577373F81D0E87DC00B2F368 /* RYActionSheet.m in Sources */,
+				571AB8961D11778D007911E3 /* RYImageManager.m in Sources */,
+				572F762B1D0FFAE600DDBF0B /* UIImage+RoundedCorner.m in Sources */,
+				577373F51D0D669C00B2F368 /* ALAssetsLibrary+Singleton.m in Sources */,
+				572F762F1D10F13D00DDBF0B /* RYImagePickerActionCell.m in Sources */,
+				572F76201D0FF84F00DDBF0B /* UIColor+Hex.m in Sources */,
+				577373EB1D0D3DF500B2F368 /* UILabel+Count.m in Sources */,
+				57C699741D01766A0003B1FD /* RYScaleImageViewController.m in Sources */,
+				572F761D1D0FF77C00DDBF0B /* LLSimpleCameraIntercepter.m in Sources */,
+				572F762A1D0FFAE600DDBF0B /* UIImage+Alpha.m in Sources */,
+				57464A681CFFCF830073C189 /* RYImagePicker.m in Sources */,
+				577373EE1D0D3F4200B2F368 /* RYScaleImageToolBar.m in Sources */,
+				57464A7A1D0057320073C189 /* RYImageModel.m in Sources */,
+				57464A6C1CFFDB1E0073C189 /* RYImagePickerTableViewCell.m in Sources */,
+				572F76231D0FF9F200DDBF0B /* UIImage+Resize.m in Sources */,
+				572F761A1D0FF77C00DDBF0B /* KNBRecorderController.m in Sources */,
+				572F762C1D0FFAE600DDBF0B /* UIView+Frame.m in Sources */,
+				57464A761D0013FE0073C189 /* RYImagePickerColletionViewCell.m in Sources */,
+				57464A421CFFC9AC0073C189 /* main.m in Sources */,
+				57C699801D0270DE0003B1FD /* RYTransitionInteractive.m in Sources */,
+				57C6997A1D01776E0003B1FD /* RYScaleImageCell.m in Sources */,
+				572F761C1D0FF77C00DDBF0B /* LLSimpleCamera+FocusBox.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57464A521CFFC9AC0073C189 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57464A5B1CFFC9AC0073C189 /* RYImagePickerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		57464A581CFFC9AC0073C189 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57464A3C1CFFC9AC0073C189 /* RYImagePicker */;
+			targetProxy = 57464A571CFFC9AC0073C189 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		57464A5D1CFFC9AC0073C189 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		57464A5E1CFFC9AC0073C189 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		57464A601CFFC9AC0073C189 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A8DD4223A6AB42FF0509978 /* Pods-RYImagePicker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "RYImagePicker/Supporting Files/PrefixHeader.pch";
+				INFOPLIST_FILE = RYImagePicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.robert.RYImagePicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		57464A611CFFC9AC0073C189 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5FDA474BD7FDBF9DDE493DD /* Pods-RYImagePicker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "RYImagePicker/Supporting Files/PrefixHeader.pch";
+				INFOPLIST_FILE = RYImagePicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.robert.RYImagePicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		57464A631CFFC9AC0073C189 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96197164900CB5941B58BC5F /* Pods-RYImagePickerTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RYImagePickerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Robert.RYImagePickerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RYImagePicker.app/RYImagePicker";
+			};
+			name = Debug;
+		};
+		57464A641CFFC9AC0073C189 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ABBAA10A9B8220904867863 /* Pods-RYImagePickerTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RYImagePickerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Robert.RYImagePickerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RYImagePicker.app/RYImagePicker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		57464A381CFFC9AC0073C189 /* Build configuration list for PBXProject "RYImagePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57464A5D1CFFC9AC0073C189 /* Debug */,
+				57464A5E1CFFC9AC0073C189 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57464A5F1CFFC9AC0073C189 /* Build configuration list for PBXNativeTarget "RYImagePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57464A601CFFC9AC0073C189 /* Debug */,
+				57464A611CFFC9AC0073C189 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57464A621CFFC9AC0073C189 /* Build configuration list for PBXNativeTarget "RYImagePickerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57464A631CFFC9AC0073C189 /* Debug */,
+				57464A641CFFC9AC0073C189 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 57464A351CFFC9AC0073C189 /* Project object */;
+}
