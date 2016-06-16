@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+#import <Photos/Photos.h>
 
 
 @interface RYImageManager : NSObject
