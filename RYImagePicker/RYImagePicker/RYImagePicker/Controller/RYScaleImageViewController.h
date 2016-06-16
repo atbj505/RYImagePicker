@@ -12,15 +12,16 @@
 
 @protocol RYScaleImageViewControllerDelegate <NSObject>
 
-- (UIImageView*)scaleImageViewControllerFromView;
+- (UIImageView *)scaleImageViewControllerFromView;
 
 - (UIView *)scaleImageViewControllerFromViewSuperView;
 
-- (UIView*)scaleImageViewControllerToView;
+- (UIView *)scaleImageViewControllerToView;
 
 //- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add;
 
 @end
+
 
 @interface RYScaleImageViewController : UIViewController <UINavigationControllerDelegate>
 

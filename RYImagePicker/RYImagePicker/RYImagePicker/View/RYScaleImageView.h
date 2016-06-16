@@ -10,6 +10,7 @@
 
 @class RYScaleImageView;
 
+
 @interface RYScaleImageView : UIView
 
 /**

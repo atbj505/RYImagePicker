@@ -9,60 +9,67 @@
 #import "RYImagePickerColletionViewCell.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
+
 @interface RYImagePickerColletionViewCell ()
 
 @property (nonatomic, strong) UIButton *selectButton;
 
 @end
 
+
 @implementation RYImagePickerColletionViewCell
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame
+{
     if (self = [super initWithFrame:frame]) {
-        
         [self addSubview:self.imgView];
-        
+
         [self addSubview:self.selectButton];
     }
     return self;
 }
 
-+ (BOOL)requiresConstraintBasedLayout {
++ (BOOL)requiresConstraintBasedLayout
+{
     return YES;
 }
 
-- (void)updateConstraints {
+- (void)updateConstraints
+{
     WS(weakSelf);
-    
+
     [self.selectButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(weakSelf.mas_right);
         make.top.equalTo(weakSelf.mas_top);
         make.width.and.height.equalTo(@(20));
     }];
-    
+
     [super updateConstraints];
 }
 
-- (void)tapSelectButton {
+- (void)tapSelectButton
+{
     self.selectButton.selected = !self.selectButton.selected;
-    
+
     if (self.delegate && [self.delegate respondsToSelector:@selector(didTapSelectButton:add:)]) {
         if (self.selectButton.selected) {
             [self.delegate didTapSelectButton:self.asset add:true];
-        }else {
+        } else {
             [self.delegate didTapSelectButton:self.asset add:false];
         }
     }
 }
 
-- (UIImageView *)imgView {
+- (UIImageView *)imgView
+{
     if (!_imgView) {
         _imgView = [[UIImageView alloc] initWithFrame:self.bounds];
     }
     return _imgView;
 }
 
-- (UIButton *)selectButton {
+- (UIButton *)selectButton
+{
     if (!_selectButton) {
         _selectButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_selectButton setImage:[UIImage imageNamed:@"btn_unselect"] forState:UIControlStateNormal];
@@ -72,12 +79,14 @@
     return _selectButton;
 }
 
-- (void)setAsset:(ALAsset *)asset {
+- (void)setAsset:(ALAsset *)asset
+{
     _asset = asset;
     self.imgView.image = [UIImage imageWithCGImage:asset.thumbnail];
 }
 
-- (void)setIsSelected:(BOOL)isSelected {
+- (void)setIsSelected:(BOOL)isSelected
+{
     _isSelected = isSelected;
     self.selectButton.selected = isSelected;
 }

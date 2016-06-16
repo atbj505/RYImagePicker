@@ -17,6 +17,7 @@
 
 @end
 
+
 @interface RYScaleImageCell : UICollectionViewCell
 
 @property (nonatomic, strong) RYScaleImageView *scaleImage;

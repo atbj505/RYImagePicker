@@ -8,6 +8,7 @@
 
 #import "UIView+Frame.h"
 
+
 @implementation UIView (Frame)
 #pragma mark - Shortcuts for the coords
 
@@ -85,40 +86,48 @@
 
 #pragma mark - Shortcuts for frame properties
 
-- (CGPoint)origin {
+- (CGPoint)origin
+{
     return self.frame.origin;
 }
 
-- (void)setOrigin:(CGPoint)origin {
+- (void)setOrigin:(CGPoint)origin
+{
     CGRect frame = self.frame;
     frame.origin = origin;
     self.frame = frame;
 }
 
-- (CGSize)size {
+- (CGSize)size
+{
     return self.frame.size;
 }
 
-- (void)setSize:(CGSize)size {
+- (void)setSize:(CGSize)size
+{
     CGRect frame = self.frame;
     frame.size = size;
     self.frame = frame;
 }
 #pragma mark - Shortcuts for positions
 
-- (CGFloat)centerX {
+- (CGFloat)centerX
+{
     return self.center.x;
 }
 
-- (void)setCenterX:(CGFloat)centerX {
+- (void)setCenterX:(CGFloat)centerX
+{
     self.center = CGPointMake(centerX, self.center.y);
 }
 
-- (CGFloat)centerY {
+- (CGFloat)centerY
+{
     return self.center.y;
 }
 
-- (void)setCenterY:(CGFloat)centerY {
+- (void)setCenterY:(CGFloat)centerY
+{
     self.center = CGPointMake(self.center.x, centerY);
 }
 

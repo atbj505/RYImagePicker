@@ -8,17 +8,19 @@
 
 #import "UILabel+Count.h"
 
+
 @implementation UILabel (Count)
 
-- (void)updateCount:(NSInteger)count {
+- (void)updateCount:(NSInteger)count
+{
     if (!count) {
         self.text = @"";
         return;
     }
-    
+
     self.hidden = false;
     POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewSize];
-    
+
     animation.fromValue = [NSValue valueWithCGSize:CGSizeZero];
     animation.toValue = [NSValue valueWithCGSize:self.bounds.size];
     [animation setAnimationDidStartBlock:^(POPAnimation *animation) {

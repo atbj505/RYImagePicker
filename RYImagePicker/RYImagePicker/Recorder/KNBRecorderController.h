@@ -10,8 +10,9 @@
 
 typedef NS_ENUM(NSUInteger, KNBRecorderType) {
     KNBRecorderPhoto = 2, //照片
-    KNBRecorderVideo //视频
+    KNBRecorderVideo      //视频
 };
+
 
 @interface KNBRecorderController : UIViewController
 

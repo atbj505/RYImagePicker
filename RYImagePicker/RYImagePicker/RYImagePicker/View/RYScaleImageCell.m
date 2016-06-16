@@ -8,9 +8,11 @@
 
 #import "RYScaleImageCell.h"
 
+
 @implementation RYScaleImageCell
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
     if (self) {
         self.scaleImage = [[RYScaleImageView alloc] initWithFrame:self.bounds];

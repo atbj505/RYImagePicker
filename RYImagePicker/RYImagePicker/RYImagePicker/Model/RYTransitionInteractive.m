@@ -8,6 +8,7 @@
 
 #import "RYTransitionInteractive.h"
 
+
 @interface RYTransitionInteractive ()
 
 @property (nonatomic, weak) UIViewController *vc;
@@ -18,13 +19,16 @@
 
 @end
 
+
 @implementation RYTransitionInteractive
 
-+ (instancetype)interactiveTransitionWithTransitionType:(RYTransitionInteractiveType)type GestureDirection:(RYTransitionInteractiveGestureDirection)direction {
++ (instancetype)interactiveTransitionWithTransitionType:(RYTransitionInteractiveType)type GestureDirection:(RYTransitionInteractiveGestureDirection)direction
+{
     return [[[self class] alloc] initWithTransitionType:type GestureDirection:direction];
 }
 
-- (instancetype)initWithTransitionType:(RYTransitionInteractiveType)type GestureDirection:(RYTransitionInteractiveGestureDirection)direction{
+- (instancetype)initWithTransitionType:(RYTransitionInteractiveType)type GestureDirection:(RYTransitionInteractiveGestureDirection)direction
+{
     self = [super init];
     if (self) {
         self.direction = direction;
@@ -33,55 +37,52 @@
     return self;
 }
 
-- (void)addPanGestureForViewController:(UIViewController *)viewController {
+- (void)addPanGestureForViewController:(UIViewController *)viewController
+{
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
     self.vc = viewController;
     [viewController.view addGestureRecognizer:pan];
 }
 
-- (void)handleGesture:(UIPanGestureRecognizer *)panGesture{
+- (void)handleGesture:(UIPanGestureRecognizer *)panGesture
+{
     CGFloat persent = 0;
     switch (self.direction) {
-        case RYTransitionInteractiveGestureDirectionLeft:{
+        case RYTransitionInteractiveGestureDirectionLeft: {
             CGFloat transitionX = -[panGesture translationInView:panGesture.view].x;
             persent = transitionX / panGesture.view.frame.size.width;
-        }
-            break;
-        case RYTransitionInteractiveGestureDirectionRight:{
+        } break;
+        case RYTransitionInteractiveGestureDirectionRight: {
             CGFloat transitionX = [panGesture translationInView:panGesture.view].x;
             persent = transitionX / panGesture.view.frame.size.width;
-        }
-            break;
-        case RYTransitionInteractiveGestureDirectionUp:{
+        } break;
+        case RYTransitionInteractiveGestureDirectionUp: {
             CGFloat transitionY = -[panGesture translationInView:panGesture.view].y;
             persent = transitionY / panGesture.view.frame.size.width;
-        }
-            break;
-        case RYTransitionInteractiveGestureDirectionDown:{
+        } break;
+        case RYTransitionInteractiveGestureDirectionDown: {
             CGFloat transitionY = [panGesture translationInView:panGesture.view].y;
             persent = transitionY / panGesture.view.frame.size.width;
-        }
-            break;
-        case RYTransitionInteractiveGestureDirectionDown | RYTransitionInteractiveGestureDirectionUp:{
+        } break;
+        case RYTransitionInteractiveGestureDirectionDown | RYTransitionInteractiveGestureDirectionUp: {
             CGFloat transitionY = [panGesture translationInView:panGesture.view].y;
             persent = transitionY / panGesture.view.frame.size.width;
-        }
-            break;
+        } break;
     }
     switch (panGesture.state) {
         case UIGestureRecognizerStateBegan:
             self.interation = YES;
             [self startGesture];
             break;
-        case UIGestureRecognizerStateChanged:{
+        case UIGestureRecognizerStateChanged: {
             [self updateInteractiveTransition:persent];
             break;
         }
-        case UIGestureRecognizerStateEnded:{
+        case UIGestureRecognizerStateEnded: {
             self.interation = NO;
             if (persent > 0.1 | persent < -0.1) {
                 [self finishInteractiveTransition];
-            }else{
+            } else {
                 [self cancelInteractiveTransition];
             }
             break;
@@ -91,24 +92,23 @@
     }
 }
 
-- (void)startGesture{
+- (void)startGesture
+{
     switch (_type) {
-        case RYTransitionInteractiveTypePresent:{
+        case RYTransitionInteractiveTypePresent: {
             if (_presentConifg) {
                 _presentConifg();
             }
-        }
-            break;
-            
+        } break;
+
         case RYTransitionInteractiveTypeDismiss:
             [_vc dismissViewControllerAnimated:YES completion:nil];
             break;
-        case RYTransitionInteractiveTypePush:{
+        case RYTransitionInteractiveTypePush: {
             if (_pushConifg) {
                 _pushConifg();
             }
-        }
-            break;
+        } break;
         case RYTransitionInteractiveTypePop:
             [_vc.navigationController popViewControllerAnimated:YES];
             break;

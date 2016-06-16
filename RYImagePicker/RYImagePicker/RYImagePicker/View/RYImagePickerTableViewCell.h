@@ -10,6 +10,7 @@
 
 @class ALAssetsGroup;
 
+
 @interface RYImagePickerTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) ALAssetsGroup *group;

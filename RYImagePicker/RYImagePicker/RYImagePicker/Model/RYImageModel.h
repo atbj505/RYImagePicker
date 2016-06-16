@@ -10,6 +10,7 @@
 
 @class ALAsset;
 
+
 @interface RYImageModel : NSObject
 
 @property (nonatomic, assign, readonly) NSUInteger imageCounts;

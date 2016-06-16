@@ -14,6 +14,7 @@
 #import "RYTransitionInteractive.h"
 #import "RYScaleImageToolBar.h"
 
+
 @interface RYScaleImageViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
@@ -26,30 +27,33 @@
 
 @end
 
+
 @implementation RYScaleImageViewController
 
-- (instancetype)init {
+- (instancetype)init
+{
     if (self = [super init]) {
-        
         [self.view addSubview:self.imageBrowser];
-        
+
         [self.view addSubview:self.toolbar];
     }
     return self;
 }
 
 #pragma mark - Life Circle
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = false;
     self.view.backgroundColor = [UIColor blackColor];
-    
-    self.transitionInteractive = [RYTransitionInteractive interactiveTransitionWithTransitionType:RYTransitionInteractiveTypePop GestureDirection:RYTransitionInteractiveGestureDirectionUp|RYTransitionInteractiveGestureDirectionDown];
-    
+
+    self.transitionInteractive = [RYTransitionInteractive interactiveTransitionWithTransitionType:RYTransitionInteractiveTypePop GestureDirection:RYTransitionInteractiveGestureDirectionUp | RYTransitionInteractiveGestureDirectionDown];
+
     [self.transitionInteractive addPanGestureForViewController:self];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
@@ -57,7 +61,8 @@
     self.navigationController.interactivePopGestureRecognizer.enabled = false;
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
     self.navigationController.navigationBarHidden = NO;
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
@@ -66,35 +71,38 @@
 }
 
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     return self.imagesData.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     RYScaleImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    
+
     self.preIndexPath = indexPath;
-    
+
     ALAsset *asset = self.imagesData[indexPath.row];
-    
+
     ALAssetRepresentation *assetRep = [asset defaultRepresentation];
-    
+
     UIImage *image = [UIImage imageWithCGImage:assetRep.fullScreenImage scale:0.5 orientation:UIImageOrientationUp];
-    
+
     cell.scaleImage.image = image;
-    
+
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
     RYScaleImageCell *scaleCell = (RYScaleImageCell *)cell;
     [scaleCell.scaleImage restScale];
 }
 
 #pragma mark - Getter
-- (UICollectionView *)imageBrowser {
+- (UICollectionView *)imageBrowser
+{
     if (!_imageBrowser) {
-        
         _imageBrowser = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) collectionViewLayout:self.flowLayout];
         _imageBrowser.backgroundColor = [UIColor clearColor];
         _imageBrowser.pagingEnabled = YES;
@@ -108,7 +116,8 @@
     return _imageBrowser;
 }
 
-- (UICollectionViewFlowLayout *)flowLayout {
+- (UICollectionViewFlowLayout *)flowLayout
+{
     if (!_flowLayout) {
         _flowLayout = [[UICollectionViewFlowLayout alloc] init];
         _flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
@@ -119,36 +128,36 @@
     return _flowLayout;
 }
 
-- (void)setCurrentIndexPath:(NSIndexPath *)currentIndexPath {
+- (void)setCurrentIndexPath:(NSIndexPath *)currentIndexPath
+{
     _currentIndexPath = currentIndexPath;
     [self.imageBrowser scrollToItemAtIndexPath:self.currentIndexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
 }
 
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
-    
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
+{
     UIImageView *fromView;
     UIView *toView;
     UIView *fromViewSuperView;
-    
+
     if (self.delegate && [self.delegate respondsToSelector:@selector(scaleImageViewControllerFromView)] && [self.delegate respondsToSelector:@selector(scaleImageViewControllerToView)] && [self.delegate respondsToSelector:@selector(scaleImageViewControllerFromViewSuperView)]) {
-        
         fromView = [self.delegate scaleImageViewControllerFromView];
         toView = [self.delegate scaleImageViewControllerToView];
         fromViewSuperView = [self.delegate scaleImageViewControllerFromViewSuperView];
-        
-    }else {
+
+    } else {
         return nil;
     }
-    
+
     if (operation == UINavigationControllerOperationPush) {
         return [RYTransitionAnimation animationWithTransitionType:RYTransitionAnimationPush FromView:fromView FromViewSuperView:fromViewSuperView ToView:toView];
-    }else {
+    } else {
         return [RYTransitionAnimation animationWithTransitionType:RYTransitionAnimationPop FromView:fromView FromViewSuperView:fromViewSuperView ToView:toView];
     }
 }
 
-- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController{
-
+- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
+{
     return self.transitionInteractive.interation ? self.transitionInteractive : nil;
 }
 

@@ -8,23 +8,26 @@
 
 #import "RYImagePickerActionCell.h"
 
+
 @implementation RYImagePickerActionCell
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame
+{
     if (self = [super initWithFrame:frame]) {
         [self addSubview:self.nameLabel];
     }
     return self;
 }
 
-+ (BOOL)requiresConstraintBasedLayout {
++ (BOOL)requiresConstraintBasedLayout
+{
     return YES;
 }
 
-- (void)updateConstraints {
-    
+- (void)updateConstraints
+{
     WS(weakSelf);
-    
+
     [self.nameLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(weakSelf);
         make.width.equalTo(@(40));
@@ -34,7 +37,8 @@
     [super updateConstraints];
 }
 
-- (UILabel *)nameLabel {
+- (UILabel *)nameLabel
+{
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
         _nameLabel.textColor = [UIColor blackColor];

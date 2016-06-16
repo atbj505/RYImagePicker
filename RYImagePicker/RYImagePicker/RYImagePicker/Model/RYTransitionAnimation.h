@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, RYTransitionAnimationType) {
     RYTransitionAnimationPop
 };
 
+
 @interface RYTransitionAnimation : NSObject <UIViewControllerAnimatedTransitioning>
 
 + (RYTransitionAnimation *)animationWithTransitionType:(RYTransitionAnimationType)type FromView:(UIImageView *)fromView FromViewSuperView:(UIView *)superView ToView:(UIView *)toView;

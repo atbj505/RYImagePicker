@@ -11,6 +11,7 @@
 #import "RYImagePickerTableViewCell.h"
 #import "RYImagePickerSelect.h"
 
+
 @interface RYImagePicker () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *photoGroups;
@@ -21,75 +22,83 @@
 
 @end
 
+
 @implementation RYImagePicker
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
+
     self.photoGroups = [NSMutableArray array];
-    
+
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(back)];
     self.navigationItem.leftBarButtonItem = backItem;
-    
+
     [self.view addSubview:({
         self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         [self.tableView registerClass:[RYImagePickerTableViewCell class] forCellReuseIdentifier:identifier];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.tableView.tableFooterView = [[UIView alloc] init];
-        
+
         self.tableView;
     })];
-    
+
     [self loadData];
 }
 
-- (void)back {
+- (void)back
+{
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (void)loadData {
+- (void)loadData
+{
     self.library = [[ALAssetsLibrary alloc] init];
-    
+
     WS(weakSelf);
     [self.library enumerateGroupsWithTypes:ALAssetsGroupAll
-                                usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-                                    if (group) {
-                                        [weakSelf.photoGroups addObject:group];
-                                    }else {
-                                        [self.tableView reloadData];
-                                    }
-                                } failureBlock:^(NSError *error) {
-                                    NSLog(@"%@", error);
-                                }];
+        usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+            if (group) {
+                [weakSelf.photoGroups addObject:group];
+            } else {
+                [self.tableView reloadData];
+            }
+        }
+        failureBlock:^(NSError *error) {
+            NSLog(@"%@", error);
+        }];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return self.photoGroups.count;
 }
 
 static NSString *identifier = @"RYImagePickerTableViewCell";
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     RYImagePickerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[RYImagePickerTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
+
     cell.group = self.photoGroups[indexPath.row];
-    
+
     return cell;
-    
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return 70;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     ALAssetsGroup *group = self.photoGroups[indexPath.row];
-    
+
     RYImagePickerSelect *imageSelect = [[RYImagePickerSelect alloc] init];
     imageSelect.group = group;
     [self.navigationController pushViewController:imageSelect animated:YES];

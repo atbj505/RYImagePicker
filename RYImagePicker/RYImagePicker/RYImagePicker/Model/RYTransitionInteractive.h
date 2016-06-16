@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^GestureConifg)();
+typedef void (^GestureConifg)();
 
 typedef NS_ENUM(NSUInteger, RYTransitionInteractiveGestureDirection) {
     RYTransitionInteractiveGestureDirectionLeft = 1 << 0,
@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger, RYTransitionInteractiveType) {
     RYTransitionInteractiveTypePush,
     RYTransitionInteractiveTypePop,
 };
+
 
 @interface RYTransitionInteractive : UIPercentDrivenInteractiveTransition
 

@@ -8,6 +8,7 @@
 
 #import <LLSimpleCamera/LLSimpleCamera.h>
 
+
 @interface LLSimpleCamera (FocusBox)
 
 - (void)KNB_addDefaultFocusBox;

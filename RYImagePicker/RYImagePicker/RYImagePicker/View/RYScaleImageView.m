@@ -12,6 +12,7 @@ static const CGFloat RYMinimumZoomScale = 0.5;
 
 static const CGFloat RYMaximumZoomScale = 3.0;
 
+
 @interface RYScaleImageView () <UIScrollViewDelegate>
 
 /**
@@ -36,9 +37,11 @@ static const CGFloat RYMaximumZoomScale = 3.0;
 
 @end
 
+
 @implementation RYScaleImageView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame
+{
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor blackColor];
         [self addSubview:self.scrollView];
@@ -47,67 +50,75 @@ static const CGFloat RYMaximumZoomScale = 3.0;
     return self;
 }
 
-- (void)restScale {
+- (void)restScale
+{
     [self.scrollView setZoomScale:1.0];
 }
 
 #pragma mark - Masonry
-+ (BOOL)requiresConstraintBasedLayout {
++ (BOOL)requiresConstraintBasedLayout
+{
     return YES;
 }
 
-- (void)updateConstraints {
+- (void)updateConstraints
+{
     WS(weakSelf);
-    
+
     [self.blurView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.bottom.and.left.and.right.mas_equalTo(weakSelf);
         make.height.mas_equalTo(49);
     }];
-    
+
     [super updateConstraints];
 }
 
-- (void)doubleTap:(UITapGestureRecognizer *)tap {
+- (void)doubleTap:(UITapGestureRecognizer *)tap
+{
     if (_scrollView.zoomScale == 1.0) {
         CGPoint point = [tap locationInView:self];
-        
+
         CGFloat zoomWidth = self.bounds.size.width / RYMaximumZoomScale;
         CGFloat zoomHeight = self.bounds.size.height / RYMinimumZoomScale;
-        
+
         [self.scrollView zoomToRect:CGRectMake(point.x - zoomWidth / 2, point.y - zoomHeight / 2, zoomWidth, zoomHeight) animated:YES];
-        
-    }else {
+
+    } else {
         [self.scrollView zoomToRect:self.bounds animated:YES];
     }
-    
 }
 
 #pragma mark - UIScrollViewDelegate
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
     return self.imageView;
 }
 
-- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
     [self setScrollViewContentInset];
 }
 
-- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale {
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale
+{
     [scrollView setZoomScale:scale animated:NO];
 }
 
 #pragma mark - Private Method
-- (void)setScrollViewContentInset {
+- (void)setScrollViewContentInset
+{
     CGSize imageViewSize = self.imageView.bounds.size;
     CGSize scrollViewSize = self.scrollView.bounds.size;
-    
+
     CGFloat verticalPadding = imageViewSize.height < scrollViewSize.height ? (scrollViewSize.height - imageViewSize.height) / 2 : 0;
     CGFloat horizontalPadding = imageViewSize.width < scrollViewSize.width ? (scrollViewSize.width - imageViewSize.width) / 2 : 0;
-    
+
     self.scrollView.contentInset = UIEdgeInsetsMake(verticalPadding, horizontalPadding, verticalPadding, horizontalPadding);
 }
 
 #pragma mark - Setter && Getter
-- (UIScrollView *)scrollView {
+- (UIScrollView *)scrollView
+{
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
         _scrollView.backgroundColor = [UIColor blackColor];
@@ -115,16 +126,16 @@ static const CGFloat RYMaximumZoomScale = 3.0;
         _scrollView.maximumZoomScale = RYMaximumZoomScale;
         _scrollView.delegate = self;
         [_scrollView addSubview:self.imageView];
-        
+
         UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
         doubleTap.numberOfTapsRequired = 2;
         [_scrollView addGestureRecognizer:doubleTap];
-    
     }
     return _scrollView;
 }
 
-- (UIImageView *)imageView {
+- (UIImageView *)imageView
+{
     if (!_imageView) {
         _imageView = [[UIImageView alloc] initWithFrame:self.bounds];
         _imageView.image = self.image;
@@ -134,7 +145,8 @@ static const CGFloat RYMaximumZoomScale = 3.0;
     return _imageView;
 }
 
-- (UIView *)blurView {
+- (UIView *)blurView
+{
     if (!_blurView) {
         _blurView = [[UIView alloc] init];
         _blurView.backgroundColor = [UIColor blackColor];
@@ -144,12 +156,14 @@ static const CGFloat RYMaximumZoomScale = 3.0;
     return _blurView;
 }
 
-- (void)setImage:(UIImage *)image {
+- (void)setImage:(UIImage *)image
+{
     _image = image;
     self.imageView.image = image;
 }
 
-- (void)setNeedBlurView:(bool)needBlurView {
+- (void)setNeedBlurView:(bool)needBlurView
+{
     _needBlurView = needBlurView;
     self.blurView.hidden = !needBlurView;
 }

@@ -10,9 +10,11 @@
 #import "LLSimpleCamera+FocusBox.h"
 #import <objc/runtime.h>
 
+
 @implementation LLSimpleCameraIntercepter
 
-+ (LLSimpleCameraIntercepter *)shareInstance {
++ (LLSimpleCameraIntercepter *)shareInstance
+{
     static dispatch_once_t onceToken;
     static LLSimpleCameraIntercepter *instance;
     dispatch_once(&onceToken, ^{
@@ -21,13 +23,15 @@
     return instance;
 }
 
-+ (void)load {
++ (void)load
+{
     [super load];
-    
+
     [LLSimpleCameraIntercepter shareInstance];
 }
 
-- (instancetype)init {
+- (instancetype)init
+{
     if (self = [super init]) {
         Method originMathod = class_getInstanceMethod([LLSimpleCamera class], @selector(addDefaultFocusBox));
         Method swizzleMathod = class_getInstanceMethod([LLSimpleCamera class], @selector(KNB_addDefaultFocusBox));

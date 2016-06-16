@@ -16,6 +16,7 @@
 
 @end
 
+
 @interface RYImagePickerColletionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) ALAsset *asset;

@@ -15,8 +15,9 @@
 
 static NSString *const KNBRecordCancel = @"camera-cancel";
 static NSString *const KNBRecordSwitch = @"camera-switch";
-static NSString *const KNBRecordFlash  = @"camera-flash";
-static const CGFloat  KNBRecordGap     = 15;
+static NSString *const KNBRecordFlash = @"camera-flash";
+static const CGFloat KNBRecordGap = 15;
+
 
 @interface KNBRecorderController ()
 
@@ -43,24 +44,28 @@ static const CGFloat  KNBRecordGap     = 15;
 
 @property (nonatomic, strong) dispatch_source_t timer;
 
-@property (nonatomic, strong) CMMotionManager * motionManager;
+@property (nonatomic, strong) CMMotionManager *motionManager;
 
 @property (nonatomic, assign) UIImageOrientation orientation;
 
 @end
 
+
 @implementation KNBRecorderController
 
-- (void)dealloc {
+- (void)dealloc
+{
     [_motionManager stopDeviceMotionUpdates];
 }
 
-+ (KNBRecorderController *)recorderWithType:(KNBRecorderType)type Name:(NSString *)name {
++ (KNBRecorderController *)recorderWithType:(KNBRecorderType)type Name:(NSString *)name
+{
     KNBRecorderController *controller = [[KNBRecorderController alloc] initWithType:type Name:name];
     return controller;
 }
 
-- (instancetype)initWithType:(KNBRecorderType)type Name:(NSString *)name {
+- (instancetype)initWithType:(KNBRecorderType)type Name:(NSString *)name
+{
     if (self = [super init]) {
         _type = type;
         _name = name;
@@ -68,15 +73,16 @@ static const CGFloat  KNBRecordGap     = 15;
     return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
+
     [self setUpCamera];
     [self setUpCoreMotion];
     self.orientation = UIImageOrientationUp;
-    
+
     [self.view addSubview:self.errorLabel];
     [self.view addSubview:self.snapButton];
     [self.view addSubview:self.switchButton];
@@ -85,36 +91,37 @@ static const CGFloat  KNBRecordGap     = 15;
 }
 
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
-    
+
     [self.camera start];
 }
 
-- (void)setUpCamera {
+- (void)setUpCamera
+{
     self.camera = [[LLSimpleCamera alloc] initWithQuality:AVCaptureSessionPresetMedium
                                                  position:LLCameraPositionRear
                                              videoEnabled:YES];
-    
+
     [self.camera attachToViewController:self withFrame:[UIScreen mainScreen].bounds];
-    
+
     self.camera.fixOrientationAfterCapture = YES;
-    
+
     [self.camera updateFlashMode:LLCameraFlashOff];
-    
-    if(![LLSimpleCamera isFrontCameraAvailable] || ![LLSimpleCamera isRearCameraAvailable]) {
+
+    if (![LLSimpleCamera isFrontCameraAvailable] || ![LLSimpleCamera isRearCameraAvailable]) {
         self.switchButton.hidden = YES;
     }
-    
+
     WS(weakSelf);
     [self.camera setOnError:^(LLSimpleCamera *camera, NSError *error) {
         NSLog(@"Camera error: %@", error);
-        
-        if([error.domain isEqualToString:LLSimpleCameraErrorDomain]) {
-            if(error.code == LLSimpleCameraErrorCodeCameraPermission ||
-               error.code == LLSimpleCameraErrorCodeMicrophonePermission) {
-                
-                if(weakSelf.errorLabel.hidden) {
+
+        if ([error.domain isEqualToString:LLSimpleCameraErrorDomain]) {
+            if (error.code == LLSimpleCameraErrorCodeCameraPermission ||
+                error.code == LLSimpleCameraErrorCodeMicrophonePermission) {
+                if (weakSelf.errorLabel.hidden) {
                     weakSelf.errorLabel.hidden = NO;
                 }
             }
@@ -122,17 +129,18 @@ static const CGFloat  KNBRecordGap     = 15;
     }];
 }
 
-- (void)setUpCoreMotion {
+- (void)setUpCoreMotion
+{
     if (_motionManager == nil) {
         _motionManager = [[CMMotionManager alloc] init];
     }
-    _motionManager.deviceMotionUpdateInterval = 1/15.0;
+    _motionManager.deviceMotionUpdateInterval = 1 / 15.0;
     if (_motionManager.deviceMotionAvailable) {
         NSLog(@"Device Motion Available");
         [_motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue]
-                                            withHandler: ^(CMDeviceMotion *motion, NSError *error){
+                                            withHandler:^(CMDeviceMotion *motion, NSError *error) {
                                                 [self performSelectorOnMainThread:@selector(handleDeviceMotion:) withObject:motion waitUntilDone:YES];
-                                                
+
                                             }];
     } else {
         NSLog(@"No device motion on device.");
@@ -140,100 +148,100 @@ static const CGFloat  KNBRecordGap     = 15;
     }
 }
 
-- (void)handleDeviceMotion:(CMDeviceMotion *)deviceMotion{
+- (void)handleDeviceMotion:(CMDeviceMotion *)deviceMotion
+{
     double x = deviceMotion.gravity.x;
     double y = deviceMotion.gravity.y;
-    if (fabs(y) >= fabs(x))
-    {
-        if (y >= 0){
+    if (fabs(y) >= fabs(x)) {
+        if (y >= 0) {
             self.orientation = UIImageOrientationDown;
             NSLog(@"UIDeviceOrientationPortraitUpsideDown");
-        }
-        else{
+        } else {
             self.orientation = UIImageOrientationUp;
             NSLog(@"UIDeviceOrientationPortrait");
         }
-    }
-    else
-    {
-        if (x >= 0){
+    } else {
+        if (x >= 0) {
             self.orientation = UIImageOrientationRight;
             NSLog(@"UIDeviceOrientationLandscapeRight");
-        }
-        else{
+        } else {
             self.orientation = UIImageOrientationLeft;
             NSLog(@"UIDeviceOrientationLandscapeLeft");
         }
     }
 }
 
-- (BOOL)prefersStatusBarHidden {
+- (BOOL)prefersStatusBarHidden
+{
     return YES;
 }
 
-- (void)didCancelPreview {
+- (void)didCancelPreview
+{
     [self.camera start];
 }
 
 #pragma mark - Target-Action
-- (void)snapButtonPressed:(UIButton *)button {
+- (void)snapButtonPressed:(UIButton *)button
+{
     if (self.type == KNBRecorderPhoto) {
         WS(weakSelf);
-        
+
         [self.camera capture:^(LLSimpleCamera *camera, UIImage *image, NSDictionary *metadata, NSError *error) {
-            
-            if(!error) {
+
+            if (!error) {
                 UIImage *fixedImage = [UIImage image:image rotation:weakSelf.orientation];
-                
+
                 [camera performSelector:@selector(stop) withObject:nil afterDelay:0.2];
-                
+
                 [weakSelf dismissViewControllerAnimated:YES completion:nil];
                 if (weakSelf.didSelectedConfirmBlock) {
                     weakSelf.didSelectedConfirmBlock(KNBRecorderPhoto, nil, nil, fixedImage);
                 }
-                
-            }
-            else {
 
+            } else {
             }
         } exactSeenImage:YES];
     }
 }
 
-- (void)switchButtonPressed:(UIButton *)button {
+- (void)switchButtonPressed:(UIButton *)button
+{
     [self.camera togglePosition];
     if (self.camera.position == LLCameraPositionRear) {
         self.switchButton.selected = NO;
         self.switchButton.backgroundColor = [UIColor clearColor];
-    }else if (self.camera.position == LLCameraPositionFront) {
+    } else if (self.camera.position == LLCameraPositionFront) {
         self.switchButton.selected = YES;
         self.switchButton.backgroundColor = [UIColor colorWithHex:0xFF5e84];
     }
 }
 
-- (void)flashButtonPressed:(UIButton *)button {
-    if(self.camera.flash == LLCameraFlashOff) {
+- (void)flashButtonPressed:(UIButton *)button
+{
+    if (self.camera.flash == LLCameraFlashOff) {
         BOOL done = [self.camera updateFlashMode:LLCameraFlashOn];
-        if(done) {
+        if (done) {
             self.flashButton.selected = YES;
             self.flashButton.backgroundColor = [UIColor colorWithHex:0xFF5e84];
         }
-    }
-    else {
+    } else {
         BOOL done = [self.camera updateFlashMode:LLCameraFlashOff];
-        if(done) {
+        if (done) {
             self.flashButton.selected = NO;
             self.flashButton.backgroundColor = [UIColor clearColor];
         }
     }
 }
 
-- (void)cancelButtonPressed:(UIButton *)button {
+- (void)cancelButtonPressed:(UIButton *)button
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Getter
-- (UILabel *)errorLabel {
+- (UILabel *)errorLabel
+{
     if (!_errorLabel) {
         _errorLabel = [[UILabel alloc] init];
         _errorLabel.text = @"需要摄像头权限。\n请在设置中进行设置。";
@@ -249,7 +257,8 @@ static const CGFloat  KNBRecordGap     = 15;
     return _errorLabel;
 }
 
--(UIButton *)snapButton {
+- (UIButton *)snapButton
+{
     if (!_snapButton) {
         _snapButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _snapButton.size = CGSizeMake(70, 70);
@@ -261,7 +270,8 @@ static const CGFloat  KNBRecordGap     = 15;
     return _snapButton;
 }
 
-- (UIButton *)switchButton {
+- (UIButton *)switchButton
+{
     if (!_switchButton) {
         _switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_switchButton setImage:[UIImage imageNamed:KNBRecordSwitch] forState:UIControlStateNormal];
@@ -273,7 +283,8 @@ static const CGFloat  KNBRecordGap     = 15;
     return _switchButton;
 }
 
-- (UIButton *)flashButton {
+- (UIButton *)flashButton
+{
     if (!_flashButton) {
         _flashButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_flashButton setImage:[UIImage imageNamed:KNBRecordFlash] forState:UIControlStateNormal];
@@ -285,43 +296,45 @@ static const CGFloat  KNBRecordGap     = 15;
     return _flashButton;
 }
 
-- (UIButton *)cancelButton {
+- (UIButton *)cancelButton
+{
     if (!_cancelButton) {
         _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        _cancelButton.tintColor = [UIColor whiteColor];
+        //        _cancelButton.tintColor = [UIColor whiteColor];
         [_cancelButton setImage:[UIImage imageNamed:KNBRecordCancel] forState:UIControlStateNormal];
         [_cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _cancelButton;
 }
 
-- (void)viewWillLayoutSubviews {
+- (void)viewWillLayoutSubviews
+{
     WS(weakSelf);
-    
+
     [self.errorLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(weakSelf.view);
     }];
-    
+
     [self.snapButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(weakSelf.view.mas_centerX);
         make.width.and.height.mas_equalTo(@50);
         make.bottom.mas_equalTo(weakSelf.view.mas_bottom).offset(-KNBRecordGap);
     }];
-    
+
     [self.switchButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(weakSelf.view.mas_right).offset(-15);
         make.centerY.mas_equalTo(weakSelf.flashButton.mas_centerY);
         make.width.mas_equalTo(@(40));
         make.height.mas_equalTo(@(40));
     }];
-    
+
     [self.flashButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.view.mas_top).offset(KNBRecordGap);
         make.centerX.mas_equalTo(weakSelf.view.mas_centerX);
         make.width.mas_equalTo(@(40));
         make.height.mas_equalTo(@(40));
     }];
-    
+
     [self.cancelButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.view.mas_left).offset(KNBRecordGap);
         make.centerY.mas_equalTo(weakSelf.flashButton.mas_centerY);

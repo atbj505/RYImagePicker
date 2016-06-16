@@ -8,6 +8,7 @@
 
 #import <AssetsLibrary/AssetsLibrary.h>
 
+
 @interface ALAssetsLibrary (Singleton)
 
 + (ALAssetsLibrary *)defaultAssetsLibrary;
