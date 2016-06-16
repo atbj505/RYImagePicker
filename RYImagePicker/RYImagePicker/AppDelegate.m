@@ -32,8 +32,6 @@
 
     [self.window makeKeyAndVisible];
 
-    if (true) NSLog(@"haha");
-
     return YES;
 }
 
