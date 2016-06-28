@@ -1,21 +1,24 @@
 PODS:
+  - Expecta (1.0.5)
   - GPUImage (0.1.7)
   - LLSimpleCamera (4.2.0)
   - Masonry (1.0.0)
   - pop (1.0.9)
 
 DEPENDENCIES:
+  - Expecta
   - GPUImage
   - LLSimpleCamera
   - Masonry
   - pop
 
 SPEC CHECKSUMS:
+  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   LLSimpleCamera: ed7813ce4827ff3e34c6af159c99b5b56e54d1c6
   Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
 
-PODFILE CHECKSUM: 142f7ca68ca30c7e57ffc854ffca77cdd1c15f84
+PODFILE CHECKSUM: 3812aa18949d2b1053205d60c209a4461bce03c2
 
-COCOAPODS: 1.0.0.beta.8
+COCOAPODS: 1.0.1

@@ -324,12 +324,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57464A5F1CFFC9AC0073C189 /* Build configuration list for PBXNativeTarget "RYImagePicker" */;
 			buildPhases = (
-				1D9059F25CF0A1D01B2BA758 /* 📦 Check Pods Manifest.lock */,
+				1D9059F25CF0A1D01B2BA758 /* [CP] Check Pods Manifest.lock */,
 				57464A391CFFC9AC0073C189 /* Sources */,
 				57464A3A1CFFC9AC0073C189 /* Frameworks */,
 				57464A3B1CFFC9AC0073C189 /* Resources */,
-				4FDEFE04C480C7C63B697EF3 /* 📦 Embed Pods Frameworks */,
-				E28D9C9ECB0DEA26911736DA /* 📦 Copy Pods Resources */,
+				4FDEFE04C480C7C63B697EF3 /* [CP] Embed Pods Frameworks */,
+				E28D9C9ECB0DEA26911736DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -344,12 +344,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57464A621CFFC9AC0073C189 /* Build configuration list for PBXNativeTarget "RYImagePickerTests" */;
 			buildPhases = (
-				FE09BC6EB992281F99BA80CE /* 📦 Check Pods Manifest.lock */,
+				FE09BC6EB992281F99BA80CE /* [CP] Check Pods Manifest.lock */,
 				57464A521CFFC9AC0073C189 /* Sources */,
 				57464A531CFFC9AC0073C189 /* Frameworks */,
 				57464A541CFFC9AC0073C189 /* Resources */,
-				9DB2F78B3F058ADE0CB10A50 /* 📦 Embed Pods Frameworks */,
-				73179D433B3D0091453CD2E7 /* 📦 Copy Pods Resources */,
+				9DB2F78B3F058ADE0CB10A50 /* [CP] Embed Pods Frameworks */,
+				73179D433B3D0091453CD2E7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -418,14 +418,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1D9059F25CF0A1D01B2BA758 /* 📦 Check Pods Manifest.lock */ = {
+		1D9059F25CF0A1D01B2BA758 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,14 +433,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		4FDEFE04C480C7C63B697EF3 /* 📦 Embed Pods Frameworks */ = {
+		4FDEFE04C480C7C63B697EF3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,14 +448,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		73179D433B3D0091453CD2E7 /* 📦 Copy Pods Resources */ = {
+		73179D433B3D0091453CD2E7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,14 +463,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9DB2F78B3F058ADE0CB10A50 /* 📦 Embed Pods Frameworks */ = {
+		9DB2F78B3F058ADE0CB10A50 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,14 +478,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RYImagePickerTests/Pods-RYImagePickerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E28D9C9ECB0DEA26911736DA /* 📦 Copy Pods Resources */ = {
+		E28D9C9ECB0DEA26911736DA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,14 +493,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RYImagePicker/Pods-RYImagePicker-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FE09BC6EB992281F99BA80CE /* 📦 Check Pods Manifest.lock */ = {
+		FE09BC6EB992281F99BA80CE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

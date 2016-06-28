@@ -3,6 +3,8 @@
 # Uncomment this line if you're using Swift
 # use_frameworks!
 
+inhibit_all_warnings!
+
 target 'RYImagePicker' do
     pod 'Masonry'
     pod 'pop'
@@ -11,6 +13,6 @@ target 'RYImagePicker' do
 end
 
 target 'RYImagePickerTests' do
-
+    pod 'Expecta'
 end
 
