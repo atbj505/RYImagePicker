@@ -19,7 +19,6 @@
 
 + (instancetype)sharedManager;
 
-
 - (BOOL)authorizationStatusAuthorized;
 
 - (void)getCameraRollAlbum:(BOOL)allowPickingVideo allowPickingImage:(BOOL)allowPickingImage completion:(void (^)(RYImageModel *model))completion;
