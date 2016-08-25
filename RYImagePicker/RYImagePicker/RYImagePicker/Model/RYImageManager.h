@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @class RYImageModel, RYAssetModel;
 
@@ -16,6 +17,8 @@
 @interface RYImageManager : NSObject
 
 @property (nonatomic, strong) PHCachingImageManager *cachingImageManager;
+
+@property (nonatomic, strong) ALAssetsLibrary *assetLibrary;
 
 + (instancetype)sharedManager;
 
