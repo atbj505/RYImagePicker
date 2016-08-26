@@ -60,8 +60,14 @@
  */
 - (void)getAssetFromFetchResult:(id)result atIndex:(NSInteger)index completion:(void (^)(RYAssetModel *model))completion;
 
-
+/**
+ *  获取图片
+ *
+ *  @param model      Album对象
+ *  @param completion 图像回调
+ */
 - (void)getPostImageWithAlbumModel:(RYAlbumModel *)model completion:(void (^)(UIImage *postImage))completion;
+
 - (PHImageRequestID)getPhotoWithAsset:(id)asset completion:(void (^)(UIImage *photo, NSDictionary *info, BOOL isDegraded))completion;
 - (PHImageRequestID)getPhotoWithAsset:(id)asset photoWidth:(CGFloat)photoWidth completion:(void (^)(UIImage *photo, NSDictionary *info, BOOL isDegraded))completion;
 - (void)getOriginalPhotoWithAsset:(id)asset completion:(void (^)(UIImage *photo, NSDictionary *info))completion;

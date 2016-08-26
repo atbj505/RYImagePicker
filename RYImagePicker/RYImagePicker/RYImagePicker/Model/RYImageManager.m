@@ -124,6 +124,24 @@
     }
 }
 
+- (void)getAssetsFromFetchResult:(id)result completion:(void (^)(NSArray<RYAssetModel *> *models))completion
+{
+}
+
+- (void)getAssetFromFetchResult:(id)result atIndex:(NSInteger)index completion:(void (^)(RYAssetModel *model))completion
+{
+}
+
+- (void)getPostImageWithAlbumModel:(RYAlbumModel *)model completion:(void (^)(UIImage *postImage))completion
+{
+    if (iOS8Later) {
+    } else {
+        ALAssetsGroup *group = model.result;
+        UIImage *postImage = [UIImage imageWithCGImage:group.posterImage];
+        if (completion) completion(postImage);
+    }
+}
+
 #pragma mark Private Method
 - (RYAlbumModel *)modelWithResult:(id)result name:(NSString *)name
 {
