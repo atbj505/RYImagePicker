@@ -29,11 +29,37 @@
  */
 - (BOOL)authorizationStatusAuthorized;
 
-- (void)getCameraRollAlbumCompletion:(void (^)(RYAlbumModel *model))completion;
+/**
+ *  获取所有Album
+ *
+ *  @param completion Albums对象回调
+ */
 - (void)getAllAlbumsCompletion:(void (^)(NSArray<RYAlbumModel *> *models))completion;
 
-- (void)getAssetsFromFetchResult:(id)result allowPickingVideo:(BOOL)allowPickingVideo allowPickingImage:(BOOL)allowPickingImage completion:(void (^)(NSArray<RYAssetModel *> *models))completion;
-- (void)getAssetFromFetchResult:(id)result atIndex:(NSInteger)index allowPickingVideo:(BOOL)allowPickingVideo allowPickingImage:(BOOL)allowPickingImage completion:(void (^)(RYAssetModel *model))completion;
+/**
+ *  获取Camera Roll相册
+ *
+ *  @param completion Camera Roll相册对象回调
+ */
+- (void)getCameraRollAlbumCompletion:(void (^)(RYAlbumModel *model))completion;
+
+/**
+ *  获取所有Assets
+ *
+ *  @param result     Album对象
+ *  @param completion Assets对象回调
+ */
+- (void)getAssetsFromFetchResult:(id)result completion:(void (^)(NSArray<RYAssetModel *> *models))completion;
+
+/**
+ *  获取指定位置Asset
+ *
+ *  @param result     Album对象
+ *  @param index      指定位置
+ *  @param completion Asset对象回调
+ */
+- (void)getAssetFromFetchResult:(id)result atIndex:(NSInteger)index completion:(void (^)(RYAssetModel *model))completion;
+
 
 - (void)getPostImageWithAlbumModel:(RYAlbumModel *)model completion:(void (^)(UIImage *postImage))completion;
 - (PHImageRequestID)getPhotoWithAsset:(id)asset completion:(void (^)(UIImage *photo, NSDictionary *info, BOOL isDegraded))completion;
