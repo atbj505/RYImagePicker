@@ -14,6 +14,7 @@
 @interface RYAssetModel : NSObject
 
 @property (nonatomic, strong) id asset;
+
 @property (nonatomic, assign) BOOL isSelected;
 
 @end
