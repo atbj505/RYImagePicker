@@ -11,4 +11,12 @@
 
 @implementation RYAssetModel
 
++ (instancetype)modelWithAsset:(id)asset
+{
+    RYAssetModel *model = [[RYAssetModel alloc] init];
+    model.asset = asset;
+    model.isSelected = NO;
+    return model;
+}
+
 @end

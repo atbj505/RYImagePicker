@@ -126,10 +126,63 @@
 
 - (void)getAssetsFromFetchResult:(id)result completion:(void (^)(NSArray<RYAssetModel *> *models))completion
 {
+    NSMutableArray *photoArr = [NSMutableArray array];
+    if ([result isKindOfClass:[PHFetchResult class]]) {
+        PHFetchResult *fetchResult = (PHFetchResult *)result;
+        [fetchResult enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
+            PHAsset *asset = (PHAsset *)obj;
+
+            if (asset.mediaType == PHAssetMediaTypeImage) {
+                RYAssetModel *model = [RYAssetModel modelWithAsset:asset];
+
+                [photoArr addObject:model];
+            }
+        }];
+        if (completion) completion(photoArr);
+    } else if ([result isKindOfClass:[ALAssetsGroup class]]) {
+        ALAssetsGroup *group = (ALAssetsGroup *)result;
+        [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+        [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+            if (result == nil) {
+                if (completion) completion(photoArr);
+            }
+
+            if ([[result valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypePhoto]) {
+                RYAssetModel *model = [RYAssetModel modelWithAsset:result];
+
+                [photoArr addObject:model];
+            }
+        }];
+    }
 }
 
 - (void)getAssetFromFetchResult:(id)result atIndex:(NSInteger)index completion:(void (^)(RYAssetModel *model))completion
 {
+    if ([result isKindOfClass:[PHFetchResult class]]) {
+        PHFetchResult *fetchResult = (PHFetchResult *)result;
+        PHAsset *asset = fetchResult[index];
+
+        RYAssetModel *model;
+        if (asset.mediaType == PHAssetMediaTypeImage) {
+            model = [RYAssetModel modelWithAsset:asset];
+        }
+        if (completion) completion(model);
+    } else if ([result isKindOfClass:[ALAssetsGroup class]]) {
+        ALAssetsGroup *group = (ALAssetsGroup *)result;
+        [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:index];
+        [group enumerateAssetsAtIndexes:indexSet options:NSEnumerationConcurrent usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+            if (result == nil) {
+                if (completion) completion(nil);
+            }
+
+            if ([[result valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypePhoto]) {
+                RYAssetModel *model = [RYAssetModel modelWithAsset:result];
+                if (completion) completion(model);
+            }
+        }];
+    }
 }
 
 - (void)getPostImageWithAlbumModel:(RYAlbumModel *)model completion:(void (^)(UIImage *postImage))completion

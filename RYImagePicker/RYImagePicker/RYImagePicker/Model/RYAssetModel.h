@@ -17,4 +17,6 @@
 
 @property (nonatomic, assign) BOOL isSelected;
 
++ (instancetype)modelWithAsset:(id)asset;
+
 @end
