@@ -9,6 +9,15 @@
 #import "RYImageManager.h"
 #import "RYAlbumModel.h"
 #import "RYAssetModel.h"
+#import <UIImage+FixOrientation.h>
+#import "UIImage+Resize.h"
+
+
+@interface RYImageManager ()
+
+@property (nonatomic, assign) CGSize assetThumbSize;
+
+@end
 
 
 @implementation RYImageManager
@@ -23,6 +32,8 @@
         imageManager.cachingImageManager.allowsCachingHighQualityImages = false;
 
         imageManager.assetLibrary = [[ALAssetsLibrary alloc] init];
+
+        imageManager.assetThumbSize = CGSizeMake((RYScreenWidth - 2 * 5) / 4, (RYScreenWidth - 2 * 5) / 4);
     });
     return imageManager;
 }
@@ -188,6 +199,31 @@
 - (void)getPostImageWithAlbumModel:(RYAlbumModel *)model completion:(void (^)(UIImage *postImage))completion
 {
     if (iOS8Later) {
+        PHAsset *asset = (PHAsset *)[model.result lastObject];
+        PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
+        option.resizeMode = PHImageRequestOptionsResizeModeFast;
+
+        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:self.assetThumbSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *_Nullable result, NSDictionary *_Nullable info) {
+            BOOL downloadFinined = (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey]);
+            if (downloadFinined && result) {
+                result = [result fixOrientation];
+                if (completion) completion(result);
+            }
+            if ([info objectForKey:PHImageResultIsInCloudKey] && !result) {
+                PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
+                option.networkAccessAllowed = YES;
+                option.resizeMode = PHImageRequestOptionsResizeModeFast;
+                [[PHImageManager defaultManager] requestImageDataForAsset:asset options:option resultHandler:^(NSData *_Nullable imageData, NSString *_Nullable dataUTI, UIImageOrientation orientation, NSDictionary *_Nullable info) {
+                    UIImage *resultImage = [UIImage imageWithData:imageData scale:0.1];
+                    //                    resultImage = [self scaleImage:resultImage toSize:imageSize];
+                    resultImage = [resultImage resizedImage:self.assetThumbSize interpolationQuality:0];
+                    if (resultImage) {
+                        resultImage = [result fixOrientation];
+                        if (completion) completion(resultImage);
+                    }
+                }];
+            }
+        }];
     } else {
         ALAssetsGroup *group = model.result;
         UIImage *postImage = [UIImage imageWithCGImage:group.posterImage];

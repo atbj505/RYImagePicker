@@ -26,4 +26,7 @@
 #define iOS9Later ([UIDevice currentDevice].systemVersion.floatValue >= 9.0f)
 #define iOS9_1Later ([UIDevice currentDevice].systemVersion.floatValue >= 9.1f)
 
+#define RYScreenWidth [UIScreen mainScreen].bounds.size.width
+#define RYScreenHeight [UIScreen mainScreen].bounds.size.height
+
 #endif /* PrefixHeader_pch */
