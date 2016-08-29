@@ -231,6 +231,33 @@
     }
 }
 
+- (void)getOriginalPhotoWithAsset:(id)asset completion:(void (^)(UIImage *photo, NSDictionary *info))completion
+{
+    if ([asset isKindOfClass:[PHAsset class]]) {
+        PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
+        option.networkAccessAllowed = YES;
+        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:option resultHandler:^(UIImage *_Nullable result, NSDictionary *_Nullable info) {
+            BOOL downloadFinined = (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey]);
+            if (downloadFinined && result) {
+                result = [result fixOrientation];
+                if (completion) completion(result, info);
+            }
+        }];
+    } else if ([asset isKindOfClass:[ALAsset class]]) {
+        ALAsset *alAsset = (ALAsset *)asset;
+        ALAssetRepresentation *assetRep = [alAsset defaultRepresentation];
+
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            CGImageRef originalImageRef = [assetRep fullResolutionImage];
+            UIImage *originalImage = [UIImage imageWithCGImage:originalImageRef scale:1.0 orientation:UIImageOrientationUp];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completion) completion(originalImage, nil);
+            });
+        });
+    }
+}
+
 #pragma mark Private Method
 - (RYAlbumModel *)modelWithResult:(id)result name:(NSString *)name
 {
