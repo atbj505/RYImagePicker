@@ -17,4 +17,10 @@
 
 @property (nonatomic, strong) id result;
 
+@property (nonatomic, strong) NSArray *models;
+
+@property (nonatomic, strong) NSArray *selectedModels;
+
+@property (nonatomic, assign) NSUInteger selectedCount;
+
 @end
