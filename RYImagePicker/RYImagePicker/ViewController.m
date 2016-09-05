@@ -62,8 +62,8 @@
 
         } else {
         }
-    } actionBlock:^(RYActionSheetType type){
-
+    } actionBlock:^(RYActionSheetType type) {
+        NSLog(@"%d", type);
     }];
 
     [actionSheet show];
