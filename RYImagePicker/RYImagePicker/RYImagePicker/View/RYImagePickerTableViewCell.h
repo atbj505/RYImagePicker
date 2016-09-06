@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class ALAssetsGroup;
+@class RYAlbumModel;
 
 
 @interface RYImagePickerTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) ALAssetsGroup *group;
+@property (nonatomic, strong) RYAlbumModel *album;
 
 @end

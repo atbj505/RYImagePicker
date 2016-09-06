@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class ALAssetsGroup;
+@class RYAlbumModel;
 
 
 @interface RYImagePickerSelect : UIViewController
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
-@property (nonatomic, strong) ALAssetsGroup *group;
+@property (nonatomic, strong) RYAlbumModel *album;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "RYImagePickerTableViewCell.h"
-#import <AssetsLibrary/AssetsLibrary.h>
+#import "RYAlbumModel.h"
 
 
 @interface RYImagePickerTableViewCell ()
@@ -71,12 +71,18 @@
     return _titleLabel;
 }
 
-- (void)setGroup:(ALAssetsGroup *)group
+//- (void)setGroup:(ALAssetsGroup *)group
+//{
+//    CGImageRef posterImageRef = [group posterImage];
+//    UIImage *posterImage = [UIImage imageWithCGImage:posterImageRef];
+//    self.photoImageView.image = posterImage;
+//    self.titleLabel.text = [group valueForProperty:ALAssetsGroupPropertyName];
+//}
+
+- (void)setAlbum:(RYAlbumModel *)album
 {
-    CGImageRef posterImageRef = [group posterImage];
-    UIImage *posterImage = [UIImage imageWithCGImage:posterImageRef];
-    self.photoImageView.image = posterImage;
-    self.titleLabel.text = [group valueForProperty:ALAssetsGroupPropertyName];
+    //    self.photoImageView.image =
+    self.titleLabel.text = album.name;
 }
 
 @end

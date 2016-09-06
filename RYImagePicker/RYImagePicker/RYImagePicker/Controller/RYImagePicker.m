@@ -7,16 +7,15 @@
 //
 
 #import "RYImagePicker.h"
-#import <AssetsLibrary/AssetsLibrary.h>
 #import "RYImagePickerTableViewCell.h"
 #import "RYImagePickerSelect.h"
+#import "RYImageManager.h"
+#import "RYAlbumModel.h"
 
 
 @interface RYImagePicker () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *photoGroups;
-
-@property (nonatomic, strong) ALAssetsLibrary *library;
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -54,20 +53,25 @@
 
 - (void)loadData
 {
-    self.library = [[ALAssetsLibrary alloc] init];
-
+    //    self.library = [[ALAssetsLibrary alloc] init];
+    //
+    //    WS(weakSelf);
+    //    [self.library enumerateGroupsWithTypes:ALAssetsGroupAll
+    //        usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+    //            if (group) {
+    //                [weakSelf.photoGroups addObject:group];
+    //            } else {
+    //                [self.tableView reloadData];
+    //            }
+    //        }
+    //        failureBlock:^(NSError *error) {
+    //            NSLog(@"%@", error);
+    //        }];
     WS(weakSelf);
-    [self.library enumerateGroupsWithTypes:ALAssetsGroupAll
-        usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-            if (group) {
-                [weakSelf.photoGroups addObject:group];
-            } else {
-                [self.tableView reloadData];
-            }
-        }
-        failureBlock:^(NSError *error) {
-            NSLog(@"%@", error);
-        }];
+    [[RYImageManager sharedManager] getAllAlbumsCompletion:^(NSArray<RYAlbumModel *> *models) {
+        weakSelf.photoGroups = [models copy];
+        [self.tableView reloadData];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -97,10 +101,10 @@ static NSString *identifier = @"RYImagePickerTableViewCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ALAssetsGroup *group = self.photoGroups[indexPath.row];
+    RYAlbumModel *album = self.photoGroups[indexPath.row];
 
     RYImagePickerSelect *imageSelect = [[RYImagePickerSelect alloc] init];
-    imageSelect.group = group;
+    imageSelect.album = album;
     [self.navigationController pushViewController:imageSelect animated:YES];
 }
 

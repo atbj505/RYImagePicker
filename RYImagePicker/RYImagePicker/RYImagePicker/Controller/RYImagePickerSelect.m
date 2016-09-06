@@ -10,7 +10,6 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "RYImagePickerToolBar.h"
 #import "RYImagePickerColletionViewCell.h"
-#import "RYImageModel.h"
 #import "RYScaleImageViewController.h"
 #import "RYImagePicker.h"
 #import "ALAssetsLibrary+Singleton.h"
@@ -131,15 +130,6 @@ static NSString *identifier = @"RYImagePickerColletionViewCell";
 
     cell.delegate = self;
     cell.asset = self.assetsArray[indexPath.row];
-
-    //    NSArray *array = [[RYImageModel sharedInstance] getKeys];
-    //
-    //    [array enumerateObjectsUsingBlock:^(NSURL *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-    //        if ([obj isEqual:[cell.asset valueForProperty:ALAssetPropertyURLs][@"public.jpeg"]]) {
-    //            cell.isSelected = true;
-    //            *stop = true;
-    //        }
-    //    }];
 
     return cell;
 }

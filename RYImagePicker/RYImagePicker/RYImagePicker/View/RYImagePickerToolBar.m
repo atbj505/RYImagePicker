@@ -7,8 +7,8 @@
 //
 
 #import "RYImagePickerToolBar.h"
-#import "RYImageModel.h"
 #import "UILabel+Count.h"
+#import "RYImageManager.h"
 
 
 @interface RYImagePickerToolBar ()
@@ -38,7 +38,7 @@
 
 - (void)updateSelectCount
 {
-    NSUInteger selectCount = [RYImageModel sharedInstance].imageCounts;
+    //    NSUInteger selectCount = [RYImageManager sharedManager].selectedImage.count;
 
     [self.countLabel updateCount:selectCount];
 }
