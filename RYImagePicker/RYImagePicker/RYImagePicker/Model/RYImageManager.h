@@ -76,4 +76,14 @@
  */
 - (void)getOriginalPhotoWithAsset:(id)asset completion:(void (^)(UIImage *photo, NSDictionary *info))completion;
 
+/**
+ *  判断时候已选择
+ *
+ *  @param assets 所有Asset模型
+ *  @param asset  待判断asset
+ *
+ *  @return 是否已选择
+ */
+- (BOOL)isAssetsArray:(NSArray *)assets containAsset:(id)asset;
+
 @end

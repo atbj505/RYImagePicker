@@ -258,6 +258,19 @@
     }
 }
 
+- (BOOL)isAssetsArray:(NSArray *)assets containAsset:(id)asset
+{
+    if (iOS8Later) {
+        return [assets containsObject:asset];
+    } else {
+        NSMutableArray *selectedAssetUrls = [NSMutableArray array];
+        for (ALAsset *asset_item in assets) {
+            [selectedAssetUrls addObject:[asset_item valueForProperty:ALAssetPropertyURLs]];
+        }
+        return [selectedAssetUrls containsObject:[asset valueForProperty:ALAssetPropertyURLs]];
+    }
+}
+
 #pragma mark Private Method
 - (RYAlbumModel *)modelWithResult:(id)result name:(NSString *)name
 {
