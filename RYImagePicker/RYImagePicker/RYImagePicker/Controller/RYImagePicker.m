@@ -88,7 +88,7 @@ static NSString *identifier = @"RYImagePickerTableViewCell";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
-    cell.group = self.photoGroups[indexPath.row];
+    cell.album = self.photoGroups[indexPath.row];
 
     return cell;
 }

@@ -40,7 +40,7 @@
 {
     //    NSUInteger selectCount = [RYImageManager sharedManager].selectedImage.count;
 
-    [self.countLabel updateCount:selectCount];
+    //    [self.countLabel updateCount:selectCount];
 }
 
 + (BOOL)requiresConstraintBasedLayout

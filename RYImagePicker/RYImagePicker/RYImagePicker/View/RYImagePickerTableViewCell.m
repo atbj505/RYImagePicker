@@ -8,6 +8,7 @@
 
 #import "RYImagePickerTableViewCell.h"
 #import "RYAlbumModel.h"
+#import "RYImageManager.h"
 
 
 @interface RYImagePickerTableViewCell ()
@@ -71,17 +72,11 @@
     return _titleLabel;
 }
 
-//- (void)setGroup:(ALAssetsGroup *)group
-//{
-//    CGImageRef posterImageRef = [group posterImage];
-//    UIImage *posterImage = [UIImage imageWithCGImage:posterImageRef];
-//    self.photoImageView.image = posterImage;
-//    self.titleLabel.text = [group valueForProperty:ALAssetsGroupPropertyName];
-//}
-
 - (void)setAlbum:(RYAlbumModel *)album
 {
-    //    self.photoImageView.image =
+    [[RYImageManager sharedManager] getPostImageWithAlbumModel:self.album completion:^(UIImage *postImage) {
+        self.photoImageView.image = postImage;
+    }];
     self.titleLabel.text = album.name;
 }
 
