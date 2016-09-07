@@ -13,6 +13,8 @@
 #import "RYScaleImageViewController.h"
 #import "RYImagePicker.h"
 #import "ALAssetsLibrary+Singleton.h"
+#import "RYAlbumModel.h"
+#import "RYImageManager.h"
 
 static const NSUInteger collectionViewGap = 2;
 
@@ -47,38 +49,12 @@ static const NSUInteger collectionViewGap = 2;
 
     [self.view addSubview:self.toolBar];
 
-    [self loadAssetGroup:^{
-        self.title = [self.group valueForProperty:ALAssetsGroupPropertyName];
-        [self loadAsset];
+    self.title = self.album.name;
+
+    [[RYImageManager sharedManager] getAssetsFromFetchResult:self.album.result completion:^(NSArray<RYAssetModel *> *models) {
+        self.assetsArray = [models mutableCopy];
+        [self.collectionView reloadData];
     }];
-}
-
-- (void)back
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)loadAssetGroup:(void (^)(void))finishBlock
-{
-    if (self.group) {
-        finishBlock();
-        return;
-    }
-
-    ALAssetsLibrary *library = [ALAssetsLibrary defaultAssetsLibrary];
-
-    WS(weakSelf);
-    [library enumerateGroupsWithTypes:ALAssetsGroupAll
-        usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-            if (group) {
-                weakSelf.group = group;
-                finishBlock();
-                *stop = true;
-            }
-        }
-        failureBlock:^(NSError *error) {
-            NSLog(@"%@", error);
-        }];
 
     RYImagePicker *imagePicker = [[RYImagePicker alloc] init];
     NSMutableArray *naviControllers = [self.navigationController.viewControllers mutableCopy];
@@ -86,34 +62,14 @@ static const NSUInteger collectionViewGap = 2;
     self.navigationController.viewControllers = naviControllers;
 }
 
-- (void)loadAsset
+- (void)back
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        if (self.group) {
-            WS(weakSelf);
-            [self.group enumerateAssetsWithOptions:NSEnumerationReverse usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-                if (result) {
-                    if ([[result valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypePhoto]) {
-                        [weakSelf.assetsArray addObject:result];
-                    }
-                } else {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.collectionView reloadData];
-                    });
-                }
-            }];
-        }
-    });
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - RYImagePickerColletionViewCellDelegate
-- (void)didTapSelectButton:(ALAsset *)asset add:(BOOL)add
+- (void)didTapSelectButton:(RYAssetModel *)asset
 {
-    if (add) {
-        [[RYImageModel sharedInstance] addImage:asset];
-    } else {
-        [[RYImageModel sharedInstance] deleteImage:asset];
-    }
     [self.toolBar updateSelectCount];
 }
 

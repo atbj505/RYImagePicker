@@ -51,11 +51,11 @@
 {
     self.selectButton.selected = !self.selectButton.selected;
 
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapSelectButton:add:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didTapSelectButton:)]) {
         if (self.selectButton.selected) {
-            [self.delegate didTapSelectButton:self.asset add:true];
+            [self.delegate didTapSelectButton:self.asset];
         } else {
-            [self.delegate didTapSelectButton:self.asset add:false];
+            [self.delegate didTapSelectButton:self.asset];
         }
     }
 }
