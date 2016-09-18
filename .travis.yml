@@ -10,4 +10,4 @@ before_install:
 
 script: 
 - xctool -workspace RYImagePicker/RYImagePicker.xcworkspace -scheme RYImagePicker -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-- xcodebuild -workspace RYImagePicker/RYImagePicker.xcworkspace -scheme RYImagePickerTests -sdk iphonesimulator test
+##- xcodebuild -workspace RYImagePicker/RYImagePicker.xcworkspace -scheme RYImagePickerTests -sdk iphonesimulator test
