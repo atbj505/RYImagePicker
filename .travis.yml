@@ -6,7 +6,7 @@ podfile: RYImagePicker/Podfile
 
 before_install:
     - rvm use system
-    - sudo gem install cocoapods -v '0.39.0'
+    
 
 script: 
 - xctool -workspace RYImagePicker/RYImagePicker.xcworkspace -scheme RYImagePicker -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
